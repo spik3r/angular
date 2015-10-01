@@ -1,0 +1,33 @@
+{
+
+  "configVars": {
+    "app": "client",
+    "appjs": "scripts",
+    "appcss": "styles",
+    "build": "build",
+    "dist": "dist",
+    "hostname": "localhost",
+    "port": 9000
+  },
+  "bowerFiles": [
+    "angular/angular.js",
+    "angular-route/angular-route.js",
+    "angularAMD/angularAMD.js",
+    "angularAMD/ngload.js",
+    "requirejs/require.js",
+    "es5-shim/es5-shim.js",
+    "json3/lib/json3.js",
+    "angular-resource/angular-resource.js",
+    "angular-ui-router/release/angular-ui-router.js"
+  ],
+  "cssFiles": [
+    "bootstrap/dist/css/bootstrap.css"
+  ],
+  "cssFonts": [
+    "bootstrap/fonts/glyphicons-halflings-regular.*"
+  ],
+  "buildFiles": [
+    "images/**", "views/**", "bower_components/**"
+  ]
+
+}
