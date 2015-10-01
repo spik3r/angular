@@ -1,3 +1,4 @@
+*/.DC_Store
 node_modules/
 client/bower_components/
 client/styles/css
@@ -6,3 +7,5 @@ dist/
 .sass-cache/
 .DS_Store
 build/
+client/.DS_Store
+client/styles/.DS_Store
