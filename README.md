@@ -60,9 +60,9 @@ TODO Write project deployment instructions
 
 References
 --
-[Angular](https://angularjs.org/)
-[Yeoman](http://yeoman.io/)
-[Bangular Generator](http://bangular.io/)
-[RequireJS](http://www.requirejs.org/)
-[AngularAMD](https://github.com/marcoslin/angularAMD)
-[AngularAMD sample project](https://github.com/marcoslin/angularAMD-sample)
+1. [Angular](https://angularjs.org/)
+2. [Yeoman](http://yeoman.io/)
+3. [Bangular Generator](http://bangular.io/)
+4. [RequireJS](http://www.requirejs.org/)
+5. [AngularAMD](https://github.com/marcoslin/angularAMD)
+6. [AngularAMD sample project](https://github.com/marcoslin/angularAMD-sample)
