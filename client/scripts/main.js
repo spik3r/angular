@@ -3,12 +3,12 @@ require.config({
 
   // alias libraries paths.  Must set 'angular'
   paths: {
-    'angular': 'ext/angular',
-    'angular-route': 'ext/angular-route',
-    'angular-ui-router': 'ext/angular-ui-router',
-    'angularAMD': 'ext/angularAMD',
-    'ngload': 'ext/ngload',
-    'angular-resource': 'ext/angular-resource'
+    'angular': '../bower_components/angular/angular',
+    'angular-route': '../bower_components/angular-route/angular-route',
+    'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
+    'angularAMD': '../bower_components/angularAMD/angularAMD',
+    'ngload': '../bower_components/angularAMD/ngload',
+    'angular-resource': '../bower_components/angular-resource/angular-resource'
   },
 
   // Add angular modules that does not support AMD out of the box, put it in a shim

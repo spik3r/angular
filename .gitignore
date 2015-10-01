@@ -9,3 +9,4 @@ dist/
 build/
 client/.DS_Store
 client/styles/.DS_Store
+*/.DS_Store

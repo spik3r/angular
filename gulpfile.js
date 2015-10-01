@@ -6,8 +6,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 gulp.task('default',    ['serve']);
 gulp.task('serve',      ['watch'],    require('./tasks/serve').nodemon);
-gulp.task('watch',      ['inject'],   require('./tasks/watch'));
-gulp.task('inject',     ['grunt'],     require('./tasks/inject'));
+gulp.task('watch',      ['grunt'],    require('./tasks/watch'));
 gulp.task('grunt',		      require('./tasks/grunt'));
 gulp.task('preview',    ['build'],    require('./tasks/preview'));
 gulp.task('build',                    require('./tasks/build'));

@@ -210,21 +210,6 @@ module.exports = function (grunt) {
 
 
   /**
-   * setup task
-   * Run the initial setup, sourcing all needed upstream dependencies
-   */
-  grunt.registerTask('setup', ['bower:setup', 'copy:setup']);
-
-
-  /**
-   * devel task
-   * Launch webserver and watch for changes
-   */
-  grunt.registerTask('devel', [
-    'connect:server', 'watch:www'
-  ]);
-
-  /**
    * build task
    * Use r.js to build the project
    */
@@ -251,9 +236,4 @@ module.exports = function (grunt) {
     'copy:deploy',
     'uglify:deploy'
   ]);
-
-  grunt.registerTask('hello', function () {
-    grunt.log.write('hello task called with: ', gruntConfig);
-  });
-
 };
