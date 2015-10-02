@@ -1,7 +1,5 @@
 'use strict';
 
-var bowerFilesToExclude = require('./tasks/config/bowerFilesToExclude.js');
-
 module.exports = function (config) {
   config.set({
 
