@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
 	// Build, deploy and run server on port 80. Dont watch updates.
 	gulp.task('default',    ['serve']);
 	gulp.task('serve',      ['grunt'],    require('./tasks/serve').nodemon);
-	gulp.task('grunt',	['test'],     require('./tasks/grunt').deploy);
+	gulp.task('grunt',	['test', 'clean'],     require('./tasks/grunt').deploy);
 } else if (process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'development') {
 	// Setup watchers and run node server
 	gulp.task('default', 	['serve']);
@@ -16,10 +16,10 @@ if (process.env.NODE_ENV === 'production') {
 	gulp.task('watch',	['grunt'],	require('./tasks/grunt').build);
 	if (process.env.NODE_ENV === 'testing') {
 		// Run tests first if environment is testing
-		gulp.task('grunt',	['test'],      	require('./tasks/grunt').build);
+		gulp.task('grunt',	['test', 'clean'],      	require('./tasks/grunt').build);
 	} else {
 		// Show welcome message and run grunt
-		gulp.task('grunt',	['welcome'],	require('./tasks/grunt').build);
+		gulp.task('grunt',	['welcome', 'clean'],	require('./tasks/grunt').build);
 	}
 }
 

@@ -41,7 +41,6 @@ module.exports = {
   },
 
   clean: function () {
-		console.log("Removing dist/ and build/ folders."); 
 	 	return gulp.src( ['build/', 'dist/'], {read: false}).pipe(clean());
 	}
 };
