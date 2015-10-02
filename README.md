@@ -40,22 +40,90 @@ Installation
 `bower install`
 
 
+Environment
+--
+
+Environment that project is executed in is specified in the
+**NODE_ENV** environment variable. 
+
+If your NODE_ENV is not set, it would be set to 'development' by default.
+
+To check what your NODE_ENV is set to, you can execute the following:
+
+`echo $NODE_ENV`
+
+To set your NODE_ENV to specific environment, use the following command:
+
+`export NODE_ENV=[environment]`
+
+where *[environment]* can be set to:
+
+1. *production*
+    - build server in the deployment folder and run on port 80. Uglify and minify everything possible on              build.
+2. *testing*
+    - run all tests, and if everything is fine - build and continue in development mode.
+3. *development*
+    - build server without making JS files ugly etc, but still build using RequireJS builder on updates.
+
+
+Build Process
+-- 
+
+*Grunt section*
+
+1. Lint javascript files
+2. Remove build folder if already exists
+3. Preprocess files before building
+4. Minify HTML
+5. Minify CSS
+6. Build project using RequireJS
+7. Cleanup after RequireJS has been built
+8. Copy files into build folder.
+
+*Grunt section end*
+
+*Gulp section*
+
+1. Watch files and rebuild on update
+2. Start nodemon server to serve files from /build
+
+*Gulp section*
+
 Development
 --
+
 
 ** Build and run project in development mode **
 
 `gulp`
 
-** Build project without running local server **
+** Run project tests **
 
-`gulp grunt`
+`gulp test`
+
+** Bump project minor version **
+
+`gulp version`
+
+** Bump project version and commit to git repository **
+
+`gulp bump`
+
+** Remove build/ and dist/ folders ** 
+
+`gulp clean`
 
 
 Deployment
 --
 
-TODO Write project deployment instructions
+** Build project without running local server **
+
+`gulp build`
+
+** Create a project distribution **
+
+`gulp deploy`
 
 
 References
