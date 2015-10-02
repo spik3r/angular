@@ -26,6 +26,17 @@ module.exports = {
         .pipe(git.add())
         .pipe(git.commit('chore(core): bump to ' + JSON.parse(data).version));
     });
+  },
+
+  welcome: function () {
+		fs.readFile('./package.json', function (err, data) {
+    			console.log("\n\nWelcome!");
+			console.log("This is angular-seed project v." + JSON.parse(data).version + "\n\n");
+         	});
+		
+		// Return stream so task does not end before file access to
+		// ./package.json happened
+		return gulp.src(['./package.json']);
   }
 
 };
