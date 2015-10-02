@@ -7,8 +7,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 if (process.env.NODE_ENV === 'production') {
 	// Build, deploy and run server on port 80. Dont watch updates.
 	gulp.task('default',    ['serve']);
-	gulp.task('serve',      ['grunt'],    require('./tasks/serve').nodemon);
-	gulp.task('grunt',	['test', 'clean'],     require('./tasks/grunt').deploy);
+	gulp.task('serve',      ['deploy'],    require('./tasks/serve').nodemon);
 } else if (process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'development') {
 	// Setup watchers and run node server
 	gulp.task('default', 	['serve']);
