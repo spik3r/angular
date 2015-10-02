@@ -23,7 +23,10 @@ if (process.env.NODE_ENV === 'production') {
 	}
 }
 
+// Set of tasks used by watcher to reload relevant content
 gulp.task('reload', 	['build'], 	require('./tasks/reload'));
+gulp.task('reload-css', 		require('./tasks/grunt').css);
+gulp.task('reload-html', 		require('./tasks/grunt').html);
 
 // Builds a project
 gulp.task('build',                    require('./tasks/grunt').build);

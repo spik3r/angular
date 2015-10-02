@@ -210,6 +210,15 @@ module.exports = function (grunt) {
   ]);
 
   /**
+   * Rebuild html files
+   */
+  grunt.registerTask('html', [
+	'preprocess:build',
+	'htmlmin:build',
+	'copy:build'
+  ]);
+
+  /**
    * deploy task
    * Deploy to dist_www directory
    */

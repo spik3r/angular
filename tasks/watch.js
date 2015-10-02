@@ -21,12 +21,24 @@ module.exports = function () {
 
   livereload.listen();
 
-  // Watch HTML and JS files and rebuild when required
+  // Watch JS files and rebuild when required
   watch([
     'client/**.js',
-    'client/**.html',
-    'client/**.css'
     ], function () {
   	rs('reload');
     });
+
+  // Watch and update HTML files
+  watch([
+    'client/**.html'
+    ], function () {
+  	rs('reload-html', livereload.reload);
+  })
+
+  // Watch and update CSS files  
+  watch([
+    'client/**.css'
+    ], function () {
+    	rs('reload-css', livereload.reload);
+    })
 };
