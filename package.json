@@ -1,6 +1,8 @@
 {
   "name": "sampleAngular",
   "version": "0.1.4",
+  "repository": "https://bitbucket.org/guvera/angular-seed.git",
+  "license": "MIT",
   "devDependencies": {
     "apidoc": "^0.12.3",
     "del": "^1.1.1",
