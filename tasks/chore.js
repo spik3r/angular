@@ -3,7 +3,6 @@
 /**
  * Git versioning and bump
  */
-
 var gulp = require('gulp');
 var fs   = require('fs');
 var bump = require('gulp-bump');
@@ -32,7 +31,7 @@ module.exports = {
   welcome: function () {
 		fs.readFile('./package.json', function (err, data) {
     			console.log("\n\nWelcome!");
-			console.log("This is angular-seed project v." + JSON.parse(data).version + "\n\n");
+			console.log("This is " + JSON.parse(data).name + " project v." + JSON.parse(data).version + "\n\n");
          	});
 		
 		// Return stream so task does not end before file access to
