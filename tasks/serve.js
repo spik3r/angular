@@ -26,7 +26,7 @@ module.exports = {
     return nodemon({
         script: 'server/server.js',
         ext: 'js',
-        ignore: ['client', 'dist', 'node_modules', 'gulpfile.js']
+        ignore: ['client', 'dist', 'node_modules', 'gulpfile.js', 'build']
       })
       .on('start', function () {
         if (!openOpts.already) {
@@ -36,9 +36,10 @@ module.exports = {
               .pipe(open('', openOpts));
           });
         } else {
-          ripe.wait(function () {
-            livereload.changed('/');
-          });
+	  console.log("Files changed");
+          //ripe.wait(function () {
+            //livereload.changed('/');
+          //});
         }
       });
   }

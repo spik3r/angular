@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 	// Setup watchers and run node server
 	gulp.task('default', 	['serve']);
 	gulp.task('serve',	['watch'], 	require('./tasks/serve').nodemon); 
-	gulp.task('watch',	['grunt'],	require('./tasks/grunt').build);
+	gulp.task('watch',	['grunt'],	require('./tasks/watch'));
 	if (process.env.NODE_ENV === 'testing') {
 		// Run tests first if environment is testing
 		gulp.task('grunt',	['test', 'clean'],      	require('./tasks/grunt').build);
@@ -22,6 +22,8 @@ if (process.env.NODE_ENV === 'production') {
 		gulp.task('grunt',	['welcome', 'clean'],	require('./tasks/grunt').build);
 	}
 }
+
+gulp.task('reload', 	['build'], 	require('./tasks/reload'));
 
 // Builds a project
 gulp.task('build',                    require('./tasks/grunt').build);

@@ -201,6 +201,13 @@ module.exports = function (grunt) {
     'copy:build'
   ]);
 
+  /** 
+   * Rebuild css files on file change 
+   */
+  grunt.registerTask('css', [
+  	'cssmin:build',
+	'copy:build'
+  ]);
 
   /**
    * deploy task
