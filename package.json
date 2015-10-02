@@ -31,6 +31,7 @@
     "gulp-angular-templatecache": "^1.5.0",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-bump": "^0.3.0",
+    "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.4.3",
     "gulp-count": "^0.1.0",
     "gulp-css-url-rebase": "^0.2.0",

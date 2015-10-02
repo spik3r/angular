@@ -10,8 +10,16 @@ var runSequence          = require('run-sequence');
 
 require("gulp-grunt")(gulp);
 
-module.exports = function (done) {
-  runSequence(
-    ['grunt-build'],
-    done);
+module.exports = {
+	build: function (done) {
+  		runSequence(['grunt-build'], done);
+	       },
+
+	deploy: function (done) {
+		 runSequence(['grunt-deploy'], done);
+		},
+
+	clean: function (done) {
+	       	runSequence(['grunt-clean'], done);
+	       }
 };

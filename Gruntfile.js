@@ -21,28 +21,6 @@ module.exports = function (grunt) {
       }
     },
     copy: {
-      setup: {
-        files: [
-          // Javascript with standard .min.js naming convention
-          {
-            cwd: 'bower_components', expand: true, flatten: true,
-            dest: '<%= cvars.app %>/bower_components/',
-            src: gruntConfig.bowerFiles
-          },
-          // CSS with standard .min.css naming convention
-          {
-            cwd: 'bower_components', expand: true, flatten: true,
-            dest: '<%= cvars.app %>/bower_components/',
-            src: gruntConfig.cssFiles
-          },
-          // CSS Fonts
-          {
-            cwd: 'bower_components', expand: true, flatten: true,
-            dest: '<%= cvars.app %>/fonts/',
-            src: gruntConfig.cssFonts
-          }
-        ]
-      },
       build: {
         files: [
           {
@@ -57,7 +35,7 @@ module.exports = function (grunt) {
           {
             cwd: '<%= cvars.build %>/', expand: true,
             dest: '<%= cvars.dist %>/',
-            src: ['<%= cvars.appcss %>/**', 'images/**']
+            src: ['<%= cvars.appcss %>/**', 'images/**', 'bower_components/**']
           }
         ]
       }
@@ -215,7 +193,6 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('build', [
     'jshint:build',
-    'clean:build',
     'preprocess:build',
     'htmlmin:build',
     'cssmin:build',
@@ -231,7 +208,6 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('deploy', [
     'build',
-    'clean:deploy',
     'htmlmin:deploy',
     'copy:deploy',
     'uglify:deploy'

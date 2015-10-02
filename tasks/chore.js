@@ -8,6 +8,7 @@ var gulp = require('gulp');
 var fs   = require('fs');
 var bump = require('gulp-bump');
 var git  = require('gulp-git');
+var clean = require ('gulp-clean');
 
 module.exports = {
 
@@ -37,6 +38,10 @@ module.exports = {
 		// Return stream so task does not end before file access to
 		// ./package.json happened
 		return gulp.src(['./package.json']);
-  }
+  },
 
+  clean: function () {
+		console.log("Removing dist/ and build/ folders."); 
+	 	return gulp.src( ['build/', 'dist/'], {read: false}).pipe(clean());
+	}
 };
