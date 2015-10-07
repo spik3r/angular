@@ -1,4 +1,4 @@
-define(['angularAMD'], function (angularAMD) {
+define(['../../../bower_components/angularAMD/angularAMD'], function (angularAMD) {
   'use strict';
   angularAMD.controller('navMenuController', ['$scope', '$state', function ($scope, $state) {
     $scope.isTabActive = function (tabName) {

@@ -1,4 +1,4 @@
-define(['angularAMD'], function (angularAMD) {
+define(['../../../bower_components/angularAMD/angularAMD'], function (angularAMD) {
   'use strict';
   angularAMD.directive('stateName', ['$state', function ($state) {
     return {

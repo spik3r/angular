@@ -118,15 +118,15 @@ module.exports = function (grunt) {
           modules: [
             { name: 'app' },
             {
-              name: 'main/home_ctrl',
+              name: 'controllers/main/home_ctrl',
               exclude: ['common']
             },
             {
-              name: 'rooms/rooms_ctrl',
+              name: 'controllers/rooms/rooms_ctrl',
               exclude: ['common']
             },
             {
-              name: 'users/users_ctrl',
+              name: 'controllers/users/users_ctrl',
               exclude: ['common']
             }
           ]
@@ -156,10 +156,10 @@ module.exports = function (grunt) {
         },
         files: {
           src: [
-            '<%= cvars.app %>/<%= cvars.appjs %>/*.js',
-            '<%= cvars.app %>/<%= cvars.appjs %>/main/*.js',
-            '<%= cvars.app %>/<%= cvars.appjs %>/rooms/*.js',
-            '<%= cvars.app %>/<%= cvars.appjs %>/users/*.js'
+            '<%= cvars.app %>/<%= cvars.appjs %>/controllers/*.js',
+            '<%= cvars.app %>/<%= cvars.appjs %>/controllers/main/*.js',
+            '<%= cvars.app %>/<%= cvars.appjs %>/controllers/rooms/*.js',
+            '<%= cvars.app %>/<%= cvars.appjs %>/controllers/users/*.js'
           ]
         }
       }
@@ -201,8 +201,8 @@ module.exports = function (grunt) {
     'copy:build'
   ]);
 
-  /** 
-   * Rebuild css files on file change 
+  /**
+   * Rebuild css files on file change
    */
   grunt.registerTask('css', [
   	'cssmin:build',

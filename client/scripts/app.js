@@ -8,17 +8,17 @@ define(['common'], function (angularAMD) {
       .state('home', angularAMD.route({
         url: '/home',
         templateUrl: 'views/home.html',
-        controllerUrl: 'main/home_ctrl'
+        controllerUrl: 'controllers/main/home_ctrl'
       }))
       .state('rooms', angularAMD.route({
         url: '/rooms',
         templateUrl: 'views/rooms.html',
-        controllerUrl: 'rooms/rooms_ctrl'
+        controllerUrl: 'controllers/rooms/rooms_ctrl'
       }))
       .state('users', angularAMD.route({
         url: '/users',
         templateUrl: 'views/users.html',
-        controllerUrl: 'users/users_ctrl'
+        controllerUrl: 'controllers/users/users_ctrl'
       }))
     ;
 
