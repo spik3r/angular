@@ -10,6 +10,10 @@ angular.module('angularSeed', [
   .config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
+      .when('/profile', {
+        controllerAs: '/views/profile/profile.controller.js',
+        templateUrl: '/views/profile/profile.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
