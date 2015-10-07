@@ -1,40 +1,5 @@
 # Angular-seed [![Generated with](https://img.shields.io/badge/generated%20with-bangular-blue.svg?style=flat-square)](https://github.com/42Zavattas/generator-bangular)
 
-
-Features:
-
-* **Sub-generators** for `route`, `api`, `directive`, `service`, and plenty others...
-* **[Express](https://github.com/strongloop/express) server** with nested routing architecture.
-* **[Nodemon](https://github.com/remy/nodemon)** with **[LiveReload](https://github.com/vohof/gulp-livereload)** or **[BrowserSync](https://github.com/BrowserSync/browser-sync)** for the development process.
-* **Automatic bower dependencies injection** on package install.
-* **Test suite** — Unit tests with [Karma](https://karma-runner.github.io) & [Mocha](http://mochajs.org), e2e tests with [Protractor](https://github.com/angular/protractor).
-* **[JSHint](https://github.com/jshint/jshint)** & **[JSCS](https://github.com/jscs-dev/node-jscs)** integration.
-* **[Sass](https://github.com/sass/sass)** support.
-* **Fast build**, like, real fast.
-
-Optional:
-
-* **sockets**, with [socket.io](https://github.com/Automattic/socket.io) and [angular-socket-io](https://github.com/btford/angular-socket-io)
-* **authentication system**, with [Passport](https://github.com/jaredhanson/passport)
-* **MongoDB**, with [Mongoose ODM](https://github.com/learnboost/mongoose)
-* **mocked backend**, with [Restock](https://github.com/42Zavattas/Restock.io)
-* **[SassDoc](https://github.com/SassDoc/sassdoc)** support
-
-# Install
-
-    npm install -g generator-bangular
-    yo bangular
-
-### Table of contents
-
-- [Manage project](https://github.com/42Zavattas/generator-bangular#manage-project)
-- [Generators](https://github.com/42Zavattas/generator-bangular#generators)
-- [HOWTOs](https://github.com/42Zavattas/generator-bangular#howtos)
-  - [Protractor](https://github.com/42Zavattas/generator-bangular#protractor)
-  - [Sockets](https://github.com/42Zavattas/generator-bangular#sockets)
-  - [Passport](https://github.com/42Zavattas/generator-bangular#passport)
-- [Architecture](https://github.com/42Zavattas/generator-bangular#architecture)
-
 # Manage project
 
     gulp
