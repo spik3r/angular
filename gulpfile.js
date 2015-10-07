@@ -4,42 +4,16 @@ var gulp = require('gulp');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-if (process.env.NODE_ENV === 'production') {
-	// Build, deploy and run server on port 80. Dont watch updates.
-	gulp.task('default',    ['serve']);
-	gulp.task('serve',      ['deploy'],    require('./tasks/serve').nodemon);
-} else if (process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'development') {
-	// Setup watchers and run node server
-	gulp.task('default', 	['serve']);
-	gulp.task('serve',	['watch'], 	require('./tasks/serve').nodemon); 
-	gulp.task('watch',	['grunt'],	require('./tasks/watch'));
-	if (process.env.NODE_ENV === 'testing') {
-		// Run tests first if environment is testing
-		gulp.task('grunt',	['test', 'clean'],      	require('./tasks/grunt').build);
-	} else {
-		// Show welcome message and run grunt
-		gulp.task('grunt',	['welcome', 'clean'],	require('./tasks/grunt').build);
-	}
-}
-
-// Set of tasks used by watcher to reload relevant content
-gulp.task('reload', 	['build'], 	require('./tasks/reload'));
-gulp.task('reload-css', 		require('./tasks/grunt').css);
-gulp.task('reload-html', 		require('./tasks/grunt').html);
-
-// Builds a project
-gulp.task('build',                    require('./tasks/grunt').build);
-// Deploys a project
-gulp.task('deploy',		      require('./tasks/grunt').deploy);
-// Bumps version and creates a commit to repository about it
+gulp.task('default',    ['serve']);
+gulp.task('serve',      ['watch'],    require('./tasks/serve').nodemon);
+gulp.task('watch',      ['inject'],   require('./tasks/watch'));
+gulp.task('inject',     ['sass'],     require('./tasks/inject'));
+gulp.task('sass',                     require('./tasks/sass'));
+gulp.task('preview',    ['build'],    require('./tasks/preview'));
+gulp.task('build',                    require('./tasks/build'));
 gulp.task('bump',       ['version'],  require('./tasks/chore').bump);
-// Bumps version by 0.0.1
 gulp.task('version',                  require('./tasks/chore').version);
-// Check code quality
 gulp.task('control',                  require('./tasks/control'));
-// Run tests
+gulp.task('e2e:update',               require('./tasks/test').e2eUpdate);
+gulp.task('e2e',        ['serve'],    require('./tasks/test').e2eTests);
 gulp.task('test',                     require('./tasks/test').test);
-// Show welcome message
-gulp.task('welcome',		      require('./tasks/chore').welcome);
-// Clean up build and deploy folders
-gulp.task('clean',		      require('./tasks/chore').clean);

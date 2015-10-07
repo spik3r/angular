@@ -10,9 +10,6 @@ var nodemon    = require('gulp-nodemon');
 var open       = require('gulp-open');
 var livereload = require('gulp-livereload');
 
-// Load gulp-grunt plugin to run grunt tasks
-require("gulp-grunt")(gulp);
-
 var config = require('../server/config/environment');
 
 var openOpts = {
@@ -26,7 +23,7 @@ module.exports = {
     return nodemon({
         script: 'server/server.js',
         ext: 'js',
-        ignore: ['client', 'dist', 'node_modules', 'gulpfile.js', 'build']
+        ignore: ['client', 'dist', 'node_modules', 'gulpfile.js']
       })
       .on('start', function () {
         if (!openOpts.already) {
@@ -36,10 +33,9 @@ module.exports = {
               .pipe(open('', openOpts));
           });
         } else {
-	  console.log("Files changed");
-          //ripe.wait(function () {
-            //livereload.changed('/');
-          //});
+          ripe.wait(function () {
+            livereload.changed('/');
+          });
         }
       });
   }

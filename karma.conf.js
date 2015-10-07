@@ -1,5 +1,7 @@
 'use strict';
 
+var bowerFilesToExclude = require('./tasks/config/bowerFilesToExclude.js');
+
 module.exports = function (config) {
   config.set({
 
@@ -22,9 +24,22 @@ module.exports = function (config) {
       'karma-ng-html2js-preprocessor'
     ],
 
-    files: [
-      'scripts/**.test.js',
-    ],
+    files: require('main-bower-files')({
+      filter: function (path) {
+        for (var i = 0; i < bowerFilesToExclude.length; i++) {
+          if (!/\.js$/.test(path) || new RegExp(bowerFilesToExclude[i]).test(path)) { return false; }
+        }
+        return true;
+      }
+    }).concat([
+      'bower_components/angular-mocks/angular-mocks.js',
+      'app.js',
+      'views/**/*.js',
+      'services/**/*.js',
+      'directives/**/*.js',
+      'directives/**/*.html',
+      'filters/**/*.js'
+    ]),
 
     exclude: [
       'views/**/*.e2e.js'

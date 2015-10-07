@@ -17,14 +17,11 @@ module.exports = function (app) {
   app.use(bodyParser.json());
   app.use(compression());
   app.use(morgan('dev'));
+  app.use(express.static(path.join(config.root, 'client')));
+  app.set('appPath', 'client');
 
   if (env === 'development' || env === 'test') {
-    app.use(express.static(path.join(config.root, 'build')));
-    app.set('appPath', 'dist');
     app.use(require('errorhandler')());
-  } else {
-    app.use(express.static(path.join(config.root, 'dist')));
-    app.set('appPath', 'dist');
   }
 
 };
