@@ -2,12 +2,12 @@
 
 angular.module('angularSeed')
   .controller('ProfileCtrl', ['PhotoEdit', function (PhotoEdit) {
-console.log('in control');
-    var vm = this;
+    var vm = this,
+      photoEditInitalized;
     angular.extend(vm, {
       name: 'ProfileCtrl',
       initalizeDarkroom : function(){
-        console.log('clicked');
+        console.log(photoEditInitalized);
         PhotoEdit.init();
       }
     });
