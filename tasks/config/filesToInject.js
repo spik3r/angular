@@ -11,7 +11,7 @@ module.exports = [
   'client/services/**/*.js', '!client/services/**/*.spec.js',
   'client/views/**/*.js', '!client/views/**/*.spec.js', '!client/views/**/*.e2e.js',
   //block from global load
-
+//this needs to NOT be loaded
   'client/services/photo-edit/*'
   //'!client/views/player/*.js'
 ];

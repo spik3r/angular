@@ -2,4 +2,4 @@
  * Paths which will be ignored by bowerFiles automatic injection
  */
 
-module.exports = [];
+module.exports = ['bower_components/jquery/dist/jquery.js'];

@@ -1,6 +1,20 @@
 <div>
   {{ vm.name }}
-  Profile Page
+<button ng-click="vm.initalizeDarkroom()">click me</button>
+
+  <div id="content">
+    <div class="container">
+      <section class="copy">
+        <div class="figure-wrapper">
+          <figure class="image-container target">
+            <img src="./assets/domokun-big.jpg" alt="DomoKun" id="target">
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>
+<script src="../../services/photo-edit/photo-edit.js"></script>
+<script src="../../libs/fabric/fabric.js"></script>
 <script src="../../libs/darkroom/darkroom.js"></script>
-<script src="../../libs/darkroom/darkroom.css"></script>
+<style type="text/css" src="../../libs/darkroom/darkroom.css"></style>

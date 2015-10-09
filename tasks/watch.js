@@ -44,22 +44,17 @@ module.exports = function () {
   });
 
   var coreFiles = [
-    'client/views',
     'client/views/**/*.html',
     'client/views/**/*.js',
     '!client/views/**/*.scss',
     '!client/views/**/*.spec.js',
     '!client/views/**/*.e2e.js',
-    'client/directives',
     'client/directives/**/*.html',
     'client/directives/**/*.js',
     '!client/directives/**/*.spec.js',
-    'client/services',
     'client/services/**/*.js',
     '!client/services/**/*.spec.js',
-    'client/animations',
     'client/animations/*.js',
-    'client/filters',
     'client/filters/**/*.js',
     '!client/filters/**/*.spec.js'
   ];
