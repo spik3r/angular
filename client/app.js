@@ -11,9 +11,52 @@ angular.module('angularSeed', [
 
     $routeProvider
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
 
     $locationProvider.html5Mode(true);
+  })
+  .run(
+  ['$rootScope', '$route', '$location', 'Auth',
+    function ($rootScope, $route, $location, Auth) {
+
+      var redirectPath = '/login';
+
+      // Check that user has access on every route change
+      $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        if (next.$$route && next.$$route.access) {
+          // If page is public, skip auth credentials check
+          if (next.$$route.access.length != 0) {
+            // User needs to be logged in at that point.
+            // If user is not logged in, redirect to login
+            if (!Auth.isLoggedIn()) {
+              $location.path(redirectPath);
+            } else {
+              // Check that user role matches access restrictions
+              var allowed = false;
+              for (var i = 0; i < next.$$route.access.length; i++) {
+                var accessRole = next.$$route.access[i];
+                if (Auth.user.role === accessRole) {
+                  allowed = true;
+                }
+              }
+              // If user does not have required role, redirect.
+              if (!allowed) {
+                $location.path(redirectPath);
+              }
+            }
+          }
+        } else if (!next.$$route) {
+          // For some reason, redirect to / does not have $$route object with
+          // access parameter to hook into. Fortunately all other cases do have it in place.
+
+          // Separate case for /
+          // Just let redirect to /home pass and check credentials there
+        } else if (!next.$$route.access) {
+          console.error('Access parameter for ' + next.$$route.templateUrl + ' is not specified. Redirecting to /login.');
+          $location.path(redirectPath);
+        }
 
   });
+    }]);
+

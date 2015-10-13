@@ -1,0 +1,38 @@
+<header class="charcoal-bg">
+  <div class="container-fluid inner">
+    <h1>Angular Seed</h1>
+
+    <h3>Login Page</h3>
+    <nav role='navigation' class="text-white">
+      <ul>
+        <li><a ng-href="/home">Home</a></li>
+        <li><a ng-href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container-fluid inner" id="forms">
+
+  <h3 ng-if="ctrl.error"> {{ctrl.error}} </h3>
+
+  <form name="loginForm" novalidate="novalidate" ng-submit="ctrl.login(loginForm)">
+    <div class="field-wrapper">
+      <label for="username" class="float-label">Username</label>
+        <span class="username">
+          <input type="text" name="username" ng-model="username" size="40" id="username" placeholder="Username"
+                 required>
+        </span>
+    </div>
+    <div class="field-wrapper">
+      <label for="password" class="float-label">Password</label>
+        <span class="password">
+          <input type="password" name="password" ng-model="ctrl.user.password" value="" size="40" id="password"
+                 placeholder="Password" required>
+        </span>
+    </div>
+    <div class="field-wrapper">
+      <input type="submit" value="Send">
+    </div>
+  </form>
+</div>
