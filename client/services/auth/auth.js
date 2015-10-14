@@ -12,6 +12,7 @@ angular.module('angularSeed')
       (function init() {
         // Check if user exists in cookies
         if ($cookies.user) {
+          // TODO change to getters and setters in angular 1.4
           var userString = Base64.decode($cookies.user);
           var stringArray = userString.split("/");
 
@@ -50,12 +51,15 @@ angular.module('angularSeed')
       /** Store user object in session cookie **/
       function storeSessionCookie(user) {
         // Store username and role inside cookies
+        // TODO change to getters and setters in angular 1.4
+        // https://docs.angularjs.org/api/ngCookies/service/$cookies
         $cookies.user = Base64.encode(user.username + '/' + user.password + '/' + user.role);
         console.log("Cookie saved: ", $cookies.user, user.password);
       }
 
       /** Remove user object from session cookie **/
       function removeSessionCookie() {
+        // TODO change to getters and setters in angular 1.4
         delete $cookies.user;
       }
 

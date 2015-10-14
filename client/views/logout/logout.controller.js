@@ -6,6 +6,5 @@ angular.module('angularSeed')
     function (Auth, $window) {
       Auth.logout(function () {
         console.log("Logged out");
-
       });
     }]);
