@@ -103,6 +103,8 @@ angular.module('angularSeed')
         removeAuthHeader();
         removeSessionCookie();
 
+        loggedIn = false;
+
         callback();
         $window.location.href = '/login'
       };
