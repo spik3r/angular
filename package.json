@@ -1,6 +1,6 @@
 {
-  "name": "angularSeed",
-  "version": "0.1.0",
+  "name": "ei-client",
+  "version": "0.0.1",
   "devDependencies": {
     "apidoc": "^0.12.3",
     "del": "^1.1.1",
