@@ -1,8 +1,30 @@
-#forms {
-  text-align: center;
+#login-header {
+  height: 30%;
+  padding-top: 10%;
 }
 
-#login-view {
-  height: 100%;
+#login-header > h1 {
+  font-size: 30px;
+}
+
+#login-header span {
+  position: relative;
+  top: 3px;
+}
+
+#login-footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
+  padding: 10px 10px;
+}
+
+#login-footer > #guvera-link {
+  float: left;
+  text-decoration: underline;
+}
+
+#login-footer > #support-link {
+  float: right;
+  text-decoration: underline
 }
