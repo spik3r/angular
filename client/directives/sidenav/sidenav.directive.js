@@ -6,7 +6,11 @@ angular.module('angularSeed')
       restrict: 'EA',
       templateUrl: 'directives/sidenav/sidenav.html',
       link: function (scope, element) {
-        console.log("Directive scope", scope);
+        scope.currentRoute = $route.current.$$route.originalPath;
+
+        scope.$on("$routeChangeSuccess", function (event, route) {
+          scope.currentRoute = route.$$route.originalPath;
+        });
       }
     };
   });

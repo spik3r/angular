@@ -3,11 +3,12 @@
     <div class='nav'>
       <div class="text-center">
         User Area
+        {{currentRoute}}
       </div>
 
       <ul>
         <li>
-          <a href='#' class="active">
+          <a ng-href='/dashboard' ng-class="{'active': currentRoute=='/dashboard'}">
             Dashboard
           </a>
         </li>
@@ -27,7 +28,7 @@
           </a>
         </li>
         <li>
-          <a href='#'>
+          <a ng-href='/settings' ng-class="{'active': currentRoute=='/settings'}">
             Settings
           </a>
         </li>

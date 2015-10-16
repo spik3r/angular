@@ -1,3 +1,4 @@
+@import "../views/settings/settings";
 @import "../views/logout/logout";
 @import "../views/login/login";
 @import "../views/profile/profile";
@@ -281,6 +282,8 @@ input[type=submit]:hover {
   padding-left: 0;
 }
 
-
-
+.side-page-container {
+  height: 100%;
+  background: white;
+}
 
