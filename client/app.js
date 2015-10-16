@@ -57,6 +57,6 @@ angular.module('angularSeed', [
           $location.path(redirectPath);
         }
 
-  });
+      });
     }]);
 

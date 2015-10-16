@@ -5,6 +5,7 @@
 
 module.exports = [
   'client/app.js',
+  'client/index.controller.js',
   'client/animations/*.js',
   'client/directives/**/*.js', '!client/directives/**/*.spec.js',
   'client/filters/**/*.js', '!client/filters/**/*.spec.js',

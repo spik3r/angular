@@ -1,10 +1,16 @@
-@import "../views/dashboard/dashboard";
 @import "../views/logout/logout";
 @import "../views/login/login";
 @import "../views/profile/profile";
+@import "../directives/sidenav/sidenav";
+@import "../views/dashboard/dashboard";
+
 body {
   font-size: 16px;
   letter-spacing: 0.5px;
+}
+
+.row {
+  margin: 0 !important;
 }
 
 html {
@@ -13,7 +19,6 @@ html {
 
 .viewport {
   height: 100%;
-  width: 98%;
 }
 
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
@@ -130,7 +135,6 @@ ul {
 
 li {
   display: inline;
-  padding: 3px 12px;
 }
 
 /* BUTTONS */
@@ -259,5 +263,24 @@ input[type=submit] {
 input[type=submit]:hover {
   color: black;
 }
+
+
+.sp-container {
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  padding-left: 240px;
+  box-sizing: border-box;
+
+  background: white;
+  color: black;
+}
+.sp-toggle-sidebar .sp-container {
+  padding-left: 0;
+}
+
+
 
 

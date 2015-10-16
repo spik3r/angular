@@ -9,7 +9,7 @@ angular.module('angularSeed')
 
       // If logged in, redirect to /home page
       if (Auth.isLoggedIn()) {
-        $window.location.href = '/';
+        $window.location.href = '/dashboard';
       }
 
       // Take login form and login
@@ -19,7 +19,7 @@ angular.module('angularSeed')
           Auth.login(form.username.$viewValue, form.password.$viewValue, function (response) {
             if (response.success) {
               // Successful login
-              $window.location.href = '/';
+              $window.location.href = '/dashboard';
             } else {
               console.warn("[login] Unsuccessful authorisation attempt.");
 

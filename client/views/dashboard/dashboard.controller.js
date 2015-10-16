@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('angularSeed')
-  .controller('DashboardCtrl', function () {
+  .controller('DashboardCtrl', function ($rootScope) {
+    var sidebar = $rootScope.$$childHead.sidebar;
 
-    var vm = this;
+    console.log(sidebar);
 
-    angular.extend(vm, {
-      name: 'DashboardCtrl'
-    });
+    sidebar.show();
 
+    this.test = function () {
+      sidebar.toggle();
+    }
   });
