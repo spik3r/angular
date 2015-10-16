@@ -11,7 +11,6 @@
 
     <div class="col-md-6">
       <div class="input-container username-container">
-        <!--<label for="Username">Username</label>-->
         <input name="username" ng-model="ctrl.login.username"
                ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
                type="text" id="Username" required="required" placeholder="Username"
@@ -23,7 +22,6 @@
 
     <div class="col-md-6">
       <div class="input-container password-container">
-        <!--<label for="Password">Password</label>-->
         <input name="password"
                ng-model="ctrl.login.password" ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
                type="password" id="Password" required="required" placeholder="Password"
@@ -45,46 +43,4 @@
   <span id="support-link"><a href="http://guvera.com/">Contact Support</a></span>
 </footer>
 
-<!--<div id="login-view" class="bloody-red">-->
-<!--<header class="bloody-red">-->
-<!--<div class="container-fluid inner">-->
-<!--<img ng-src="./assets/guvera-logo.png" alt="Guvera" >-->
-
-<!--<h1>Engagement Informatics</h1>-->
-
-<!--<h3>Login Page</h3>-->
-<!--<nav role='navigation' class="text-white">-->
-<!--<ul>-->
-<!--<li><a ng-href="/home">Home</a></li>-->
-<!--<li><a ng-href="/profile">Profile</a></li>-->
-<!--</ul>-->
-<!--</nav>-->
-<!--</div>-->
-<!--</header>-->
-
-<!--<div class="container-fluid inner" id="forms">-->
-
-<!--<h3 ng-if="ctrl.error"> {{ctrl.error}} </h3>-->
-
-<!--<form name="loginForm" novalidate="novalidate" ng-submit="ctrl.login(loginForm)">-->
-<!--<div class="field-wrapper">-->
-<!--<label for="username" class="float-label">Username</label>-->
-<!--<span class="username">-->
-<!--<input type="text" name="username" ng-model="username" size="40" id="username" placeholder="Username"-->
-<!--required>-->
-<!--</span>-->
-<!--</div>-->
-<!--<div class="field-wrapper">-->
-<!--<label for="password" class="float-label">Password</label>-->
-<!--<span class="password">-->
-<!--<input type="password" name="password" ng-model="ctrl.user.password" value="" size="40" id="password"-->
-<!--placeholder="Password" required>-->
-<!--</span>-->
-<!--</div>-->
-<!--<div class="field-wrapper">-->
-<!--<input type="submit" value="Send">-->
-<!--</div>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
 
