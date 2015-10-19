@@ -14,31 +14,7 @@
       </div>
 
       <ul>
-        <li>
-          <a ng-href='/dashboard' ng-class="{'active': currentRoute=='/dashboard'}">
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href='/channel' ng-class="{'active': currentRoute=='/channel'}">
-            Brand Channel
-          </a>
-        </li>
-        <li>
-          <a href='/export' ng-class="{'active': currentRoute=='/export'}">
-            Export Data
-          </a>
-        </li>
-        <li>
-          <a href='/billing' ng-class="{'active': currentRoute=='/billing'}">
-            Billing
-          </a>
-        </li>
-        <li>
-          <a ng-href='/settings' ng-class="{'active': currentRoute=='/settings'}">
-            Settings
-          </a>
-        </li>
+        <sidenav-item ng-repeat="item in menuItems" name="item" current-route="currentRoute"></sidenav-item>
       </ul>
     </div>
   </div>

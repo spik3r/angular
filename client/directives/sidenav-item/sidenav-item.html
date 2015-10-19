@@ -1,0 +1,25 @@
+<li ng-class="{ 'active': active }" ng-click="activate()">
+  <div class="row menu-item-container" ng-switch="name">
+    <a ng-switch-when="export">
+      Export Data
+    </a>
+    <a ng-switch-when="channel">
+      Branded Channel
+    </a>
+    <a ng-switch-default>
+      {{ name | capitalize:'first' }}
+    </a>
+
+    <span ng-if="submenuItems"
+          class="menu-icon glyphicon glyphicon-collapse-down" aria-hidden="true">
+    </span>
+  </div>
+
+  <ul class="{{name}} submenu">
+    <li class="submenu-item">
+      <div class="row submenu-item-container">
+        <a ng-class="{'active': currentRoute=='/dashboard'}" class="submenu-item"> Submenu 1 </a>
+      </div>
+    </li>
+  </ul>
+</li>
