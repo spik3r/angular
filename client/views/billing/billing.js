@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/billing/billing.html',
         controller: 'BillingCtrl',
         controllerAs: 'ctrl',
-        access: []
+        access: ['user']
       });
   });

@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/dashboard/dashboard.html',
         controller: 'DashboardCtrl',
         controllerAs: 'ctrl',
-        access: []
+        access: ['user']
       });
   });
