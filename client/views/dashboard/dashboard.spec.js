@@ -2,7 +2,7 @@
 
 describe('Controller: DashboardCtrl', function () {
 
-  beforeEach(module('ei client'));
+  beforeEach(module('eiFrontend'));
 
   var DashboardCtrl;
 

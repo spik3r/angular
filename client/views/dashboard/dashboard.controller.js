@@ -2,13 +2,8 @@
 
 angular.module('eiFrontend')
   .controller('DashboardCtrl', function ($rootScope) {
+    // Get access to sidebar object and show it
     var sidebar = $rootScope.$$childHead.sidebar;
-
-    console.log(sidebar);
-
     sidebar.show();
-
-    this.test = function () {
-      sidebar.toggle();
-    }
+    this.sidebar = sidebar;
   });

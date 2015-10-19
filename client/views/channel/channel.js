@@ -3,9 +3,9 @@
 angular.module('eiFrontend')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/settings', {
-        templateUrl: 'views/settings/settings.html',
-        controller: 'SettingsCtrl',
+      .when('/channel', {
+        templateUrl: 'views/channel/channel.html',
+        controller: 'ChannelCtrl',
         controllerAs: 'ctrl',
         access: []
       });

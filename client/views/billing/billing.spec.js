@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Controller: SettingsCtrl', function () {
+describe('Controller: BillingCtrl', function () {
 
   beforeEach(module('eiFrontend'));
 
-  var SettingsCtrl;
+  var BillingCtrl;
 
   beforeEach(inject(function ($controller) {
-    SettingsCtrl = $controller('SettingsCtrl', {});
+    BillingCtrl = $controller('BillingCtrl', {});
   }));
 
   it('should ...', function () {

@@ -2,7 +2,7 @@
 
 describe('Directive: sidenav', function () {
 
-  beforeEach(module('ei client', 'templates'));
+  beforeEach(module('eiFrontend', 'templates'));
 
   var element, scope;
 

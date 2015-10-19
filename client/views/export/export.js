@@ -3,9 +3,9 @@
 angular.module('eiFrontend')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/settings', {
-        templateUrl: 'views/settings/settings.html',
-        controller: 'SettingsCtrl',
+      .when('/export', {
+        templateUrl: 'views/export/export.html',
+        controller: 'ExportCtrl',
         controllerAs: 'ctrl',
         access: []
       });

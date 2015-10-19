@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Controller: SettingsCtrl', function () {
+describe('Controller: ChannelCtrl', function () {
 
   beforeEach(module('eiFrontend'));
 
-  var SettingsCtrl;
+  var ChannelCtrl;
 
   beforeEach(inject(function ($controller) {
-    SettingsCtrl = $controller('SettingsCtrl', {});
+    ChannelCtrl = $controller('ChannelCtrl', {});
   }));
 
   it('should ...', function () {
