@@ -2,7 +2,7 @@
 
 describe('searchFilter filter', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var searchFilter;
 

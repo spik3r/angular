@@ -2,7 +2,7 @@
 
 describe('Controller: HomeCtrl', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var HomeCtrl,
     scope;

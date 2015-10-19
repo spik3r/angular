@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .service('PhotoEdit', function () {
     var isOpen = false;
     return {

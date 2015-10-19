@@ -2,7 +2,7 @@
 
 describe('Service: Auth', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var Auth;
 

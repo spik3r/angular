@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .controller('DashboardCtrl', function ($rootScope) {
     var sidebar = $rootScope.$$childHead.sidebar;
 

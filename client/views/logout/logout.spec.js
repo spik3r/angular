@@ -2,7 +2,7 @@
 
 describe('Controller: LogoutCtrl', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var LogoutCtrl;
 

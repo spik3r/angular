@@ -2,7 +2,7 @@
 
 describe('Service: PhotoEdit', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var PhotoEdit;
 

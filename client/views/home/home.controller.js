@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .controller('HomeCtrl', function () {
     var vm = this;
 

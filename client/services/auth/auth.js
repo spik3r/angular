@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .service('Auth',
   ['$http', '$cookies', 'Base64', '$timeout', '$window',
     function ($http, $cookies, Base64, $timeout, $window) {

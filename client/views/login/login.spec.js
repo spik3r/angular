@@ -2,7 +2,7 @@
 
 describe('Controller: LoginCtrl', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var LoginCtrl;
 

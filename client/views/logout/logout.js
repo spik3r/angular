@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/logout', {

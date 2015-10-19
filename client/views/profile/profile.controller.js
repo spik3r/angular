@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .controller('ProfileCtrl', ['PhotoEdit', function (PhotoEdit) {
     var vm = this,
       photoEditInitalized;

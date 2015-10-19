@@ -2,7 +2,7 @@
 
 describe('Factory: Base64', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var Base64;
 

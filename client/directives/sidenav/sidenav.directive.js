@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .directive('sidenav', function ($route) {
     return {
       restrict: 'EA',

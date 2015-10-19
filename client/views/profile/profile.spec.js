@@ -2,7 +2,7 @@
 
 describe('Controller: ProfileCtrl', function () {
 
-  beforeEach(module('angularSeed'));
+  beforeEach(module('eiFrontend'));
 
   var ProfileCtrl;
 

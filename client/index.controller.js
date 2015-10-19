@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .controller('IndexCtrl', function ($rootScope, $scope) {
     // Sidebar configuration object
     $scope.sidebar = {

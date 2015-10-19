@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularSeed')
+angular.module('eiFrontend')
   .factory('Base64', function () {
     /* jshint ignore:start */
 
