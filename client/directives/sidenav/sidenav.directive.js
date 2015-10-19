@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eiFrontend')
-  .directive('sidenav', function ($route) {
+  .directive('sidenav', function ($route, $rootScope) {
     return {
       restrict: 'EA',
       templateUrl: 'directives/sidenav/sidenav.html',
@@ -11,6 +11,12 @@ angular.module('eiFrontend')
         scope.$on("$routeChangeSuccess", function (event, route) {
           scope.currentRoute = route.$$route.originalPath;
         });
+
+        var sidebar = $rootScope.$$childHead.sidebar;
+
+        scope.toggle = function () {
+          sidebar.toggle();
+        }
       }
     };
   });

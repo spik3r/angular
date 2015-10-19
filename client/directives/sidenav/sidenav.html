@@ -1,9 +1,16 @@
 <div id="sidenav" class="sp-container">
   <div class='sp-sidebar bloody-red'>
     <div class='nav'>
-      <div class="text-center">
-        User Area
-        {{currentRoute}}
+      <div id="user-area" class="text-center">
+        <div id="user-img">
+          <img src="http://placekitten.com/g/50/50">
+        </div>
+
+        <h4> Universal </h4>
+        <h5> Kitten M. </h5>
+
+        <span class="mini-link"><a ng-href='/logout'>logout</a></span>
+        <span class="mini-link"><a ng-click="toggle()">hide</a></span>
       </div>
 
       <ul>

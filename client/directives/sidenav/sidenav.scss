@@ -22,7 +22,7 @@
   font-weight: 200;
   display: block;
   padding: 20px 25px;
-  color: black;
+  color: white;
   font-size: 16px;
   line-height: 1;
   text-decoration: none;
@@ -33,10 +33,17 @@
   transition: all 0.3s linear 0s;
 }
 
-#sidenav .sp-sidebar .nav ul li a:hover,
-#sidenav .sp-sidebar .nav ul li a.active {
+#sidenav .sp-sidebar .nav ul li a:hover {
   background: white;
   color: #c7d4e0;
+  font-weight: 600;
+  font-weight: 600;
+}
+
+#sidenav .sp-sidebar .nav ul li a.active {
+  background: white;
+  //color: #c7d4e0;
+  color: black;
   font-weight: 600;
   font-weight: 600;
 }
@@ -61,3 +68,46 @@
 .sp-toggle-sidebar .sp-container .sp-sidebar {
   width: 0;
 }
+
+#sidenav .nav {
+  height: 100%;
+}
+
+#sidenav #user-area {
+  height: 30%;
+  padding: 20px;
+  overflow: hidden;
+  min-height: 130px;
+}
+
+#sidenav #user-area #user-img img {
+  border-radius: 50%;
+  display: none;
+}
+
+@media (min-height: 550px) {
+  #sidenav #user-area #user-img img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline;
+    margin-top: 20px;
+  }
+}
+
+@media (min-height: 650px) {
+  #sidenav #user-area #user-img img {
+    border-radius: 50%;
+    width: 66px;
+    height: 66px;
+    display: inline;
+  }
+}
+
+#sidenav #user-area .mini-link {
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
