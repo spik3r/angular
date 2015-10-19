@@ -10,13 +10,13 @@
       {{ name | capitalize:'first' }}
     </a>
 
-    <span ng-if="submenuItems"
+    <span ng-if="submenu.active"
           class="menu-icon glyphicon glyphicon-collapse-down" aria-hidden="true">
     </span>
   </div>
 
-  <ul class="{{name}} submenu">
-    <li class="submenu-item">
+  <ul class="{{name}} submenu" ng-if="submenu.active">
+    <li class="submenu-item" ng-repeat="item in submenu.items">
       <div class="row submenu-item-container">
         <a ng-class="{'active': currentRoute=='/dashboard'}" class="submenu-item"> Submenu 1 </a>
       </div>

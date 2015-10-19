@@ -21,12 +21,22 @@ angular.module('eiFrontend')
           $rootScope.$broadcast('tabActivated', scope.name);
         });
 
+        scope.submenu = {
+          active: false,
+          items: ['test', 'test2']
+        };
+
         // If activated event recieved, check active styles
         scope.$on("tabActivated", function (event, tab) {
           if (scope.name != tab) {
             element.removeClass('active');
+            scope.submenu.active = false;
           } else {
-            element.addClass('active');
+            if (element.hasClass('active')) {
+              scope.submenu.active = !scope.submenu.active;
+            } else {
+              element.addClass('active');
+            }
           }
         })
       }
