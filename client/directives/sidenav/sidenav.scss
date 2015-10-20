@@ -71,6 +71,11 @@
   color: black;
 }
 
+#sidenav .sp-sidebar .nav ul li.active a.active {
+  color: black;
+  font-weight: 400;
+}
+
 #sidenav .sp-sidebar .nav ul li.active .submenu-item-container {
   background: white;
 }
@@ -90,6 +95,15 @@
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
   display: block;
+}
+
+.sidenav-item .dropdown {
+  display: none;
+}
+
+.submenu-item a {
+  position: relative;
+  left: 10px;
 }
 
 // User Area

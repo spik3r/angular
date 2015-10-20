@@ -1,24 +1,20 @@
-<li ng-class="{ 'active': active }" ng-click="activate()">
-  <div class="row menu-item-container" ng-switch="name">
-    <a ng-switch-when="export">
-      Export Data
+<li class="sidenav-item" ng-class="{ 'active': active }">
+  <div class="row menu-item-container">
+    <a ng-class="{ 'active': route === object.path }">
+      {{ object.fullName }}
     </a>
-    <a ng-switch-when="channel">
-      Branded Channel
-    </a>
-    <a ng-switch-default>
-      {{ name | capitalize:'first' }}
-    </a>
-
-    <span ng-if="submenu.active"
-          class="menu-icon glyphicon glyphicon-collapse-down" aria-hidden="true">
+    <span ng-if="active && object.dropdown.active"
+          class="menu-icon glyphicon glyphicon-chevron-up" aria-hidden="true">
+    </span>
+    <span ng-if="active && object.dropdown && !object.dropdown.active"
+          class="menu-icon glyphicon glyphicon-chevron-down" aria-hidden="true">
     </span>
   </div>
 
-  <ul class="{{name}} submenu" ng-if="submenu.active">
-    <li class="submenu-item" ng-repeat="item in submenu.items">
-      <div class="row submenu-item-container">
-        <a ng-class="{'active': currentRoute=='/dashboard'}" class="submenu-item"> Submenu 1 </a>
+  <ul class="{{object.name}} dropdown">
+    <li class="submenu-item" ng-repeat="item in object.dropdown">
+      <div class="row submenu-item-container" ng-click="submenu(item)">
+        <a class="submenu-item" ng-class="{ 'active': route === item.path }"> {{item.fullName}} </a>
       </div>
     </li>
   </ul>
