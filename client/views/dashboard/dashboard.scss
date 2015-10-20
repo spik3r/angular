@@ -3,3 +3,28 @@
   background: white;
 }
 
+#dashboard-header {
+  position: fixed;
+}
+
+#dashboard-container .menu-icon:first-child {
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+#dashboard-container .menu-icon-text {
+  display: none;
+}
+
+@media (min-width: 425px) {
+  #dashboard-container .menu-icon-text {
+    display: inline;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+

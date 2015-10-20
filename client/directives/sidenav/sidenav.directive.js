@@ -28,6 +28,10 @@ angular.module('eiFrontend')
             scope.$broadcast("activateTabSuccess", tab);
           }, 100);
         });
+
+        scope.hide = function () {
+          sidebar.toggle();
+        }
       }
     };
   });

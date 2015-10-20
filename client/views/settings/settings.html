@@ -1,16 +1,14 @@
 <div id="dashboard-container" class="sp-container">
   <div id="dashboard-header" class="row">
-    <div class="col-md-12 text-center">
-      <button ng-click="ctrl.sidebar.toggle()"> Toggle Sidebar </button>
+    <div class="menu-icon text-left" ng-if="!sidebar.displayed">
+      <span ng-click="sidebar.toggle()">
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"> </span>
+        <span class="menu-icon-text"> Menu </span>
+      </span>
     </div>
+  </div>
 
-    <div class="col-md-6 text-center">
-      Hello
-    </div>
-
-    <div class="col-md-6 text-center">
-      Bye
-    </div>
-
+  <div id="dashboard-content" class="row text-center">
+    <h1>Settings</h1>
   </div>
 </div>

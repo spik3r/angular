@@ -9,7 +9,10 @@ angular.module('eiFrontend')
       setActive: function () { this.active = true; },
       show: function () { this.displayed = true; },
       hide: function () { this.displayed = false; },
-      toggle: function () { $('body').stop().toggleClass('sp-toggle-sidebar', 300); }
+      toggle: function () {
+        this.displayed = !this.displayed;
+        $('body').stop().toggleClass('sp-toggle-sidebar', 300);
+      }
     };
 
     // Sidebar menu object
