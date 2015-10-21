@@ -7,8 +7,6 @@ angular.module('eiFrontend')
       link: function (scope, element, attributes) {
         var found = false;
 
-        console.log("Attribute: ", attributes.role);
-
         if (Auth.isLoggedIn() && attributes.role && attributes.role.length > 0) {
           var array = attributes.role.split(',');
 

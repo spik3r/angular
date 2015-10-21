@@ -12,7 +12,7 @@
   </div>
 
   <ul class="{{object.name}} dropdown">
-    <li class="submenu-item" ng-repeat="item in object.dropdown">
+    <li class="submenu-item" ng-repeat="item in object.dropdown" role="{{item.role}}">
       <div class="row submenu-item-container" ng-click="submenu(item)">
         <a class="submenu-item" ng-class="{ 'active': route === item.path }"> {{item.fullName}} </a>
       </div>
