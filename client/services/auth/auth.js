@@ -79,16 +79,47 @@ angular.module('eiFrontend')
       var login = function (username, password, callback) {
         // Fake request for testing purposes, use $http here.
         $timeout(function () {
-          var response = {
-            success: username === 'test' && password === 'test'
-          };
+
+          var response = {};
+
+          if (password === '1234' && username === 'user') {
+            response = {
+              success: true
+            };
+
+            currentUser.role = 'user';
+          } else if (password === '1234' && username === 'brand') {
+            response = {
+              success: true
+            };
+
+            currentUser.role = 'brand';
+          } else if (password === '1234' && username === 'artist') {
+            response = {
+              success: true
+            };
+
+            currentUser.role = 'artist';
+          } else if (password === '1234' && username === 'label') {
+            response = {
+              success: true
+            };
+
+            currentUser.role = 'label';
+          } else if (password === '1234' && username === 'admin') {
+            response = {
+              success: true
+            };
+
+            currentUser.role = 'admin';
+          } else {
+            // Fake authorisation unsuccessful
+          }
+
 
           if (response.success) {
-            currentUser = {
-              username: username,
-              password: password,
-              role: 'user'
-            };
+            currentUser.username = username;
+            currentUser.password = password;
 
             storeSessionCookie(currentUser);
             addAuthHeader(username, password);
@@ -97,7 +128,7 @@ angular.module('eiFrontend')
           }
 
           callback(response);
-        });
+        }, 300);
       };
       /**
        * Remove session cookies with user information,

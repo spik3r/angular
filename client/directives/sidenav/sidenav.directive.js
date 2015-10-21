@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eiFrontend')
-  .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Sidenav) {
+  .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Sidenav, Auth) {
     return {
       restrict: 'EA',
       scope: {
@@ -11,6 +11,7 @@ angular.module('eiFrontend')
       link: function (scope, element) {
         var sidenav = Sidenav;
         scope.currentRoute = $route.current.$$route.originalPath;
+        scope.user = Auth.user;
 
         // When route is changed, update current route
         scope.$on("$routeChangeSuccess", function (event, route) {
