@@ -7,6 +7,8 @@ angular.module('eiFrontend')
       link: function (scope, element, attributes) {
         var found = false;
 
+        console.log("Attribute: ", attributes.role);
+
         if (Auth.isLoggedIn() && attributes.role && attributes.role.length > 0) {
           var array = attributes.role.split(',');
 
@@ -24,8 +26,9 @@ angular.module('eiFrontend')
               }
             }
           }
-        } else {
-          console.error('Role directive is misconfigured. Role string: ' + attributes.role);
+        } else if (attributes.role.length == 0) {
+          // Let configuration with an empty string pass
+          found = true;
         }
 
         if (found) {

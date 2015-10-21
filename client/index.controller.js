@@ -26,7 +26,8 @@ angular.module('eiFrontend')
           {
             name: 'listener',
             fullName: "Listener Insigts",
-            path: '/dashboard/listener'
+            path: '/dashboard/listener',
+            role: 'user'
           }
         ]
       },
@@ -65,7 +66,8 @@ angular.module('eiFrontend')
       {
         name: 'settings',
         fullName: 'Settings',
-        path: '/settings'
+        path: '/settings',
+        role: 'user'
       }
     ];
   });
