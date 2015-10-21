@@ -1,22 +1,12 @@
 'use strict';
 
 angular.module('eiFrontend')
-  .controller('IndexCtrl', function ($rootScope, $scope) {
-    // Sidebar configuration object
-    $scope.sidebar = {
-      active: true,
-      displayed: false,
-      setActive: function () { this.active = true; },
-      show: function () { this.displayed = true; },
-      hide: function () { this.displayed = false; },
-      toggle: function () {
-        this.displayed = !this.displayed;
-        $('body').stop().toggleClass('sp-toggle-sidebar', 300);
-      }
-    };
+  .controller('IndexCtrl', function ($scope, $window, Sidenav) {
+    // Link sidenav to scope
+    $scope.sidenav = Sidenav;
+    $window.sidenav = Sidenav;
 
-    // Sidebar menu object
-    // Describe menu object
+    // Describe menu for sidenav directive
     $scope.menu = [
       {
         name: 'dashboard',
@@ -78,6 +68,4 @@ angular.module('eiFrontend')
         path: '/settings'
       }
     ];
-
-
   });

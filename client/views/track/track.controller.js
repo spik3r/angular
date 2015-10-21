@@ -1,9 +1,8 @@
 'use strict';
 
 angular.module('eiFrontend')
-  .controller('TrackCtrl', function ($rootScope) {
-    // Get access to sidebar object and show it
-    var sidebar = $rootScope.$$childHead.sidebar;
-    sidebar.show();
-    this.sidebar = sidebar;
+  .controller('TrackCtrl', function (Sidenav) {
+    // Get access to sidenav object and show it
+    Sidenav.show();
+    this.sidenav = Sidenav;
   });
