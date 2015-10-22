@@ -3,18 +3,16 @@
     <a ng-class="{ 'active': route === object.path }">
       {{ object.fullName }}
     </a>
-    <span ng-if="active && object.dropdown.length > 0 && object.dropdown.active"
-          role="user"
+    <span ng-if="active && object.dropdown.active && object.dropdown"
           class="menu-icon glyphicon glyphicon-chevron-up" aria-hidden="true">
     </span>
-    <span ng-if="active && object.dropdown && !object.dropdown.active"
-          role="user"
+    <span ng-if="active && !object.dropdown.active && object.dropdown"
           class="menu-icon glyphicon glyphicon-chevron-down" aria-hidden="true">
     </span>
   </div>
 
-  <ul class="{{object.name}} dropdown" ng-if="object.dropdown">
-    <li class="submenu-item" ng-repeat="item in object.dropdown" role="{{item.role}}">
+  <ul class="{{object.name}} dropdown">
+    <li class="submenu-item" ng-repeat="item in object.dropdown">
       <div class="row submenu-item-container" ng-click="submenu(item)">
         <a class="submenu-item" ng-class="{ 'active': route === item.path }"> {{item.fullName}} </a>
       </div>

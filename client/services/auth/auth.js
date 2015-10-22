@@ -3,7 +3,7 @@
 angular.module('eiFrontend')
   .service('Auth',
   ['$http', '$cookies', 'Base64', '$timeout', '$window',
-    function ($http, $cookies, Base64, $timeout, $window) {
+    function ($http, $cookies, Base64, $timeout, $window, Log) {
       // Declare private variables
       var currentUser = {}; // Store current user
       var loggedIn = false;
@@ -144,6 +144,50 @@ angular.module('eiFrontend')
         $window.location.href = '/login'
       };
 
+      /**
+       * Check if string of roles has user role in it.
+       * For example:
+       * For user => match('user,admin,label', 'user') will return true
+       *
+       * @param string
+       * @param role
+       * @returns {boolean}
+       */
+      var match = function (string, role) {
+
+        // If there is no role, try to match against current user role.
+        if (!role) {
+          if (currentUser.role) {
+            role = currentUser.role;
+          } else {
+            Log.error('auth', 'Match function executed against an empty role with no user.');
+          }
+        }
+
+        if (string) {
+          var roles = string.split(',');
+
+          var match = false;
+
+          for (var j = 0; j < roles.length; j++) {
+            // Remove spaces
+            roles[j] = roles[j].replace(/\s+/g, '');
+            roles[j] = roles[j].toLowerCase();
+            // Delete empty roles
+            if (roles[j].length < 1) {
+              roles.splice(j, 1);
+            } else {
+              if (role === roles[j]) {
+                match = true;
+              }
+            }
+          }
+          return match;
+        } else {
+          return false;
+        }
+      };
+
       // Return public api
       return {
         user: currentUser,
@@ -151,6 +195,7 @@ angular.module('eiFrontend')
           return loggedIn;
         },
         login: login,
-        logout: logout
+        logout: logout,
+        match: match
       }
     }]);

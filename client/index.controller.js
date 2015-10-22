@@ -12,6 +12,7 @@ angular.module('eiFrontend')
         name: 'dashboard',
         fullName: "Dashboard",
         path: '/dashboard',
+        role: 'admin, brand',
         dropdown: [
           {
             name: 'label',
@@ -54,17 +55,20 @@ angular.module('eiFrontend')
           {
             name: 'profile',
             fullName: 'Profile',
-            path: '/channel/profile'
+            path: '/channel/profile',
+            role: 'brand'
           },
           {
             name: 'playlists',
             fullName: 'Playlists',
-            path: '/channel/playlists'
+            path: '/channel/playlists',
+            role: 'brand'
           },
           {
             name: 'content',
             fullName: 'Content',
-            path: '/channel/content'
+            path: '/channel/content',
+            role: 'brand'
           }
         ]
       },

@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/channel/channel.html',
         controller: 'ChannelCtrl',
         controllerAs: 'ctrl',
-        access: ['user']
+        access: ['user', 'brand']
       });
   });

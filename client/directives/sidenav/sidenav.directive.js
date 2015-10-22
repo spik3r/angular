@@ -9,6 +9,45 @@ angular.module('eiFrontend')
       },
       templateUrl: 'directives/sidenav/sidenav.html',
       link: function (scope, element) {
+
+        // Array Remove - By John Resig (MIT Licensed)
+        Array.prototype.remove = function (from, to) {
+          var rest = this.slice((to || from) + 1 || this.length);
+          this.length = from < 0 ? this.length + from : from;
+          return this.push.apply(this, rest);
+        };
+
+        // Filter menu based on user permissions
+        scope.filteredMenu = [];
+        for (var i = 0; i < scope.menu.length; i++) {
+          if (Auth.match(scope.menu[i].role)) {
+            // If menu item has dropdown, filter it
+            if (scope.menu[i].dropdown && scope.menu[i].dropdown.length > 0) {
+              console.log(scope.menu[i].dropdown);
+
+              var tempDropdown = [];
+
+              for (var j = 0; j < scope.menu[i].dropdown.length; j++) {
+                if (Auth.match(scope.menu[i].dropdown[j].role)) {
+                  tempDropdown.push(scope.menu[i].dropdown[j])
+                }
+              }
+
+              if (tempDropdown.length > 0) {
+                scope.menu[i].dropdown = tempDropdown;
+              } else {
+                delete scope.menu[i].dropdown;
+              }
+
+              scope.filteredMenu.push(scope.menu[i]);
+            } else {
+              scope.filteredMenu.push(scope.menu[i]);
+            }
+          }
+        }
+        scope.menu = scope.filteredMenu;
+        console.log("Filtered Menu", scope.filteredMenu);
+
         var sidenav = Sidenav;
         scope.currentRoute = $route.current.$$route.originalPath;
         scope.user = Auth.user;
