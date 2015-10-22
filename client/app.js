@@ -53,7 +53,7 @@ angular.module('eiFrontend', [
               }
             }
           }
-        } else if (!next.$$route.access) {
+        } else if (next.$$route && !next.$$route.access) {
           console.error('Access parameter for ' + next.$$route.templateUrl + ' is not specified. Redirecting to /login.');
           $location.path(redirectPath);
         }

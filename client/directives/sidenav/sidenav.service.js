@@ -7,8 +7,8 @@ angular.module('eiFrontend')
       return {
         active: true,
         displayed: false,
-        setActive: function () {
-          this.active = true;
+        setActive: function (bool) {
+          this.active = bool;
         },
         show: function () {
           this.displayed = true;

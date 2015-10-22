@@ -14,7 +14,6 @@ angular.module('eiFrontend')
 
       // Take login form and login
       ctrl.login = function (form) {
-
         if (form.$valid && !form.$pristine) {
           Auth.login(form.username.$viewValue, form.password.$viewValue, function (response) {
             if (response.success) {

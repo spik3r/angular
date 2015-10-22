@@ -1,4 +1,4 @@
-describe('Index controller (IndexCtrl)', function () {
+describe('Login controller (LoginCtrl)', function () {
   var $scope, ctrl, $timeout;
   var controller;
 
@@ -14,7 +14,7 @@ describe('Index controller (IndexCtrl)', function () {
       // **NOTE**: this is the only time the controller function
       // will be run, so anything that occurs inside of that
       // will already be done before the first spec.
-      ctrl = $controller('IndexCtrl', {
+      ctrl = $controller('LoginCtrl', {
         $scope: $scope
       });
     });
@@ -25,15 +25,7 @@ describe('Index controller (IndexCtrl)', function () {
     expect(ctrl).not.toBe(undefined);
   });
 
-  it('should have access to sidenav object', function () {
-    expect($scope.sidenav).not.toBe(undefined);
-  });
-
-  it('should provide menu object for sidenav to display', function () {
-    expect($scope.menu).not.toBe(undefined);
-  });
-
-  it('should have some objects inside menu object', function () {
-    expect($scope.menu.length).toBeGreaterThan(0);
+  it('should provide login function to perform login', function () {
+    expect(ctrl.login).not.toBe(undefined);
   })
 });
