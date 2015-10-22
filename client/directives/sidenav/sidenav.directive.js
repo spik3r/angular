@@ -9,14 +9,6 @@ angular.module('eiFrontend')
       },
       templateUrl: 'directives/sidenav/sidenav.html',
       link: function (scope, element) {
-
-        // Array Remove - By John Resig (MIT Licensed)
-        Array.prototype.remove = function (from, to) {
-          var rest = this.slice((to || from) + 1 || this.length);
-          this.length = from < 0 ? this.length + from : from;
-          return this.push.apply(this, rest);
-        };
-
         // Filter menu based on user permissions
         scope.filteredMenu = [];
         for (var i = 0; i < scope.menu.length; i++) {
@@ -46,7 +38,6 @@ angular.module('eiFrontend')
           }
         }
         scope.menu = scope.filteredMenu;
-        console.log("Filtered Menu", scope.filteredMenu);
 
         var sidenav = Sidenav;
         scope.currentRoute = $route.current.$$route.originalPath;
