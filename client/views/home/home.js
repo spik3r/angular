@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/home/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'vm',
-        access: ['user']
+        access: ['user', 'artist', 'brand', 'label', 'admin']
       });
   });

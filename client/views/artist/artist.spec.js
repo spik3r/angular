@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Controller: LabelCtrl', function () {
+describe('Controller: ArtistCtrl', function () {
 
   beforeEach(module('eiFrontend'));
 
-  var LabelCtrl;
+  var ArtistCtrl;
 
   beforeEach(inject(function ($controller) {
-    LabelCtrl = $controller('LabelCtrl', {});
+    ArtistCtrl = $controller('ArtistCtrl', {});
   }));
 
   it('should ...', function () {

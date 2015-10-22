@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/track/track.html',
         controller: 'TrackCtrl',
         controllerAs: 'ctrl',
-        access: ['user']
+        access: ['label', 'artist']
       });
   });

@@ -12,12 +12,12 @@ angular.module('eiFrontend')
         name: 'dashboard',
         fullName: "Dashboard",
         path: '/dashboard',
-        role: 'admin, brand',
+        role: 'admin, brand, label, artist, user',
         dropdown: [
           {
             name: 'label',
             fullName: "Artists",
-            path: '/dashboard/label',
+            path: '/dashboard/artist',
             role: 'label'
           },
           {
@@ -77,7 +77,7 @@ angular.module('eiFrontend')
         fullName: 'Export Data',
         path: '/export',
         // TODO Figure out if this menu item is needed or not
-        role: 'none'
+        role: 'label'
       },
       {
         name: 'billing',
@@ -89,7 +89,7 @@ angular.module('eiFrontend')
         name: 'settings',
         fullName: 'Settings',
         path: '/settings',
-        role: 'user, admin'
+        role: 'user, admin, brand, label, artist'
       }
     ];
   });

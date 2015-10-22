@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/content/content.html',
         controller: 'ContentCtrl',
         controllerAs: 'ctrl',
-        access: ['user']
+        access: ['brand']
       });
   });

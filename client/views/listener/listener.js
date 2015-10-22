@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/listener/listener.html',
         controller: 'ListenerCtrl',
         controllerAs: 'ctrl',
-        access: ['user']
+        access: ['label', 'artist']
       });
   });

@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/playlists/playlists.html',
         controller: 'PlaylistsCtrl',
         controllerAs: 'ctrl',
-        access: ['user']
+        access: ['brand']
       });
   });

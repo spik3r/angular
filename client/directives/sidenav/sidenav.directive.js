@@ -15,8 +15,6 @@ angular.module('eiFrontend')
           if (Auth.match(scope.menu[i].role)) {
             // If menu item has dropdown, filter it
             if (scope.menu[i].dropdown && scope.menu[i].dropdown.length > 0) {
-              console.log(scope.menu[i].dropdown);
-
               var tempDropdown = [];
 
               for (var j = 0; j < scope.menu[i].dropdown.length; j++) {
