@@ -18,7 +18,9 @@ angular.module('eiFrontend')
         },
         toggle: function () {
           this.displayed = !this.displayed;
+          /* jshint ignore:start */
           $('body').stop().toggleClass('sp-toggle-sidebar', 300);
+          /* jshint ignore:end */
         }
       };
     }]);

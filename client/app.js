@@ -30,10 +30,10 @@ angular.module('eiFrontend', [
       var redirectPath = '/login';
 
       // Check that user has access on every route change
-      $rootScope.$on('$routeChangeStart', function (event, next, current) {
+      $rootScope.$on('$routeChangeStart', function (event, next) {
         if (next.$$route && next.$$route.access) {
           // If page is public, skip auth credentials check
-          if (next.$$route.access.length != 0) {
+          if (next.$$route.access.length !== 0) {
             // User needs to be logged in at that point.
             // If user is not logged in, redirect to login
             if (!Auth.isLoggedIn()) {
@@ -53,12 +53,6 @@ angular.module('eiFrontend', [
               }
             }
           }
-        } else if (!next.$$route) {
-          // For some reason, redirect to / does not have $$route object with
-          // access parameter to hook into. Fortunately all other cases do have it in place.
-
-          // Separate case for /
-          // Just let redirect to /home pass and check credentials there
         } else if (!next.$$route.access) {
           console.error('Access parameter for ' + next.$$route.templateUrl + ' is not specified. Redirecting to /login.');
           $location.path(redirectPath);

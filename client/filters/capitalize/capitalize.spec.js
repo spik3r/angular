@@ -11,7 +11,7 @@ describe('capitalize filter', function () {
   }));
 
   it('should exist', function () {
-    expect(1).toBe(1);
+    expect(capitalize).not.toBe(undefined);
   });
 
   it('should capitalize first letter of every word in the string without parameter', function () {

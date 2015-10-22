@@ -26,6 +26,8 @@ module.exports = function (config) {
     }).concat([
       'client/bower_components/angular-mocks/angular-mocks.js',
       'client/app.js',
+      'client/index.controller.js',
+      'client/index.spec.js',
       'client/views/**/*.js',
       'client/services/**/*.js',
       'client/directives/**/*.js',

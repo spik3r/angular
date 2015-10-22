@@ -38,14 +38,14 @@ angular.module('eiFrontend')
        * */
       function addAuthHeader(username, password) {
         var authdata = Base64.encode(username + ':' + password);
-        $http.defaults.headers.common['Authorisation'] = 'Basic ' + authdata;
+        $http.defaults.headers.common.Authorisation = 'Basic ' + authdata;
       }
 
       /**
        * Remove Authorisation header from $http
        * */
       function removeAuthHeader() {
-        $http.defaults.headers.common['Authorisation'] = 'Basic ';
+        $http.defaults.headers.common.Authorisation = 'Basic ';
       }
 
       /** Store user object in session cookie **/
@@ -139,9 +139,10 @@ angular.module('eiFrontend')
         removeSessionCookie();
 
         loggedIn = false;
+        currentUser = {};
 
         callback();
-        $window.location.href = '/login'
+        $window.location.href = '/login';
       };
 
       /**
@@ -197,5 +198,5 @@ angular.module('eiFrontend')
         login: login,
         logout: logout,
         match: match
-      }
+      };
     }]);

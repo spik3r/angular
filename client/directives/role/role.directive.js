@@ -24,14 +24,12 @@ angular.module('eiFrontend')
               }
             }
           }
-        } else if (attributes.role.length == 0) {
+        } else if (attributes.role.length === 0) {
           // Let configuration with an empty string pass
           found = true;
         }
 
-        if (found) {
-          // Do nothing
-        } else {
+        if (!found) {
           element.remove();
         }
       }

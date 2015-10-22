@@ -31,5 +31,5 @@ angular.module('eiFrontend')
         } else {
           ctrl.error = "Required fields are empty";
         }
-      }
+      };
     }]);

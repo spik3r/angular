@@ -8,7 +8,7 @@ angular.module('eiFrontend')
         menu: '='
       },
       templateUrl: 'directives/sidenav/sidenav.html',
-      link: function (scope, element) {
+      link: function (scope) {
         // Filter menu based on user permissions
         scope.filteredMenu = [];
         for (var i = 0; i < scope.menu.length; i++) {
@@ -19,7 +19,7 @@ angular.module('eiFrontend')
 
               for (var j = 0; j < scope.menu[i].dropdown.length; j++) {
                 if (Auth.match(scope.menu[i].dropdown[j].role)) {
-                  tempDropdown.push(scope.menu[i].dropdown[j])
+                  tempDropdown.push(scope.menu[i].dropdown[j]);
                 }
               }
 
@@ -42,19 +42,19 @@ angular.module('eiFrontend')
         scope.user = Auth.user;
 
         // When route is changed, update current route
-        scope.$on("$routeChangeSuccess", function (event, route) {
+        scope.$on('$routeChangeSuccess', function (event, route) {
           scope.currentRoute = route.$$route.originalPath;
         });
 
         // When tab is clicked, redirect to that tab
-        scope.$on("activateTab", function (event, tab) {
+        scope.$on('activateTab', function (event, tab) {
           // Create redirect path from the tab name
-          Log.say('sidenav', "Redirect to: " + tab.path);
+          Log.say('sidenav', 'Redirect to: ' + tab.path);
 
           $timeout(function () {
             $location.path(tab.path);
             // Broadcast that tab has changed, so children can update their styles
-            scope.$broadcast("activateTabSuccess", tab);
+            scope.$broadcast('activateTabSuccess', tab);
           }, 100);
         });
 

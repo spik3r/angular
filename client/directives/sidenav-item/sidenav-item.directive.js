@@ -11,13 +11,12 @@ angular.module('eiFrontend')
         route: '='
       },
       link: function (scope, element) {
-
-
         scope.active = false;
 
+        var dropdown;
         // If object has dropdown, create link to it
         if (scope.object.dropdown) {
-          var dropdown = element.find('.dropdown');
+          dropdown = element.find('.dropdown');
         }
 
         // If current path is equal to this tabs path, mark it as active
@@ -43,8 +42,7 @@ angular.module('eiFrontend')
           scope.active = false;
         }
 
-
-        element.find('.menu-item-container').on('click', function (event) {
+        element.find('.menu-item-container').on('click', function () {
           // When tab is clicked
           if (scope.active) {
             // If submenu is active, trigger route change to the root
@@ -74,7 +72,7 @@ angular.module('eiFrontend')
         };
 
         // If activated event received, check active styles
-        scope.$on("activateTabSuccess", function (event, tab) {
+        scope.$on('activateTabSuccess', function (event, tab) {
           if (scope.object.path.split('/')[1] === tab.path.split('/')[1]) {
             // If this tab was activated, update active status
             scope.active = true;

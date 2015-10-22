@@ -10,25 +10,25 @@ angular.module('eiFrontend')
     $scope.menu = [
       {
         name: 'dashboard',
-        fullName: "Dashboard",
+        fullName: 'Dashboard',
         path: '/dashboard',
         role: 'admin, brand, label, artist, user',
         dropdown: [
           {
             name: 'label',
-            fullName: "Artists",
+            fullName: 'Artists',
             path: '/dashboard/artist',
             role: 'label'
           },
           {
             name: 'track',
-            fullName: "Tracks",
+            fullName: 'Tracks',
             path: '/dashboard/track',
             role: 'label, artist'
           },
           {
             name: 'listener',
-            fullName: "Listeners",
+            fullName: 'Listeners',
             path: '/dashboard/listener',
             role: 'label, artist'
           }
@@ -48,7 +48,7 @@ angular.module('eiFrontend')
       },
       {
         name: 'channel',
-        fullName: "Brand Channel",
+        fullName: 'Brand Channel',
         path: '/channel',
         role: 'brand',
         dropdown: [
