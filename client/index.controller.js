@@ -15,26 +15,41 @@ angular.module('eiFrontend')
         dropdown: [
           {
             name: 'label',
-            fullName: "Label Insigts",
-            path: '/dashboard/label'
+            fullName: "Artists",
+            path: '/dashboard/label',
+            role: 'label'
           },
           {
             name: 'track',
-            fullName: "Track Insigts",
-            path: '/dashboard/track'
+            fullName: "Tracks",
+            path: '/dashboard/track',
+            role: 'label, artist'
           },
           {
             name: 'listener',
-            fullName: "Listener Insigts",
+            fullName: "Listeners",
             path: '/dashboard/listener',
-            role: 'user'
+            role: 'label, artist'
           }
         ]
+      },
+      {
+        name: 'users',
+        fullName: 'Users & Brands',
+        path: '/users',
+        role: 'admin'
+      },
+      {
+        name: 'approvals',
+        fullName: 'Approval Requests',
+        path: '/approvals',
+        role: 'admin'
       },
       {
         name: 'channel',
         fullName: "Brand Channel",
         path: '/channel',
+        role: 'brand',
         dropdown: [
           {
             name: 'profile',
@@ -56,18 +71,21 @@ angular.module('eiFrontend')
       {
         name: 'export',
         fullName: 'Export Data',
-        path: '/export'
+        path: '/export',
+        // TODO Figure out if this menu item is needed or not
+        role: 'none'
       },
       {
         name: 'billing',
         fullName: 'Billing',
-        path: '/billing'
+        path: '/billing',
+        role: 'brand'
       },
       {
         name: 'settings',
         fullName: 'Settings',
         path: '/settings',
-        role: 'user'
+        role: 'user, admin'
       }
     ];
   });

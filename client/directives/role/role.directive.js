@@ -32,7 +32,7 @@ angular.module('eiFrontend')
         if (found) {
           // Do nothing
         } else {
-          element.hide();
+          element.remove();
         }
       }
     };

@@ -12,6 +12,7 @@ angular.module('eiFrontend')
       },
       link: function (scope, element) {
 
+
         scope.active = false;
 
         // If object has dropdown, create link to it
@@ -90,7 +91,7 @@ angular.module('eiFrontend')
               dropdown.hide(300);
             }
           }
-        })
+        });
       }
     };
   });
