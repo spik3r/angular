@@ -50,7 +50,7 @@ function testClient (done) {
   log('Running client tests...', { padding: true });
 
   karma.start({
-    configFile: __dirname + '/../karma.conf.js'
+    configFile: __dirname + '/../karma.config.js'
   }, done);
 }
 
@@ -66,11 +66,12 @@ exports.test = function (done) {
     });
   } else if (arg === false) {
     return testClient(function (code) {
-      if (code) { return done(code); }
-      testServer(function (code) {
-        done(code);
-        process.exit(code);
-      });
+      //if (code) { return done(code); }
+      //
+      //testServer(function (code) {
+      //  done(code);
+      //  process.exit(code);
+      //});
     });
   } else {
     console.log('Wrong parameter [%s], availables : --client, --server', arg);
