@@ -13,6 +13,15 @@
     <h1>Dashboard</h1>
     <br>
 
+    <div class="col-md-12" ng-if="ctrl.redshift">
+      Sample test string from Redshift: {{ctrl.redshift}}
+    </div>
+
+    <div class="col-md-12" ng-if="!ctrl.redshiftString">
+      No string yet.
+    </div>
+
+
     <div class="col-md-12" id="sampleGraph">
 
     </div>
