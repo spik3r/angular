@@ -8,21 +8,19 @@
 
 # Install project
 
-** First of all, install bower and gulp if you dont have it already on your machine
+** First of all, install bower and gulp if you dont have it already on your machine **
 
     npm install gulp -g 
     npm install bower -g
     
-** Install necessary node modules
+** Install necessary node modules **
 
     [sudo] npm install
     
 
-** Install necessary bower libraries
+** Install necessary bower libraries **
 
     bower install
-    
-    Upd
 
 # Manage project
 
