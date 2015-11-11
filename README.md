@@ -146,3 +146,14 @@ You need to have `ngAnimate` as dependency.
 **Resource**: If you want to scaffold a basic `$resource` for this route (only with ngResource).
 
 The **name** parameter is required. A **name** folder will be created at `server/api/`.
+
+# Protractor
+    
+  ## Install selenium
+    npm install selenium-standalone@latest -g
+    selenium-standalone install
+  ## How to Run e2e tests
+    open 3 terminals
+    *1* gulp - starts web server
+    *2* selenium-standalone start - starts selenium
+    *3* gulp e2e - starts end-to-end tests
