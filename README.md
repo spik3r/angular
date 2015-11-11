@@ -87,7 +87,7 @@ The **name** parameter is required. This will create in `client/views/`:
     ├ name.js
     ├ name.controller.js
     ├ name.spec.js
-    ├ name.e2e.js
+    ├ name.spec.js
     └ name.html
 
 ## Service
