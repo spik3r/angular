@@ -164,6 +164,6 @@ The **name** parameter is required. A **name** folder will be created at `server
 
 	selenium-standalone start
 
-**3. Start end-to-end tests**
+**3. Start e2e tests**
 
 	gulp e2e
