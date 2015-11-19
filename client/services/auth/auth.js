@@ -30,7 +30,6 @@ angular.module('eiFrontend')
         }
       }());
 
-      // Declare private functions
       /**
        * Encode 'username:password' string into Base64 and attach to
        * the Authorisation header in the form ->
