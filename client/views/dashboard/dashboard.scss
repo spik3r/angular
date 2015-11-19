@@ -1,5 +1,4 @@
 #dashboard-container {
-  height: 100%;
   background: white;
 }
 
@@ -27,3 +26,33 @@
   display: none;
 }
 
+// WIDGETS
+.wrapper {
+  margin: 20px;
+  border: 1px solid #eee;
+}
+
+.dummy {
+  height: 100px;
+  background: lightgray;
+  margin: 10px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.dummy.graph {
+  height: 200px;
+  padding-top: 80px;
+}
+
+.label-line {
+  margin-bottom: -33px;
+}
+
+.label-line > span {
+  position: relative;
+  top: -33px;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: -33px;
+}

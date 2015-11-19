@@ -3,6 +3,12 @@
 angular.module('eiFrontend')
   .service('Redshift', function ($resource) {
 
-    return $resource('http://localhost:8080/api/rest/test');
+    var actions = {
+      'test': {
+        method: 'GET',
+        isArray: false
+      }
+    };
 
+    return $resource('http://localhost:8080/api/rest/test', {}, actions);
   });

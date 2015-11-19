@@ -1,5 +1,27 @@
 # Angular-seed [![Generated with](https://img.shields.io/badge/generated%20with-bangular-blue.svg?style=flat-square)](https://github.com/42Zavattas/generator-bangular)
 
+# Requirements: 
+
+- Node.JS v.0.12.x
+- Gulp and Bower
+
+
+# Install project
+
+** First of all, install bower and gulp if you dont have it already on your machine **
+
+    npm install gulp -g 
+    npm install bower -g
+    
+** Install necessary node modules **
+
+    [sudo] npm install
+    
+
+** Install necessary bower libraries **
+
+    bower install
+
 # Manage project
 
     gulp
@@ -87,7 +109,7 @@ The **name** parameter is required. This will create in `client/views/`:
     ├ name.js
     ├ name.controller.js
     ├ name.spec.js
-    ├ name.spec.js
+    ├ name.e2e.js
     └ name.html
 
 ## Service
@@ -124,3 +146,14 @@ You need to have `ngAnimate` as dependency.
 **Resource**: If you want to scaffold a basic `$resource` for this route (only with ngResource).
 
 The **name** parameter is required. A **name** folder will be created at `server/api/`.
+
+# Protractor
+    
+  ## Install selenium
+    npm install selenium-standalone@latest -g
+    selenium-standalone install
+  ## How to Run e2e tests
+    open 3 terminals
+    *1* gulp - starts web server
+    *2* selenium-standalone start - starts selenium
+    *3* gulp e2e - starts end-to-end tests

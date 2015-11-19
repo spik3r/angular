@@ -11,19 +11,106 @@
 
   <div id="dashboard-content" class="row text-center">
     <h1>Dashboard</h1>
-    <br>
+  </div>
 
-    <div class="col-md-12" ng-if="ctrl.redshift">
-      Sample test string from Redshift: {{ctrl.redshift}}
-    </div>
+  <div class="row">
+    <div class="wrapper">
+      <div class="label-line">
+        <hr>
+        <span> Performance Overview </span>
+      </div>
 
-    <div class="col-md-12" ng-if="!ctrl.redshiftString">
-      No string yet.
-    </div>
+      <div class="row">
+        <div class="col-sm-4" id="brand-engagement">
+          <div class="dummy">
+            Brand Engagement
+          </div>
+        </div>
+        <div class="col-sm-4" id="brand-interactions">
+          <div class="dummy">
+            Brand Interactions
+          </div>
+        </div>
+        <div class="col-sm-4" id="content-quality">
+          <div class="dummy">
+            Content Quality
+          </div>
+        </div>
+      </div>
 
+      <div class=" label-line">
+        <hr>
+        <span> User Behaviour </span>
+      </div>
 
-    <div class="col-md-12" id="sampleGraph">
-
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="dummy graph">
+            Graph
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="dummy graph">
+            Graph
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="dummy graph">
+            Graph
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="dummy graph">
+            Graph
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="label-line">
+        <hr>
+        <span> Follower Insights </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dummy"> Gender</div>
+      </div>
+      <div class="col-sm-6">
+        <div class="dummy"> State</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="label-line">
+        <hr>
+        <span> Trending Content </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="dummy graph"> Playlists</div>
+      </div>
+      <div class="col-sm-3">
+        <div class="dummy graph"> Content</div>
+      </div>
+      <div class="col-sm-3">
+        <div class="dummy graph"> Products</div>
+      </div>
+      <div class="col-sm-3">
+        <div class="dummy graph"> Milestones</div>
+      </div>
+    </div>
+    <br>
+  </div>
+
+
 </div>

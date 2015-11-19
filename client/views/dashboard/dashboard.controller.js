@@ -6,6 +6,8 @@ angular.module('eiFrontend')
     Sidenav.show();
     this.sidenav = Sidenav;
 
-    this.redshift = Redshift.get();
+    this.redshift = Redshift.test();
+    console.log(this.redshift);
+
     // Tableau.init('sampleGraph');
   });
