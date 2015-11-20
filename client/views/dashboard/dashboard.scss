@@ -27,6 +27,31 @@
 }
 
 // Followers Demographics
+#followers-count-container {
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+
+  #followers-count-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #followers-count {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 200;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: relative;
+    top: -10px;
+  };
+}
+
 #followers-age {
   height: 45px;
   margin-top: 10px;
