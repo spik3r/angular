@@ -1,116 +1,201 @@
 <div id="dashboard-container" class="sp-container">
 
-  <div id="dashboard-header" class="row">
-    <div class="menu-icon text-left" ng-if="!sidenav.displayed">
+    <div id="dashboard-header" class="row">
+        <div class="menu-icon text-left" ng-if="!sidenav.displayed">
       <span ng-click="sidenav.toggle()">
         <span class="glyphicon glyphicon-th-list" aria-hidden="true"> </span>
         <span class="menu-icon-text"> Menu </span>
       </span>
+        </div>
     </div>
-  </div>
 
-  <div id="dashboard-content" class="row text-center">
-    <h1>Dashboard</h1>
-  </div>
-
-  <div class="row">
-    <div class="wrapper">
-      <div class="label-line">
-        <hr>
-        <span> Performance Overview </span>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4" id="brand-engagement">
-          <div class="dummy">
-            Brand Engagement
-          </div>
-        </div>
-        <div class="col-sm-4" id="brand-interactions">
-          <div class="dummy">
-            Brand Interactions
-          </div>
-        </div>
-        <div class="col-sm-4" id="content-quality">
-          <div class="dummy">
-            Content Quality
-          </div>
-        </div>
-      </div>
-
-      <div class=" label-line">
-        <hr>
-        <span> User Behaviour </span>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="dummy graph">
-            Graph
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="dummy graph">
-            Graph
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="dummy graph">
-            Graph
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="dummy graph">
-            Graph
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="col-sm-12">
-      <div class="label-line">
-        <hr>
-        <span> Follower Insights </span>
-      </div>
+    <div id="dashboard-content" class="row text-center">
+        <h1>Dashboard</h1>
     </div>
 
     <div class="row">
-      <div class="col-sm-6">
-        <div class="dummy"> Gender</div>
-      </div>
-      <div class="col-sm-6">
-        <div class="dummy"> State</div>
-      </div>
-    </div>
-  </div>
+        <div class="wrapper">
+            <div class="label-line">
+                <hr>
+                <span> Performance Overview </span>
+            </div>
 
-  <div class="row">
+            <div class="row">
+                <div class="col-sm-4" id="brand-engagement">
+                    <div id="followers-count-container" class="lightgray">
+                        <span id="followers-count-label"> Followers </span>
+                        <span id="followers-count"> 18,590 </span>
+                    </div>
+                </div>
+                <div class="col-sm-4" id="brand-interactions">
+                    <div class="dummy">
+                        Brand Interactions
+                    </div>
+                </div>
+                <div class="col-sm-4" id="content-quality">
+                    <div class="dummy">
+                        Content Quality
+                    </div>
+                </div>
+            </div>
 
-    <div class="col-sm-12">
-      <div class="label-line">
-        <hr>
-        <span> Trending Content </span>
-      </div>
+            <div class=" label-line">
+                <hr>
+                <span> User Behaviour </span>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="dummy graph">
+                        Graph
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="dummy graph">
+                        Graph
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="dummy graph">
+                        Graph
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="dummy graph">
+                        Graph
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="row">
-      <div class="col-sm-3">
-        <div class="dummy graph"> Playlists</div>
-      </div>
-      <div class="col-sm-3">
-        <div class="dummy graph"> Content</div>
-      </div>
-      <div class="col-sm-3">
-        <div class="dummy graph"> Products</div>
-      </div>
-      <div class="col-sm-3">
-        <div class="dummy graph"> Milestones</div>
-      </div>
+
+        <div class="col-sm-12">
+            <div class="label-line">
+                <hr>
+                <span> Follower Insights </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 followers-demographics">
+
+                <div id="followers-gender" class="stretch lightgray">
+                    <div class="row">
+                        <div id="males-container" style="width: {{ctrl.gender.male.percentage + '%'}}">
+                            <span class="gender-label"> Males <span class="gender-percent">({{ctrl.gender.male.percentage + '%'}})</span>
+                            </span>
+                        </div>
+
+                        <div id="females-container" style="width: {{ctrl.gender.female.percentage + '%'}}">
+                            <span class="gender-label"> Females <span class="gender-percent">({{ctrl.gender.female.percentage + '%'}})</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="gender-line-container">
+                            <div id="male-line" style="width: {{ ctrl.gender.male.percentage + '%'}}"></div>
+                            <div id="female-line" style="width: {{ctrl.gender.female.percentage + '%'}}"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="followers-age" class="stretch lightgray">
+                        <div class="row">
+                            <div ng-if="ctrl.age.age13_17.percentage > 4" id="13-17-container"
+                                 class="age-label-container" style="width: {{ctrl.age.age13_17.percentage + '%'}}">
+                                <span class="age-label">
+                                    13-17
+                                </span>
+                            </div>
+
+                            <div ng-if="ctrl.age.age13_17.percentage > 4" id="18-24-container"
+                                 class="age-label-container" style="width: {{ctrl.age.age18_24.percentage + '%'}}">
+                                <span class="age-label">
+                                    18-24
+                                </span>
+                            </div>
+
+                            <div ng-if="ctrl.age.age13_17.percentage > 4" id="25-35-container"
+                                 class="age-label-container" style="width: {{ctrl.age.age25_35.percentage + '%'}}">
+                                <span class="age-label">
+                                    25-35
+                                </span>
+                            </div>
+
+                            <div ng-if="ctrl.age.age13_17.percentage > 4" id="35-45-container"
+                                 class="age-label-container" style="width: {{ctrl.age.age35_45.percentage + '%'}}">
+                                <span class="age-label">
+                                    35-45
+                                </span>
+                            </div>
+
+                            <div ng-if="ctrl.age.age13_17.percentage > 4" id="46-55-container"
+                                 class="age-label-container" style="width: {{ctrl.age.age46_55.percentage + '%'}}">
+                                <span class="age-label">
+                                    46-55
+                                </span>
+                            </div>
+
+                            <div ng-if="ctrl.age.age13_17.percentage > 4"
+                                 id="56-container"
+                                 class="age-label-container"
+                                 style="width: {{ctrl.age.age56.percentage + '%'}}">
+                                <span class="age-label">
+                                    56+
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div id="age-line-container">
+                                <div id="line-13-17" style="width: {{ ctrl.age.age13_17.percentage + '%'}}"></div>
+                                <div id="line-18-24" style="width: {{ ctrl.age.age18_24.percentage + '%'}}"></div>
+                                <div id="line-25-35" style="width: {{ ctrl.age.age25_35.percentage + '%'}}"></div>
+                                <div id="line-35-45" style="width: {{ ctrl.age.age35_45.percentage + '%'}}"></div>
+                                <div id="line-46-55" style="width: {{ ctrl.age.age46_55.percentage + '%'}}"></div>
+                                <div id="line-56-plus" style="width: {{ ctrl.age.age56.percentage + '%'}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="dummy"> State</div>
+            </div>
+        </div>
     </div>
-    <br>
-  </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="label-line">
+                <hr>
+                <span> Trending Content </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="dummy graph"> Playlists</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="dummy graph"> Content</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="dummy graph"> Products</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="dummy graph"> Milestones</div>
+            </div>
+        </div>
+        <br>
+    </div>
 
 
 </div>

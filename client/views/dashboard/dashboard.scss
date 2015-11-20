@@ -26,6 +26,126 @@
   display: none;
 }
 
+// Followers Demographics
+#followers-count-container {
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+
+  #followers-count-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #followers-count {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 200;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: relative;
+    top: -10px;
+  };
+}
+
+#followers-age {
+  height: 45px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#followers-gender {
+  height: 45px;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#males-container {
+  height: 13px;
+  float: left;
+  min-width: 20%;
+  max-width: 80%;
+}
+
+#females-container {
+  height: 13px;
+  float: right;
+  min-width: 20%;
+  max-width: 80%;
+}
+
+#males-container .gender-label, #females-container .gender-label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+#males-container .gender-label .gender-percent, #females-container .gender-label .gender-percent {
+  color: #bdbdbd;
+}
+
+#gender-line-container {
+  height: 8px;
+  width: 100%;
+  position: relative;
+  top: 10px;
+}
+
+#gender-line-container #male-line {
+  background: #e41034;
+  height: 9px;
+  float: left;
+}
+
+#gender-line-container #female-line {
+  background: #3c3c3c;
+  height: 9px;
+  float: right;
+  min-width: 10%;
+}
+
+#followers-age {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 3px;
+}
+
+.age-label-container {
+  float: left;
+  min-width: 5%;
+}
+
+.age-label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+#line-13-17,  #line-35-45 {
+  height: 9px;
+  background-color: #e41034;
+  float: left;
+}
+
+#line-25-35, #line-56-plus {
+  height: 9px;
+  background-color: #787878;
+  float: left;
+}
+
+#line-18-24, #line-46-55 {
+  height: 9px;
+  background-color: #3c3c3c;
+  float: left;
+}
+
 // WIDGETS
 .wrapper {
   margin: 20px;

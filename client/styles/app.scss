@@ -33,6 +33,16 @@ html {
 
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
 
+// Utility Classes
+.stretch {
+  width: 100%;
+}
+
+.lightgray {
+  background: #fafafa;
+}
+// Utility Classes end
+
 
 h1 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
