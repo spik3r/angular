@@ -1,21 +1,28 @@
-<div id="sidenav" class="sp-container">
-  <div class='sp-sidebar bloody-red'>
-    <div class='nav'>
-      <div id="user-area" class="text-center">
-        <div id="user-img">
-          <img src="http://placekitten.com/g/50/50">
+<div id="sidenav">
+
+    <div id="user-area">
+        <div id="profile-picture">
+            <img src="http://placekitten.com/g/50/50">
         </div>
 
-        <h4> {{user.role | capitalize:'first' }} </h4>
-        <h5> Kitten </h5>
-
-        <span class="mini-link"><a ng-href='/logout'>logout</a></span>
-        <span class="mini-link"><a ng-click="hide()">hide</a></span>
-      </div>
-
-      <ul>
-        <sidenav-item ng-repeat="item in menu" object="item" route="currentRoute"></sidenav-item>
-      </ul>
+        <span id="name"> Admin </span>
+        <span id="sub-name"> Kitten </span>
     </div>
-  </div>
+
+    <!--<div class='sp-sidebar'>-->
+    <!--<div class='nav'>-->
+      <!--<div class="text-center">-->
+        <!--<div id="user-img">-->
+
+        <!--</div>-->
+
+        <!--<h4> {{user.role | capitalize:'first' }} </h4>-->
+        <!--<h5> Kitten </h5>-->
+      <!--</div>-->
+
+      <!--<ul>-->
+        <!--<sidenav-item ng-repeat="item in menu" object="item" route="currentRoute"></sidenav-item>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>

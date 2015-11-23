@@ -1,146 +1,69 @@
-.sp-container .sp-sidebar {
+#sidenav {
   z-index: 10;
   position: fixed;
   height: 100%;
-  left: 240px;
-  margin-left: -240px;
-  width: 240px;
+  left: 200px;
+  margin-left: -200px;
+  width: 200px;
+
+  background-color: #ffffff;
+  border-right: 1px solid #c8c8c8;
+
   overflow: hidden;
   overflow-y: auto;
+
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
-}
 
-.sp-toggle-sidebar .sp-container .sp-sidebar {
-  width: 0;
-}
+  // Display account information
+  #user-area {
+    padding-bottom: 50px;
 
-#sidenav .nav {
-  height: 100%;
-}
+    border: 1px solid red;
 
-#sidenav .sp-sidebar .nav {
-  width: 240px;
-}
-#sidenav .sp-sidebar .nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#sidenav .sp-sidebar .nav ul li {
-  position: relative;
-  font-weight: 600;
-}
+    // Users profile pic
+    #profile-picture {
+      text-align: center;
 
-#sidenav .sp-sidebar .nav ul li.active .menu-item-container {
-  background: white;
-}
+      margin-top: 50px;
 
-#sidenav .sp-sidebar .nav ul li .menu-icon {
-  color: black;
-}
+      img {
+        border-radius: 50%;
+        width: 66px;
+        height: 66px;
+      }
+    }
 
-#sidenav .sp-sidebar .nav ul li.nav-label {
-  display: block;
-  margin: 12px 0 0;
-  color: #91a0ad;
-  font-size: 16px;
-  line-height: 1;
-}
+    // Account name
+    #name {
+      color: #3c3c3c;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
 
-#sidenav .sp-sidebar .nav ul li a {
-  font-weight: 200;
-  display: inline-block;
-  padding: 20px 25px;
-  color: white;
-  font-size: 16px;
-  line-height: 1;
-  text-decoration: none;
-  -webkit-transition: all 0.3s linear 0s;
-  -moz-transition: all 0.3s linear 0s;
-  -ms-transition: all 0.3s linear 0s;
-  -o-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-  cursor: pointer;
-}
+      display: block;
+      width: 100%;
+      height: 23px;
 
-#sidenav .sp-sidebar .nav ul li.active a {
-  color: black;
-}
+      margin-top: 10px;
+    }
 
-#sidenav .sp-sidebar .nav ul li.active a.active {
-  color: black;
-  font-weight: 400;
-}
+    // Account role
+    #sub-name {
+      color: #3c3c3c;
 
-#sidenav .sp-sidebar .nav ul li.active .submenu-item-container {
-  background: white;
-}
+      text-align: center;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 200;
 
-#sidenav .menu-item-container .menu-icon {
-  float: right;
-  margin-top: 19px;
-  margin-right: 10px;
-  height: 100%
-}
-
-
-.submenu .active {
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  display: block;
-}
-
-.sidenav-item .dropdown {
-  display: none;
-}
-
-.submenu-item a {
-  position: relative;
-  left: 10px;
-}
-
-// User Area
-#sidenav #user-area {
-  height: 30%;
-  padding: 20px;
-  overflow: hidden;
-  min-height: 130px;
-}
-
-#sidenav #user-area #user-img img {
-  border-radius: 50%;
-  display: none;
-}
-
-@media (min-height: 550px) {
-  #sidenav #user-area #user-img img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: inline;
-    margin-top: 20px;
+      display:block;
+      width: 100%;
+    }
   }
 }
 
-@media (min-height: 650px) {
-  #sidenav #user-area #user-img img {
-    border-radius: 50%;
-    width: 66px;
-    height: 66px;
-    display: inline;
-  }
-}
-
-#sidenav #user-area .mini-link {
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-}
 
