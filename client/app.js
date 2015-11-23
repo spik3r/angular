@@ -18,7 +18,7 @@ angular.module('eiFrontend', [
 
     $routeProvider
       .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/dashboard'
       });
 
     $locationProvider.html5Mode(true);
