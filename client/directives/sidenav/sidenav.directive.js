@@ -10,7 +10,6 @@ angular.module('eiFrontend')
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
 
-                var currentRoute;
                 // Get current route and activate relevant link;
                 var currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
@@ -48,9 +47,10 @@ angular.module('eiFrontend')
                     toggle();
                 });
 
-                $(document).bind('tap', function (event) {
-                    toggle();
+                $(document).bind('touchstart', function (event) {
+                   toggle();
                 });
+
 
                 function toggle() {
                     if(element.find(event.target).length > 0) {
