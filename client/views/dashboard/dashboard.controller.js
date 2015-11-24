@@ -6,9 +6,6 @@ angular.module('eiFrontend')
         Sidenav.show();
         this.sidenav = Sidenav;
 
-        this.redshift = Redshift.test();
-        console.log(this.redshift);
-
         this.gender = {
             female: {
                 percentage: 50

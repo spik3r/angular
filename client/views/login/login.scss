@@ -1,87 +1,95 @@
-//Login Header
-#login-header {
-  padding-top: 200px;
-  padding-bottom: 20px;
-}
-#login-header > h1 {
-  font-size: 30px;
-}
-#login-header span {
-  position: relative;
-  top: 3px;
-}
-//Login Header End
-
-//Login Form
-#login-form-container {
-  text-align: center;
-}
-
-#login-form-container .input-container input {
-  color: black;
-  background: white;
-
-  outline: none;
-  text-align: center;
-
-  width: 260px;
-  height: 60px;
-  border: none;
-  border-bottom: 2px solid black;
-}
-
-#login-form-container .input-container input.warning {
-  border-bottom: 3px solid #f0e442;
-}
-
-#login-button {
-  background: white;
-  color: #a9a9a9;
-  width: 93px;
-  height: 30px;
-  font-size: 14px;
-
-  border: 1px solid #a9a9a9;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-#login-button:hover, #login-button.active {
-  color: black;
-  border-color: gray;
-}
-
-#login-button:active {
-  background: #f5f5f5;
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .username-container {
-    text-align: right;
-  }
-  .password-container {
-    text-align: left;
-  }
-}
-
-// Login Form End
-
-// Login Footer
-#login-footer {
-  position: fixed;
-  bottom: 0;
+#login-container {
+  height: 100%;
   width: 100%;
-  padding: 10px 10px;
-}
-#login-footer > #guvera-link {
-  float: left;
-  text-decoration: underline;
-}
-#login-footer > #support-link {
-  float: right;
-  text-decoration: underline
+  background: #e41034;
+
+  //Login Header
+  #login-header {
+    padding-top: 200px;
+    padding-bottom: 20px;
+  }
+  #login-header > h1 {
+    font-size: 30px;
+  }
+  #login-header span {
+    position: relative;
+    top: 3px;
+  }
+  //Login Header End
+
+  //Login Form
+  #login-form-container {
+    text-align: center;
+  }
+
+  #login-form-container .input-container input {
+    color: black;
+    background: white;
+
+    outline: none;
+    text-align: center;
+
+    width: 260px;
+    height: 60px;
+    border: none;
+    border-bottom: 2px solid black;
+  }
+
+  #login-form-container .input-container input.warning {
+    border-bottom: 3px solid #f0e442;
+  }
+
+  #login-button {
+    background: white;
+    color: #a9a9a9;
+    width: 93px;
+    height: 30px;
+    font-size: 14px;
+
+    border: 1px solid #a9a9a9;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  #login-button:hover, #login-button.active {
+    color: black;
+    border-color: gray;
+  }
+
+  #login-button:active {
+    background: #f5f5f5;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .username-container {
+      text-align: right;
+    }
+    .password-container {
+      text-align: left;
+    }
+  }
+
+  // Login Form End
+
+  // Login Footer
+  #login-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 10px;
+  }
+  #login-footer > #guvera-link {
+    float: left;
+    text-decoration: underline;
+  }
+  #login-footer > #support-link {
+    float: right;
+    text-decoration: underline
+  }
+
+  // Login Footer End
 }
 
-// Login Footer End
+

@@ -11,22 +11,14 @@ angular.module('eiFrontend')
             link: function (scope, element) {
 
                 var currentRoute;
-                (function activateCurrentRoute() {
-                    // Get current route and activate relevant link;
-                    var currentRoute = $route.current.$$route.originalPath.split("/")[1];
+                // Get current route and activate relevant link;
+                var currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
-                    element.find("#menu-" + currentRoute).addClass("active");
-
-                    scope.navigateTo = function (element) {
-                        console.log(element);
-                    };
-                })();
-
+                element.find("#menu-" + currentRoute).addClass("active");
 
                 var target;
                 var path;
                 element.find('.menu-item').on('click', function (event) {
-
                     target = event.currentTarget.id;
                     // Remove active status from every tab
                     element.find(".menu-item").removeClass('active');
@@ -36,25 +28,35 @@ angular.module('eiFrontend')
 
                     path = '/' + target.split('-')[1];
 
+                    element.find("#sidenav").addClass("untoggled");
+                    element.find("#sidenav-toggle").addClass("toggled");
+                    event.stopPropagation();
+
                     if (path == "/dashboard" || path == "/logout" || path == "/settings") {
+
                         $timeout(function () {
 
                             Log.say('sidenav', 'Redirect to: ' + path);
                             $location.path(path);
+
                         }, 50);
                     }
                 });
 
-                //// When route is changed, update current route
-                //scope.$on('$routeChangeSuccess', function (event, route) {
-                //    scope.currentRoute = route.$$route.originalPath;
-                //});
-                //
-                //// When tab is clicked, redirect to that tab
-                //scope.$on('activateTab', function (event, tab) {
-                //    // Create redirect path from the tab name
-                //
-                //});
+
+                $(document).bind('click', function (event) {
+
+                    if(element.find(event.target).length > 0) {
+                        console.log('clicked inside');
+                        element.find("#sidenav").removeClass("untoggled");
+                        element.find("#sidenav-toggle").removeClass("toggled");
+                    } else {
+                        console.log('clicked outside');
+                        element.find("#sidenav").addClass("untoggled");
+                        element.find("#sidenav-toggle").addClass("toggled");
+                    }
+                });
+
 
             }
         };

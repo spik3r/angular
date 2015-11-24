@@ -1,46 +1,50 @@
-<header id="login-header">
-  <h1>
-    <img ng-src="./assets/guvera-logo.png" alt="Guvera">
-    <span>/BRANDS</span>
-  </h1>
-</header>
+<div id="login-container">
+    <header id="login-header">
+        <h1>
+            <img ng-src="./assets/guvera-logo.png" alt="Guvera">
+            <span>/BRANDS</span>
+        </h1>
+    </header>
 
-<form id="login-form" name="loginForm" ng-submit="ctrl.login(loginForm)">
+    <form id="login-form" name="loginForm" ng-submit="ctrl.login(loginForm)">
 
-  <div id="login-form-container" class="row">
+        <div id="login-form-container" class="row">
 
-    <div class="col-md-6">
-      <div class="input-container username-container">
-        <input name="username" ng-model="ctrl.login.username"
-               ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
-               type="text" id="Username" required="required" placeholder="Username"
-               onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" maxlength="100"/>
+            <div class="col-md-6">
+                <div class="input-container username-container">
+                    <input name="username" ng-model="ctrl.login.username"
+                           ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
+                           type="text" id="Username" required="required" placeholder="Username"
+                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" maxlength="100"/>
 
-        <div class="bar"></div>
-      </div>
-    </div>
+                    <div class="bar"></div>
+                </div>
+            </div>
 
-    <div class="col-md-6">
-      <div class="input-container password-container">
-        <input name="password"
-               ng-model="ctrl.login.password" ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
-               type="password" id="Password" required="required" placeholder="Password"
-               onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" maxlength="20"/>
+            <div class="col-md-6">
+                <div class="input-container password-container">
+                    <input name="password"
+                           ng-model="ctrl.login.password" ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
+                           type="password" id="Password" required="required" placeholder="Password"
+                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" maxlength="20"/>
 
-        <div class="bar"></div>
-      </div>
-    </div>
-  </div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
 
-  <div id="login-buttons" class="row text-center">
-    <button id="login-button" ng-class="{'active': loginForm.$valid}" type="submit"> Login</button>
-  </div>
-</form>
+        <div id="login-buttons" class="row text-center">
+            <button id="login-button" ng-class="{'active': loginForm.$valid}" type="submit"> Login</button>
+        </div>
+    </form>
 
 
-<footer id="login-footer">
-  <span id="guvera-link"><a href="http://guvera.com">guvera.com</a></span>
-  <span id="support-link"><a href="http://guvera.com/">Contact Support</a></span>
-</footer>
+    <footer id="login-footer">
+        <span id="guvera-link"><a href="http://guvera.com">guvera.com</a></span>
+        <span id="support-link"><a href="http://guvera.com/">Contact Support</a></span>
+    </footer>
+</div>
+
+
 
 
