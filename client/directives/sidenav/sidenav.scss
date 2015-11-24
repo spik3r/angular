@@ -1,3 +1,12 @@
+#sidenav-toggle {
+  display: none;
+  cursor: pointer;
+
+  path {
+    cursor: pointer;
+  }
+}
+
 #sidenav {
   z-index: 10;
   position: fixed;
@@ -80,12 +89,26 @@
     }
   }
 
+  @media (max-width: 768px) {
+    #user-area {
+
+      #name {
+        display: none;
+      }
+
+      #sub-name {
+        display: none;
+      }
+    }
+  }
+
+
   // Navigation Menu
   #menu {
 
     .menu-item {
       height: 50px;
-      color: black;
+      color: #3c3c3c;
 
       .active-line {
         background: #ffffff;
@@ -98,8 +121,12 @@
         height: 16px;
         width: 16px;
         float: left;
-        margin-left: 22px;
-        margin-top: 14px;
+        margin-left: 19px;
+        margin-top: 15px;
+
+        path {
+          fill: #3c3c3c;
+        }
       }
 
       .menu-item-name {
@@ -169,6 +196,86 @@
 
     }
   }
+
+
+
+}
+
+@media (max-width: 768px) {
+
+  #sidenav.untoggled {
+    left: 60px;
+    margin-left: -60px;
+    width: 60px;
+
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+
+    #user-area {
+      #profile-picture img {
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    #menu {
+      .menu-item.active {
+        background: #e41034;
+
+        .menu-item-icon {
+          path {
+            fill: white !important;
+          }
+        }
+      }
+
+      .menu-item-icon {
+        margin-left: 19px;
+        margin-top: 15px;
+      }
+
+      @media (max-width: 768px) {
+        .menu-item-name {
+          display: none !important;
+        }
+      }
+
+      #brand-channel-section {
+        .section-name {
+          display: none;
+        }
+      }
+
+      hr {
+        margin-left: 0;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 500px) {
+  #sidenav.untoggled {
+    display: none;
+
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+  }
+
+  #sidenav-toggle.toggled {
+    display: block;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 100;
+  }
+
 }
 
 
