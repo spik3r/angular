@@ -11,9 +11,9 @@ angular.module('eiFrontend')
             link: function (scope, element) {
 
                 // Get current route and activate relevant link;
-                var currentRoute = $route.current.$$route.originalPath.split("/")[1];
+                scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
-                element.find("#menu-" + currentRoute).addClass("active");
+                element.find("#menu-" + scope.currentRoute).addClass("active");
 
                 var target;
                 var path;
@@ -38,6 +38,9 @@ angular.module('eiFrontend')
                             Log.say('sidenav', 'Redirect to: ' + path);
                             $location.path(path);
 
+                            scope.currentRoute = path.split("/")[1];
+                            scope.$digest();
+
                         }, 50);
                     }
                 });
@@ -54,11 +57,9 @@ angular.module('eiFrontend')
 
                 function toggle() {
                     if(element.find(event.target).length > 0) {
-                        console.log('clicked inside');
                         element.find("#sidenav").removeClass("untoggled");
                         element.find("#sidenav-toggle").removeClass("toggled");
                     } else {
-                        console.log('clicked outside');
                         element.find("#sidenav").addClass("untoggled");
                         element.find("#sidenav-toggle").addClass("toggled");
                     }
