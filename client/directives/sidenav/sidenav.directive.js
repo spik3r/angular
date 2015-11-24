@@ -20,7 +20,6 @@ angular.module('eiFrontend')
                     console.log(element);
                 };
 
-
                 var target;
                 var path;
                 element.find('.menu-item').on('click', function (event) {
