@@ -45,7 +45,14 @@ angular.module('eiFrontend')
 
 
                 $(document).bind('click', function (event) {
+                    toggle();
+                });
 
+                $(document).bind('tap', function (event) {
+                    toggle();
+                });
+
+                function toggle() {
                     if(element.find(event.target).length > 0) {
                         console.log('clicked inside');
                         element.find("#sidenav").removeClass("untoggled");
@@ -55,8 +62,7 @@ angular.module('eiFrontend')
                         element.find("#sidenav").addClass("untoggled");
                         element.find("#sidenav-toggle").addClass("toggled");
                     }
-                });
-
+                }
 
             }
         };
