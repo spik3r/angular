@@ -42,6 +42,7 @@
       font-size: 16px;
       font-weight: 600;
       text-align: center;
+      letter-spacing: 0.2px;
 
       display: block;
       width: 100%;
@@ -57,15 +58,22 @@
       text-align: center;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 200;
+      font-size: 12px;
 
       display: block;
       width: 100%;
     }
   }
+  //
+  //@media (max-height: 600px) {
+  //  #user-area {
+  //
+  //  }
+  //}
 
   // Navigation Menu
   #menu {
-
+    
     .menu-item {
       height: 50px;
       color: black;
@@ -87,12 +95,13 @@
 
       .menu-item-name {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
         font-weight: 200;
         display: block;
         margin-left: 12px;
         float: left;
         position: relative;
-        top: 12px;
+        top: 14px;
       }
     }
 

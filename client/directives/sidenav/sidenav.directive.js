@@ -11,16 +11,14 @@ angular.module('eiFrontend')
             link: function (scope, element) {
 
                 var currentRoute;
-                (function activateCurrentRoute() {
-                    // Get current route and activate relevant link;
-                    var currentRoute = $route.current.$$route.originalPath.split("/")[1];
+                // Get current route and activate relevant link;
+                var currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
-                    element.find("#menu-" + currentRoute).addClass("active");
+                element.find("#menu-" + currentRoute).addClass("active");
 
-                    scope.navigateTo = function (element) {
-                        console.log(element);
-                    };
-                })();
+                scope.navigateTo = function (element) {
+                    console.log(element);
+                };
 
 
                 var target;
