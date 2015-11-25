@@ -166,6 +166,11 @@
           fill: #e41034;
         }
       }
+
+      .menu-item-name {
+        font-weight: bold;
+        color: #e41034;
+      }
     }
 
     hr {
@@ -271,9 +276,18 @@
   #sidenav-toggle.toggled {
     display: block;
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    top: 10px;
     z-index: 100;
+    text-align: center;
+    padding-top: 20px;
+
+    width: 60px;
+    height: 60px;
+    background: #e41034;
+
+    path {
+      fill: #ffffff;
+    }
   }
 
 }

@@ -1,5 +1,6 @@
 <div id="sidenav-toggle" class="toggled">
-    <img src="/assets/icons/menu.png"/>
+    <ng-include ng-if="currentRoute == 'dashboard'" src="'assets/icons/dashboard.svg'"></ng-include>
+    <ng-include ng-if="currentRoute == 'settings'" src="'assets/icons/cog.svg'"></ng-include>
 </div>
 
 <div id="sidenav" class="untoggled">
