@@ -1,19 +1,16 @@
-#sidenav-toggle {
-  display: none;
-  cursor: pointer;
+#sidenav-header {
+  border: 1px solid red;
+  background: red;
+  color: white;
+  text-align: center;
 
-  path {
-    cursor: pointer;
-  }
+  float: left;
 }
 
 #sidenav {
   z-index: 10;
-  position: fixed;
   height: 100%;
-  left: 200px;
-  margin-left: -200px;
-  width: 200px;
+  float: left;
 
   background-color: #ffffff;
   border-right: 1px solid #c8c8c8;
@@ -21,21 +18,14 @@
   overflow: hidden;
   overflow-y: auto;
 
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-
   // Display account information
   #user-area {
     padding-bottom: 50px;
+    padding-top: 50px;
 
     // Users profile pic
     #profile-picture {
       text-align: center;
-
-      margin-top: 50px;
 
       img {
         border-radius: 50%;
@@ -73,35 +63,6 @@
       width: 100%;
     }
   }
-  //
-  @media (max-height: 700px) {
-    #user-area {
-      padding-bottom: 20px;
-
-      #profile-picture {
-        margin-top: 20px;
-
-        img {
-          width: 50px;
-          height: 50px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    #user-area {
-
-      #name {
-        display: none;
-      }
-
-      #sub-name {
-        display: none;
-      }
-    }
-  }
-
 
   // Navigation Menu
   #menu {
@@ -149,12 +110,6 @@
         height: 50px;
         width: 4px;
         float: left;
-
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s;
       }
     }
 
@@ -201,95 +156,95 @@
 
     }
   }
-
-
-
 }
 
-@media (max-width: 768px) {
+// Mobile menu
 
-  #sidenav.untoggled {
-    left: 60px;
-    margin-left: -60px;
-    width: 60px;
 
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
-
-    #user-area {
-      #profile-picture img {
-        height: 50px;
-        width: 50px;
-      }
-    }
-
-    #menu {
-      .menu-item.active {
-        background: #e41034;
-
-        .menu-item-icon {
-          path {
-            fill: white !important;
-          }
-        }
-      }
-
-      .menu-item-icon {
-        margin-left: 19px;
-        margin-top: 15px;
-      }
-
-      @media (max-width: 768px) {
-        .menu-item-name {
-          display: none !important;
-        }
-      }
-
-      #brand-channel-section {
-        .section-name {
-          display: none;
-        }
-      }
-
-      hr {
-        margin-left: 0;
-      }
-    }
-  }
-
-}
-
-@media (max-width: 500px) {
-  #sidenav.untoggled {
-    display: none;
-
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
-  }
-
-  #sidenav-toggle.toggled {
-    display: block;
-    position: fixed;
-    top: 10px;
-    z-index: 100;
-    text-align: center;
-    padding-top: 20px;
-
-    width: 60px;
-    height: 60px;
-    background: #e41034;
-
-    path {
-      fill: #ffffff;
-    }
-  }
-
-}
+//@media (max-width: 768px) {
+//
+//  #sidenav {
+//    left: 60px;
+//    margin-left: -60px;
+//    width: 60px;
+//
+//    -webkit-transition: all 0.5s ease 0s;
+//    -moz-transition: all 0.5s ease 0s;
+//    -ms-transition: all 0.5s ease 0s;
+//    -o-transition: all 0.5s ease 0s;
+//    transition: all 0.5s ease 0s;
+//
+//    #user-area {
+//      #profile-picture img {
+//        height: 50px;
+//        width: 50px;
+//      }
+//    }
+//
+//    #menu {
+//      .menu-item.active {
+//        background: #e41034;
+//
+//        .menu-item-icon {
+//          path {
+//            fill: white !important;
+//          }
+//        }
+//      }
+//
+//      .menu-item-icon {
+//        margin-left: 19px;
+//        margin-top: 15px;
+//      }
+//
+//      @media (max-width: 768px) {
+//        .menu-item-name {
+//          display: none !important;
+//        }
+//      }
+//
+//      #brand-channel-section {
+//        .section-name {
+//          display: none;
+//        }
+//      }
+//
+//      hr {
+//        margin-left: 0;
+//      }
+//    }
+//  }
+//
+//}
+//
+//@media (max-width: 500px) {
+//  #sidenav.untoggled {
+//    display: none;
+//
+//    -webkit-transition: all 0.5s ease 0s;
+//    -moz-transition: all 0.5s ease 0s;
+//    -ms-transition: all 0.5s ease 0s;
+//    -o-transition: all 0.5s ease 0s;
+//    transition: all 0.5s ease 0s;
+//  }
+//
+//  #sidenav-toggle.toggled {
+//    display: block;
+//    position: fixed;
+//    top: 10px;
+//    z-index: 100;
+//    text-align: center;
+//    padding-top: 20px;
+//
+//    width: 60px;
+//    height: 60px;
+//    background: #e41034;
+//
+//    path {
+//      fill: #ffffff;
+//    }
+//  }
+//
+//}
 
 

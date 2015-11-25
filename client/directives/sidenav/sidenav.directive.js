@@ -10,6 +10,8 @@ angular.module('eiFrontend')
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
 
+                var expanded = element.hasClass('expanded');
+
                 // Get current route and activate relevant link;
                 scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
@@ -45,25 +47,22 @@ angular.module('eiFrontend')
                     }
                 });
 
+                element.find("#sidenav-header").on('click', function () {
+                   console.log("Header touched");
 
-                $(document).bind('click', function (event) {
-                    toggle();
-                });
+                    if (expanded) {
+                        element.removeClass("expanded");
+                        element.addClass("closed");
 
-                $(document).bind('touchstart', function (event) {
-                   toggle();
-                });
-
-
-                function toggle() {
-                    if(element.find(event.target).length > 0) {
-                        element.find("#sidenav").removeClass("untoggled");
-                        element.find("#sidenav-toggle").removeClass("toggled");
+                        expanded = false;
                     } else {
-                        element.find("#sidenav").addClass("untoggled");
-                        element.find("#sidenav-toggle").addClass("toggled");
+                        element.removeClass("closed");
+                        element.addClass("expanded");
+
+                        expanded = true;
                     }
-                }
+                });
+
 
             }
         };
