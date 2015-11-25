@@ -51,7 +51,7 @@ html {
     }
 
     // Medium viewport version (eg. tablets, etc)
-    @media (min-width: 600px) and (max-width: 960px) {
+    @media (min-width: 600px) and (max-width: 961px) {
       sidenav {
         height: 100%;
         width: 60px;
@@ -65,7 +65,7 @@ html {
     }
 
     // Mobile Version layout
-    @media (max-width: 600px) {
+    @media (max-width: 599px) {
 
       sidenav {
         #sidenav-header {
@@ -115,7 +115,7 @@ html {
         position: absolute;
         margin-top: 60px;
 
-        background: green;
+        background: lime;
       }
 
       sidenav.expanded + div.viewport {
@@ -125,7 +125,7 @@ html {
         margin-top: 60px;
         margin-left: 60px;
 
-        background: lime;
+        background: green;
       }
 
     }
