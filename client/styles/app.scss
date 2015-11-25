@@ -69,7 +69,7 @@ html {
 
       sidenav {
         #sidenav-header {
-          background: red;
+          background: #e41034;
           float: right;
         }
       }
@@ -81,7 +81,7 @@ html {
 
         #sidenav-header {
           width: 100%;
-          height: 44px;
+          height: 60px;
         }
 
         #sidenav {
@@ -100,37 +100,29 @@ html {
         #sidenav-header {
           float: right;
           width: calc(100% - 60px);
-          height: 44px;
+          height: 60px;
         }
 
         #sidenav {
           width: 60px;
           height: 100%;
-
-          //-webkit-transition: all 0.2s ease 0s;
-          //-moz-transition: all 0.2s ease 0s;
-          //-ms-transition: all 0.2s ease 0s;
-          //-o-transition: all 0.2s ease 0s;
-          //transition: all 0.2s ease 0s;
-          //
-          //transition-delay: 0.2s;
         }
       }
 
       sidenav.closed + div.viewport {
         width: 100%;
-        height: calc(100% - 44px);
+        height: calc(100% - 60px);
         position: absolute;
-        margin-top: 44px;
+        margin-top: 60px;
 
         background: green;
       }
 
       sidenav.expanded + div.viewport {
         width: calc(100% - 60px);
-        height: calc(100% - 44px);
+        height: calc(100% - 60px);
         position: absolute;
-        margin-top: 44px;
+        margin-top: 60px;
         margin-left: 60px;
 
         background: lime;
