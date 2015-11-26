@@ -28,8 +28,8 @@ angular.module('eiFrontend')
                     element.find("#" + target).addClass('active');
 
                     // Hide hr elements next to it
-                    element.find('.separator').show();
-                    element.find('.separator.' + target.split('-')[1]).hide();
+                    element.find('.separator').css('visibility', 'visible');
+                    element.find('.separator.' + target.split('-')[1]).css('visibility', 'hidden');
 
                     path = '/' + target.split('-')[1];
 

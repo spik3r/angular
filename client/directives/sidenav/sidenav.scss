@@ -230,13 +230,7 @@
           color: #e41034;
           font-weight: bold;
         }
-
       }
-
-      .menu-item.active + hr {
-        display: none;
-      }
-
 
 
       .menu-item:hover {
@@ -258,6 +252,26 @@
   #sidenav {
     #user-area {
       padding: 20px 0 !important;
+    }
+  }
+}
+
+@media (max-height: 650px) and (min-width: 960px) {
+  #sidenav {
+    #user-area {
+      #profile-picture {
+        width: 40px;
+        float: left;
+
+        position: relative;
+        left: 25px;
+        top: 10px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
     }
   }
 }
