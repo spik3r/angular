@@ -35,6 +35,13 @@ angular.module('eiFrontend')
 
                     element.find("#sidenav").addClass("untoggled");
                     element.find("#sidenav-toggle").addClass("toggled");
+                    if (expanded) {
+                        element.removeClass("expanded");
+                        element.addClass("closed");
+
+                        expanded = false;
+                    }
+
                     event.stopPropagation();
 
                     if (path == "/dashboard" || path == "/logout" || path == "/settings") {
@@ -48,6 +55,15 @@ angular.module('eiFrontend')
                             scope.$digest();
 
                         }, 50);
+                    }
+                });
+
+                element.find("#backdrop").on('click', function () {
+                    if (expanded) {
+                        element.removeClass("expanded");
+                        element.addClass("closed");
+
+                        expanded = false;
                     }
                 });
 
