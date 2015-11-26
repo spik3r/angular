@@ -44,18 +44,15 @@ angular.module('eiFrontend')
 
                     event.stopPropagation();
 
-                    if (path == "/dashboard" || path == "/logout" || path == "/settings") {
+                    $timeout(function () {
 
-                        $timeout(function () {
+                        Log.say('sidenav', 'Redirect to: ' + path);
+                        $location.path(path);
 
-                            Log.say('sidenav', 'Redirect to: ' + path);
-                            $location.path(path);
+                        scope.currentRoute = path.split("/")[1];
+                        scope.$digest();
 
-                            scope.currentRoute = path.split("/")[1];
-                            scope.$digest();
-
-                        }, 50);
-                    }
+                    }, 50);
                 });
 
                 element.find("#backdrop").on('click', function () {

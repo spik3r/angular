@@ -177,7 +177,7 @@ html {
 
     }
 
-    @media (max-width: 740px) and (orientation: landscape) {
+    @media (max-width: 740px) and (max-height: 600px) and (orientation: landscape) {
       sidenav.closed {
         display: none;
       }
