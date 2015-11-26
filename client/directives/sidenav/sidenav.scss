@@ -5,6 +5,31 @@
   text-align: center;
 
   float: left;
+
+  #menu-icon {
+    text-align: center;
+    width: 60px;
+    float: left;
+    margin-top: 20px;
+    z-index: 100;
+    cursor: pointer;
+  }
+
+  #content-title {
+    margin-top: 17px;
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    width: calc(100% - 60px);
+    display: block;
+    float: left;
+    padding-left: 30%;
+
+
+
+    position: relative;
+  }
 }
 
 #sidenav {
@@ -78,8 +103,6 @@
 
 @media (min-width: 599px) and (max-width: 959px) {
   #sidenav {
-    //border-right: 1px solid #c8c8c8;
-
     #user-area {
 
       #profile-picture {
@@ -232,7 +255,6 @@
         }
       }
 
-
       .menu-item:hover {
         cursor: pointer;
 
@@ -272,6 +294,17 @@
           height: 40px;
         }
       }
+    }
+  }
+}
+
+@media (max-height: 580px) and (min-width: 960px) {
+  #sidenav {
+    padding-top: 10px;
+    min-height: 520px;
+
+    #user-area {
+      display: none;
     }
   }
 }

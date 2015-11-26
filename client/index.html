@@ -22,7 +22,10 @@
 
   <body class="bloody-red" ng-controller="IndexCtrl">
 
-    <sidenav data-menu="menu" class="closed"></sidenav>
+
+    <div class="testdiv">  </div>
+
+    <sidenav ng-if="sidenav.active" class="closed"></sidenav>
 
     <div ng-view class="viewport">
     </div>
@@ -87,7 +90,6 @@
     <!-- endbuild -->
 
     <script src="http://localhost:35729/livereload.js?snipver=1"></script>
-  <script type="text/javascript" src="http://52.64.221.139/javascripts/api/tableau-2.0.1.min.js"></script>
 
   </body>
 </html>

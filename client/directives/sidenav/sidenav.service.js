@@ -1,26 +1,31 @@
 'use strict';
 
+/**
+ * Service that manages sidenav state for different pages. In order to hide sidenav on a certain page,
+ * this service needs to be included and sidenav set to active;
+ *
+ * @author ry
+ * @date 26/11/2015
+ */
 angular.module('eiFrontend')
-  .service('Sidenav',
-  [
-    function () {
-      return {
-        active: true,
-        displayed: false,
-        setActive: function (bool) {
-          this.active = bool;
-        },
-        show: function () {
-          this.displayed = true;
-        },
-        hide: function () {
-          this.displayed = false;
-        },
-        toggle: function () {
-          this.displayed = !this.displayed;
-          /* jshint ignore:start */
-          $('body').stop().toggleClass('sp-toggle-sidebar', 300);
-          /* jshint ignore:end */
-        }
-      };
-    }]);
+    .service('Sidenav',
+        [
+            '$rootScope',
+            function ($rootScope) {
+
+                // Sidenav is deactivated by default
+                var active = false;
+
+                return {
+                    isActive:   function () { return active; },
+                    activate:   function () {
+                        active = true;
+                        $rootScope.$broadcast("sidenav:activated");
+                    },
+                    deactivate: function () {
+                        active = false;
+                        $rootScope.$broadcast("sidenav:deactivated");
+                    }
+                };
+
+            }]);

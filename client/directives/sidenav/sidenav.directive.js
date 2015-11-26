@@ -5,7 +5,7 @@ angular.module('eiFrontend')
         return {
             restrict: 'EA',
             scope: {
-                menu: '='
+                active: '='
             },
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
@@ -14,8 +14,8 @@ angular.module('eiFrontend')
 
                 // Get current route and activate relevant link;
                 scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
-
                 element.find("#menu-" + scope.currentRoute).addClass("active");
+                element.find('.separator.' + scope.currentRoute).css('visibility', 'hidden');
 
                 var target;
                 var path;
@@ -51,7 +51,7 @@ angular.module('eiFrontend')
                     }
                 });
 
-                element.find("#sidenav-header").on('click', function () {
+                element.find("#sidenav-header #menu-icon").on('click', function () {
                    console.log("Header touched");
 
                     if (expanded) {
@@ -66,8 +66,6 @@ angular.module('eiFrontend')
                         expanded = true;
                     }
                 });
-
-
             }
         };
     });

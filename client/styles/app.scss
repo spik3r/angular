@@ -18,16 +18,29 @@
 
 
 html {
+
+  position: absolute;
   width: 100%;
   height: 100%;
 
   body {
-    width: 100%;
-    height: 100%;
 
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    min-width: 300px;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    
+    sidenav {
+      position: fixed;
+      z-index: 100;
+    }
+
+    .row {
+      margin: 0;
+    }
+
+    div.viewport {
+      height: 100%;
+    }
 
     // Full viewport version (eg. Desktop)
     @media (min-width: 960px) {
@@ -42,11 +55,12 @@ html {
         }
       }
 
-      div.viewport {
+      sidenav + div.viewport {
         float: left;
         position: relative;
         height: 100%;
         width: calc(100% - 200px);
+        margin-left: 200px;
       }
     }
 
@@ -62,7 +76,16 @@ html {
           display: none;
         }
       }
+
+      sidenav + div.viewport {
+        float: left;
+        position: relative;
+        height: 100%;
+        width: calc(100% - 60px);
+        margin-left: 60px;
+      }
     }
+
 
     // Mobile Version layout
     @media (max-width: 599px) {
@@ -82,13 +105,22 @@ html {
         #sidenav-header {
           width: 100%;
           height: 60px;
+          display: block;
+
+          #menu-icon {
+
+          }
         }
 
         #sidenav {
           height: 0;
           width: 0;
 
+          * {
+            display: none;
+          }
         }
+
       }
 
       sidenav.expanded {
@@ -114,8 +146,6 @@ html {
         height: calc(100% - 60px);
         position: absolute;
         margin-top: 60px;
-
-        background: lime;
       }
 
       sidenav.expanded + div.viewport {
@@ -124,10 +154,25 @@ html {
         position: absolute;
         margin-top: 60px;
         margin-left: 60px;
-
-        background: green;
       }
 
+    }
+
+    @media (max-width: 740px) and (orientation: landscape) {
+      sidenav.closed {
+        display: none;
+      }
+
+      sidenav.expanded {
+        display: none;
+      }
+
+      .viewport {
+        width: 100% !important;
+        height: 100% !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+      }
     }
 
   }
