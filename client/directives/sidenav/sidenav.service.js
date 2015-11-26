@@ -27,5 +27,4 @@ angular.module('eiFrontend')
                         $rootScope.$broadcast("sidenav:deactivated");
                     }
                 };
-
             }]);

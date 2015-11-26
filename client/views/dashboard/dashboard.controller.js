@@ -4,7 +4,6 @@ angular.module('eiFrontend')
     .controller('DashboardCtrl', function (Sidenav, $window, $timeout, Tableau, Redshift) {
         // Get access to sidenav object and show it
         Sidenav.activate();
-        console.log("Sidenav", Sidenav.isActive());
 
         this.gender = {
             female: {
@@ -37,6 +36,4 @@ angular.module('eiFrontend')
         };
 
         window.gender = this.gender;
-
-        // Tableau.init('sampleGraph');
     });

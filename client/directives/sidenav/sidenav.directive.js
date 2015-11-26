@@ -9,76 +9,89 @@ angular.module('eiFrontend')
             },
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
+                // Get current route
+                scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
-                var expanded = element.hasClass('expanded');
-
+                // Get user role to display inside sidenav template
                 scope.role = Auth.user.role;
 
-                // Get current route and activate relevant link;
-                scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
-                element.find("#menu-" + scope.currentRoute).addClass("active");
-                element.find('.separator.' + scope.currentRoute).css('visibility', 'hidden');
+                // Declare expand and close functions to manage state
+                var expanded = element.hasClass('expanded');
 
-                var target;
-                var path;
-                element.find('.menu-item').on('click', function (event) {
-                    target = event.currentTarget.id;
-                    // Remove active status from every tab
-                    element.find(".menu-item").removeClass('active');
+                function close() {
+                    element.removeClass("expanded");
+                    element.addClass("closed");
 
-                    // Add active status to clicked tab
-                    element.find("#" + target).addClass('active');
+                    expanded = false;
+                }
 
-                    // Hide hr elements next to it
+                function expand() {
+                    element.removeClass("closed");
+                    element.addClass("expanded");
+
+                    expanded = true;
+                }
+
+                // Function to make menu item look active
+                function activate(route) {
+                    // Deactivate all menu elements
+                    element.find(".menu-item").removeClass("active");
+                    // Activate required menu item
+                    element.find("#menu-" + route).addClass("active");
+                    // Hide relevant separators if needed
                     element.find('.separator').css('visibility', 'visible');
-                    element.find('.separator.' + target.split('-')[1]).css('visibility', 'hidden');
+                    element.find('.separator.' + route).css('visibility', 'hidden');
+                }
 
-                    path = '/' + target.split('-')[1];
-
-                    element.find("#sidenav").addClass("untoggled");
-                    element.find("#sidenav-toggle").addClass("toggled");
-                    if (expanded) {
-                        element.removeClass("expanded");
-                        element.addClass("closed");
-
-                        expanded = false;
-                    }
-
-                    event.stopPropagation();
-
+                // Declare navigate function
+                // to navigate to menu states
+                function navigate (path) {
+                    // Timeout is reqiured to prevent race conditions
                     $timeout(function () {
-
+                        // Redirect
                         Log.say('sidenav', 'Redirect to: ' + path);
                         $location.path(path);
-
+                        // Update current path variable
                         scope.currentRoute = path.split("/")[1];
                         scope.$digest();
 
+                        // Activate relevant menu item
+                        activate(path);
+
+                        // Hide menu if it is expanded (for mobiles)
+                        if (expanded) {
+                            close();
+                        }
                     }, 50);
+                }
+
+                // Activate current route menu item
+                activate(scope.currentRoute);
+
+                // Navigation click handler
+                var target;
+                var path;
+                element.find('.menu-item').on('click', function (event) {
+                    // Get current target id
+                    target = event.currentTarget.id;
+
+                    // Navigate to the menu item path
+                    navigate(target.split('-')[1]);
+
+                    event.stopPropagation();
                 });
 
+                // Backdrop click handler
                 element.find("#backdrop").on('click', function () {
-                    if (expanded) {
-                        element.removeClass("expanded");
-                        element.addClass("closed");
-
-                        expanded = false;
-                    }
+                    close();
                 });
 
+                // Menu icon click handler
                 element.find("#sidenav-header #menu-icon").on('click', function () {
-                   console.log("Header touched");
-
                     if (expanded) {
-                        element.removeClass("expanded");
-                        element.addClass("closed");
-
-                        expanded = false;
+                        close();
                     } else {
-                        element.removeClass("closed");
-                        element.addClass("expanded");
-
-                        expanded = true;
+                        expand();
                     }
                 });
             }

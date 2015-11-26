@@ -16,17 +16,14 @@
 
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
 
-
 html {
-
+  height: 100%;
   position: absolute;
   width: 100%;
-  height: 100%;
 
   body {
-
-    position: absolute;
     height: inherit;
+    position: absolute;
     width: inherit;
     
     sidenav {
@@ -89,14 +86,12 @@ html {
 
     // Mobile Version layout
     @media (max-width: 599px) {
-
       sidenav {
         #sidenav-header {
           background: #e41034;
           float: right;
         }
       }
-
       sidenav.closed {
         width: 100%;
         display: block;
@@ -106,10 +101,6 @@ html {
           width: 100%;
           height: 60px;
           display: block;
-
-          #menu-icon {
-
-          }
         }
 
         #sidenav {
@@ -120,7 +111,6 @@ html {
             display: none;
           }
         }
-
       }
 
       sidenav.expanded {
@@ -149,7 +139,6 @@ html {
             z-index: 60;
             margin-left: 60px;
           }
-
         }
 
         #sidenav {
@@ -173,8 +162,6 @@ html {
         margin-top: 60px;
         margin-left: 60px;
       }
-
-
     }
 
     @media (max-width: 740px) and (max-height: 600px) and (orientation: landscape) {
