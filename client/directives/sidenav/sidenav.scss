@@ -25,9 +25,7 @@
     display: block;
     float: left;
     padding-left: 30%;
-
-
-
+    text-transform: capitalize;
     position: relative;
   }
 }
@@ -133,7 +131,6 @@
   }
 }
 
-
 @media (min-width: 960px) {
   #sidenav {
     width: 200px;
@@ -150,6 +147,7 @@
         font-weight: 600;
         text-align: center;
         letter-spacing: 0.2px;
+        text-transform: capitalize;
 
         display: block;
         width: 100%;
@@ -301,7 +299,6 @@
 @media (max-height: 580px) and (min-width: 960px) {
   #sidenav {
     padding-top: 10px;
-    min-height: 520px;
 
     #user-area {
       display: none;

@@ -194,5 +194,16 @@ html {
       }
     }
 
+    @media (max-height: 530px) and (orientation: portrait) {
+      #sidenav {
+        .menu-item {
+          height: 45px !important;
+
+          .menu-item-icon {
+            top: 14px !important;
+          }
+        }
+      }
+    }
   }
 }

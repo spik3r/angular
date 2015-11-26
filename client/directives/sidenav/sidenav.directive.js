@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eiFrontend')
-    .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Sidenav, Auth) {
+    .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Auth) {
         return {
             restrict: 'EA',
             scope: {
@@ -11,6 +11,8 @@ angular.module('eiFrontend')
             link: function (scope, element) {
 
                 var expanded = element.hasClass('expanded');
+
+                scope.role = Auth.user.role;
 
                 // Get current route and activate relevant link;
                 scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
