@@ -27,6 +27,10 @@ angular.module('eiFrontend')
                     // Add active status to clicked tab
                     element.find("#" + target).addClass('active');
 
+                    // Hide hr elements next to it
+                    element.find('.separator').show();
+                    element.find('.separator.' + target.split('-')[1]).hide();
+
                     path = '/' + target.split('-')[1];
 
                     element.find("#sidenav").addClass("untoggled");
