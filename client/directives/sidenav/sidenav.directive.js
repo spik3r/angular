@@ -46,13 +46,15 @@ angular.module('eiFrontend')
                 // Declare navigate function
                 // to navigate to menu states
                 function navigate (path) {
+                    console.log(path);
+
                     // Timeout is reqiured to prevent race conditions
                     $timeout(function () {
                         // Redirect
                         Log.say('sidenav', 'Redirect to: ' + path);
                         $location.path(path);
                         // Update current path variable
-                        scope.currentRoute = path.split("/")[1];
+                        scope.currentRoute = path;
                         scope.$digest();
 
                         // Activate relevant menu item
