@@ -1,70 +1,99 @@
 'use strict';
 
 angular.module('eiFrontend')
-    .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Sidenav, Auth) {
+    .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Auth) {
         return {
             restrict: 'EA',
             scope: {
-                menu: '='
+                active: '='
             },
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
-
-                // Get current route and activate relevant link;
+                // Get current route
                 scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
 
-                element.find("#menu-" + scope.currentRoute).addClass("active");
+                // Get user role to display inside sidenav template
+                scope.role = Auth.user.role;
 
+                // Declare expand and close functions to manage state
+                var expanded = element.hasClass('expanded');
+
+                function close() {
+                    element.removeClass("expanded");
+                    element.addClass("closed");
+
+                    expanded = false;
+                }
+
+                function expand() {
+                    element.removeClass("closed");
+                    element.addClass("expanded");
+
+                    expanded = true;
+                }
+
+                // Function to make menu item look active
+                function activate(route) {
+                    // Deactivate all menu elements
+                    element.find(".menu-item").removeClass("active");
+                    // Activate required menu item
+                    element.find("#menu-" + route).addClass("active");
+                    // Hide relevant separators if needed
+                    element.find('.separator').css('visibility', 'visible');
+                    element.find('.separator.' + route).css('visibility', 'hidden');
+                }
+
+                // Declare navigate function
+                // to navigate to menu states
+                function navigate (path) {
+                    // Timeout is reqiured to prevent race conditions
+                    $timeout(function () {
+                        // Redirect
+                        Log.say('sidenav', 'Redirect to: ' + path);
+                        $location.path(path);
+                        // Update current path variable
+                        scope.currentRoute = path.split("/")[1];
+                        scope.$digest();
+
+                        // Activate relevant menu item
+                        activate(path);
+
+                        // Hide menu if it is expanded (for mobiles)
+                        if (expanded) {
+                            close();
+                        }
+                    }, 50);
+                }
+
+                // Activate current route menu item
+                activate(scope.currentRoute);
+
+                // Navigation click handler
                 var target;
                 var path;
                 element.find('.menu-item').on('click', function (event) {
+                    // Get current target id
                     target = event.currentTarget.id;
-                    // Remove active status from every tab
-                    element.find(".menu-item").removeClass('active');
 
-                    // Add active status to clicked tab
-                    element.find("#" + target).addClass('active');
+                    // Navigate to the menu item path
+                    navigate(target.split('-')[1]);
 
-                    path = '/' + target.split('-')[1];
-
-                    element.find("#sidenav").addClass("untoggled");
-                    element.find("#sidenav-toggle").addClass("toggled");
                     event.stopPropagation();
-
-                    if (path == "/dashboard" || path == "/logout" || path == "/settings") {
-
-                        $timeout(function () {
-
-                            Log.say('sidenav', 'Redirect to: ' + path);
-                            $location.path(path);
-
-                            scope.currentRoute = path.split("/")[1];
-                            scope.$digest();
-
-                        }, 50);
-                    }
                 });
 
-
-                $(document).bind('click', function (event) {
-                    toggle();
+                // Backdrop click handler
+                element.find("#backdrop").on('click', function () {
+                    close();
                 });
 
-                $(document).bind('touchstart', function (event) {
-                   toggle();
-                });
-
-
-                function toggle() {
-                    if(element.find(event.target).length > 0) {
-                        element.find("#sidenav").removeClass("untoggled");
-                        element.find("#sidenav-toggle").removeClass("toggled");
+                // Menu icon click handler
+                element.find("#sidenav-header #menu-icon").on('click', function () {
+                    if (expanded) {
+                        close();
                     } else {
-                        element.find("#sidenav").addClass("untoggled");
-                        element.find("#sidenav-toggle").addClass("toggled");
+                        expand();
                     }
-                }
-
+                });
             }
         };
     });

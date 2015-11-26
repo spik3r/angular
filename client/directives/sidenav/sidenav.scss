@@ -1,295 +1,291 @@
-#sidenav-toggle {
-  display: none;
-  cursor: pointer;
+#sidenav-header {
+  border: 1px solid #e41034;
+  background: #e41034;
+  color: white;
+  text-align: center;
+  float: left;
 
-  path {
+  #menu-icon {
+    text-align: center;
+    width: 60px;
+    float: left;
+    margin-top: 20px;
+    z-index: 100;
     cursor: pointer;
+  }
+
+  #content-title {
+    margin-top: 17px;
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    width: calc(100% - 60px);
+    display: block;
+    float: left;
+    padding-left: 30%;
+    text-transform: capitalize;
+    position: relative;
   }
 }
 
 #sidenav {
-  z-index: 10;
-  position: fixed;
-  height: 100%;
-  left: 200px;
-  margin-left: -200px;
-  width: 200px;
+  float: left;
+  background: #f5f5f5;
+  min-height: 100%;
 
-  background-color: #ffffff;
-  border-right: 1px solid #c8c8c8;
-
-  overflow: hidden;
-  overflow-y: auto;
-
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-
-  // Display account information
   #user-area {
-    padding-bottom: 50px;
-
-    // Users profile pic
     #profile-picture {
-      text-align: center;
-
-      margin-top: 50px;
-
       img {
-        border-radius: 50%;
-        width: 66px;
-        height: 66px;
+        width: 60px;
+        height: 60px;
       }
     }
 
-    // Account name
     #name {
-      color: #3c3c3c;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      text-align: center;
-      letter-spacing: 0.2px;
-
-      display: block;
-      width: 100%;
-      height: 23px;
-
-      margin-top: 10px;
+      display: none;
     }
 
-    // Account role
     #sub-name {
-      color: #3c3c3c;
-
-      text-align: center;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 12px;
-
-      display: block;
-      width: 100%;
-    }
-  }
-  //
-  @media (max-height: 700px) {
-    #user-area {
-      padding-bottom: 20px;
-
-      #profile-picture {
-        margin-top: 20px;
-
-        img {
-          width: 50px;
-          height: 50px;
-        }
-      }
+      display: none;
     }
   }
 
-  @media (max-width: 768px) {
-    #user-area {
-
-      #name {
-        display: none;
-      }
-
-      #sub-name {
-        display: none;
-      }
-    }
+  hr.separator {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-color: #c8c8c8;
   }
 
-
-  // Navigation Menu
   #menu {
-
-    .menu-item {
-      height: 50px;
-      color: #3c3c3c;
-
-      .active-line {
-        background: #ffffff;
-        height: 50px;
-        width: 4px;
-        float: left;
-      }
-
-      .menu-item-icon {
-        height: 16px;
-        width: 16px;
-        float: left;
-        margin-left: 19px;
-        margin-top: 15px;
-
-        path {
-          fill: #3c3c3c;
-        }
-      }
-
-      .menu-item-name {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        font-weight: 200;
-        display: block;
-        margin-left: 12px;
-        float: left;
-        position: relative;
-        top: 14px;
-      }
-    }
-
-    .menu-item.active, .menu-item:hover {
-      cursor: pointer;
-
-      .active-line {
-        background: #e41034;
-        height: 50px;
-        width: 4px;
-        float: left;
-
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s;
-      }
-    }
-
-    .menu-item.active {
-      background: #f5f5f5;
-
-      .menu-item-icon {
-        path {
-          fill: #e41034;
-        }
-      }
-
-      .menu-item-name {
-        font-weight: bold;
-        color: #e41034;
-      }
-    }
-
-    hr {
-      margin-top: 10px;
-      margin-bottom: 5px;
-      margin-left: 20px;
-      border-color: #c8c8c8;
-    }
-
-    #dashboard-section {
-      #menu-dashboard {
-        height: 50px;
-        color: black;
-      }
-    }
-
-    #brand-channel-section {
+    .section {
       .section-name {
-        font-size: 10px;
-        text-transform: uppercase;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #8c8c8c;
-        margin-left: 20px;
+        display: none;
       }
-    }
 
-    #utility-section {
+      .menu-item {
+        width: 60px;
+        height: 60px;
+        text-align: center;
 
-    }
-  }
+        .menu-item-name {
+          display: none;
+        }
 
+        .menu-item-icon {
+          position: relative;
+          top: 22px;
 
-
-}
-
-@media (max-width: 768px) {
-
-  #sidenav.untoggled {
-    left: 60px;
-    margin-left: -60px;
-    width: 60px;
-
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
-
-    #user-area {
-      #profile-picture img {
-        height: 50px;
-        width: 50px;
+          path {
+            fill: black;
+          }
+        }
       }
-    }
 
-    #menu {
       .menu-item.active {
         background: #e41034;
 
         .menu-item-icon {
           path {
-            fill: white !important;
+            fill: white;
           }
         }
       }
+    }
+  }
+}
 
-      .menu-item-icon {
-        margin-left: 19px;
-        margin-top: 15px;
-      }
+@media (min-width: 599px) and (max-width: 959px) {
+  #sidenav {
+    #user-area {
+      #profile-picture {
+        text-align: center;
 
-      @media (max-width: 768px) {
-        .menu-item-name {
-          display: none !important;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        img {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
         }
       }
+    }
 
-      #brand-channel-section {
+    #menu {
+      .menu-item:hover {
+        .active-line {
+          height: 60px;
+          position: fixed;
+          float: left;
+          width: 5px;
+          background: #e41034;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  #sidenav {
+    width: 200px;
+
+    #user-area {
+      padding: 40px 0;
+
+      // Account name
+      #name {
+        color: #3c3c3c;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 0.2px;
+        text-transform: capitalize;
+        display: block;
+        width: 100%;
+        height: 23px;
+        margin-top: 10px;
+      }
+
+      // Account role
+      #sub-name {
+        color: #3c3c3c;
+        text-align: center;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 200;
+        font-size: 12px;
+        display: block;
+        width: 100%;
+      }
+
+      #profile-picture {
+        text-align: center;
+
+        img {
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+
+          width: 66px;
+          height: 66px;
+        }
+      }
+    }
+
+    hr.separator {
+      margin-left: 20px;
+    }
+
+    .menu.active + hr.separator {
+      display: none;
+    }
+
+    #menu {
+      .section {
         .section-name {
-          display: none;
+          display: block;
+          margin-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 10px;
+          text-transform: uppercase;
+          color: #8c8c8c;
         }
       }
 
-      hr {
-        margin-left: 0;
+      .menu-item {
+        width: 200px !important;
+
+        .menu-item-icon {
+          width: 60px;
+        }
+
+        .menu-item-name {
+          display: block !important;
+          float: left;
+          margin-left: 60px;
+          position: relative;
+          top: -1px;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 200;
+          font-size: 14px;
+        }
+
+      }
+
+      .menu-item.active {
+        background: #ffffff !important;
+
+        .active-line {
+          height: 60px;
+          position: absolute;
+          float: left;
+          width: 5px;
+          background: #e41034;
+        }
+
+        .menu-item-icon {
+          path {
+            fill: #e41034 !important;
+          }
+        }
+
+        .menu-item-name {
+          color: #e41034;
+          font-weight: bold;
+        }
+      }
+
+      .menu-item:hover {
+        cursor: pointer;
+
+        .active-line {
+          height: 60px;
+          position: absolute;
+          float: left;
+          width: 5px;
+          background: #e41034;
+        }
       }
     }
   }
-
 }
 
-@media (max-width: 500px) {
-  #sidenav.untoggled {
-    display: none;
-
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
-  }
-
-  #sidenav-toggle.toggled {
-    display: block;
-    position: fixed;
-    top: 10px;
-    z-index: 100;
-    text-align: center;
-    padding-top: 20px;
-
-    width: 60px;
-    height: 60px;
-    background: #e41034;
-
-    path {
-      fill: #ffffff;
+@media (max-height: 700px) and (min-width: 960px) {
+  #sidenav {
+    #user-area {
+      padding: 20px 0 !important;
     }
   }
-
 }
 
+@media (max-height: 650px) and (min-width: 960px) {
+  #sidenav {
+    #user-area {
+      #profile-picture {
+        width: 40px;
+        float: left;
+        position: relative;
+        left: 25px;
+        top: 10px;
 
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 580px) and (min-width: 960px) {
+  #sidenav {
+    padding-top: 10px;
+
+    #user-area {
+      display: none;
+    }
+  }
+}

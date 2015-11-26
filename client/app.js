@@ -49,6 +49,7 @@ angular.module('eiFrontend', [
               }
               // If user does not have required role, redirect.
               if (!allowed) {
+                  console.log("Not allowed");
                 $location.path(redirectPath);
               }
             }

@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/settings/settings.html',
         controller: 'SettingsCtrl',
         controllerAs: 'ctrl',
-        access: ['user', 'brand', 'label', 'admin', 'artist']
+        access: []
       });
   });

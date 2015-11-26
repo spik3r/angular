@@ -1,21 +1,16 @@
-<div id="sidenav-toggle" class="toggled">
-    <ng-include ng-if="currentRoute == 'dashboard'" src="'assets/icons/dashboard.svg'"></ng-include>
-    <ng-include ng-if="currentRoute == 'settings'" src="'assets/icons/cog.svg'"></ng-include>
-</div>
-
-<div id="sidenav" class="untoggled">
+<div id="sidenav">
 
     <div id="user-area">
         <div id="profile-picture">
             <img src="http://placekitten.com/g/50/50">
         </div>
 
-        <span id="name"> Admin </span>
+        <span id="name"> {{role}} </span>
         <span id="sub-name"> Kitten </span>
     </div>
 
     <div id="menu">
-        <div id="dashboard-section">
+        <div id="dashboard-section" class="section">
             <div id="menu-dashboard" class="menu-item">
                 <div class="active-line"></div>
 
@@ -24,12 +19,14 @@
                 </div>
 
                 <span class="menu-item-name">Dashboard</span>
+
             </div>
+
+            <hr class="separator dashboard">
         </div>
 
-        <hr>
 
-        <div id="brand-channel-section">
+        <div id="brand-channel-section" class="section">
             <span class="section-name"> Brand Channel </span>
 
             <div id="menu-profile" class="menu-item">
@@ -63,11 +60,13 @@
 
                 <div class="menu-item-name">Content</div>
             </div>
+
+            <hr class="separator export content">
+
         </div>
 
-        <hr>
 
-        <div id="utility-section">
+        <div id="utility-section" class="section">
             <div id="menu-export" class="menu-item">
                 <div class="active-line"></div>
 
@@ -96,12 +95,15 @@
                 </div>
 
                 <div class="menu-item-name">Settings</div>
+
             </div>
+
+            <hr class="separator settings logout">
+
         </div>
 
-        <hr>
 
-        <div id="logout-section">
+        <div id="logout-section" class="section">
             <div id="menu-logout" class="menu-item">
                 <div class="active-line"></div>
 
@@ -113,5 +115,14 @@
             </div>
         </div>
     </div>
+</div>
 
+<div id="sidenav-header">
+    <div id="menu-icon">
+        <ng-include src="'assets/icons/menu.svg'"></ng-include>
+    </div>
+
+    <span id="content-title"> {{currentRoute}} </span>
+
+    <div id="backdrop"></div>
 </div>
