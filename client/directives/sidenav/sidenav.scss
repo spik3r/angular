@@ -26,13 +26,13 @@
           width: 60px;
         }
 
-        h2, h3 {
+        h5, h6 {
           display: none;
         }
       }
 
       #menu {
-        height: calc(100% - 120px);
+        height: calc(100% - 100px);
         overflow: scroll;
         overflow-scrolling: touch;
         -webkit-overflow-scrolling: touch;
@@ -91,8 +91,7 @@
 
       #footer {
         text-align: center;
-        padding-top: 20px;
-        height: 60px;
+        height: 40px;
 
         path {
           fill: $red;
@@ -168,7 +167,7 @@
       }
 
       #menu {
-        height: calc(80% - 60px) !important;
+        height: calc(80% - 40px) !important;
       }
     }
 
@@ -205,16 +204,15 @@
         left: 0;
       }
 
-      h2, h3 {
+      h5, h6 {
         display: block !important;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 200;
         margin: 0;
       }
 
-      h2 {
+      h5 {
         margin-top: 10px;
-        margin-bottom: 5px;
         top: 60% !important;
         width: 100%;
         text-align: center;
@@ -223,7 +221,7 @@
         font-weight: 400;
       }
 
-      h3 {
+      h6 {
         font-size: 14px !important;
       }
     }
@@ -232,7 +230,7 @@
 
       hr {
         margin-left: 20px !important;
-        border-color: $lightgray !important;
+        border-color: #e1e1e1 !important;
       }
 
       // MENU ITEM
@@ -252,7 +250,7 @@
           margin-left: 50px;
 
           position: relative;
-          top: -2px;
+          top: -8px;
 
           font-size: 14px;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
