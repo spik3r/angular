@@ -15,6 +15,11 @@ angular.module('eiFrontend')
                 var sidebar = element.find('#sidebar');
                 var main    = element.find('main');
                 var cover   = element.find('#cover');
+                var items   = element.find("#menu li");
+
+                // Get initial route and activate relevant menu item
+                var currentRoute = $route.current.$$route.originalPath;
+                activate(currentRoute);
 
                 /**
                  * Function that toggles sidebar menu on mobile screen using CSS
@@ -29,8 +34,35 @@ angular.module('eiFrontend')
                 }
 
                 /**
+                 * Function that activates menu item relevant to the given path.
+                 * Returns last activated item, or false if item with given path cannot be found.
+                 *
+                 * @param path of the tab that needs to be activated
+                 * @type {String}
+                 */
+                var found = false;
+                function activate(path) {
+                    items.removeClass('active');
+
+                    for (var i=0; i < items.length; i++) {
+                        // If menu item has desired path, set it as active
+                        if (items[i].dataset.path === path) {
+                            element.find(items[i]).addClass('active');
+                            found = items[i];
+                        }
+                    }
+
+                    if (!found) {
+                        // Throw warning to console if menu item is not found
+                        Log.warn('sidenav', "Cannot find menu item with path: " + path);
+                    }
+                    return found;
+                }
+
+                /**
                  * Click event handlers
                  */
+                // Menu toggle click handlers
                 button  .on('click', toggle);
                 main    .on('click', function () {
                     if (main.hasClass('active')) {
@@ -38,92 +70,25 @@ angular.module('eiFrontend')
                     }
                 });
 
+                // Redirect click handler
+                var path;
+                items   .on('click touchend', function (event) {
+                    // Get redirect path
+                    path = event.currentTarget.dataset.path;
+                    // Redirect
+                    $location.path(path);
+                    scope.$apply(); // Location path does not get updated without this line
+                    // Activate relevant menu item
+                    activate(path);
+                    // Hide menu after a small delay
+                    $timeout(function () {
+                        // This if is needed to properly hide menu after redirect on mobiles
+                        if (main.hasClass('active')) {
+                            toggle();
+                        }
+                    }, 400);
+                });
 
-                //// Get current route
-                //scope.currentRoute = $route.current.$$route.originalPath.split("/")[1];
-                //
-                //// Get user role to display inside sidenav template
-                //scope.role = Auth.user.role;
-                //
-                //// Declare expand and close functions to manage state
-                //var expanded = element.hasClass('expanded');
-                //
-                //function close() {
-                //    element.removeClass("expanded");
-                //    element.addClass("closed");
-                //
-                //    expanded = false;
-                //}
-                //
-                //function expand() {
-                //    element.removeClass("closed");
-                //    element.addClass("expanded");
-                //
-                //    expanded = true;
-                //}
-                //
-                //// Function to make menu item look active
-                //function activate(route) {
-                //    // Deactivate all menu elements
-                //    element.find(".menu-item").removeClass("active");
-                //    // Activate required menu item
-                //    element.find("#menu-" + route).addClass("active");
-                //    // Hide relevant separators if needed
-                //    element.find('.separator').css('visibility', 'visible');
-                //    element.find('.separator.' + route).css('visibility', 'hidden');
-                //}
-                //
-                //// Declare navigate function
-                //// to navigate to menu states
-                //function navigate (path) {
-                //    // Timeout is reqiured to prevent race conditions
-                //    $timeout(function () {
-                //        // Redirect
-                //        Log.say('sidenav', 'Redirect to: ' + path);
-                //        $location.path(path);
-                //        // Update current path variable
-                //        scope.currentRoute = path.split("/")[1];
-                //        scope.$digest();
-                //
-                //        // Activate relevant menu item
-                //        activate(path);
-                //
-                //        // Hide menu if it is expanded (for mobiles)
-                //        if (expanded) {
-                //            close();
-                //        }
-                //    }, 50);
-                //}
-                //
-                //// Activate current route menu item
-                //activate(scope.currentRoute);
-                //
-                //// Navigation click handler
-                //var target;
-                //var path;
-                //element.find('.menu-item').on('click', function (event) {
-                //    // Get current target id
-                //    target = event.currentTarget.id;
-                //
-                //    // Navigate to the menu item path
-                //    navigate(target.split('-')[1]);
-                //
-                //    event.stopPropagation();
-                //});
-                //
-                //// Backdrop click handler
-                //element.find("#backdrop").on('click', function () {
-                //    close();
-                //});
-                //
-                //// Menu icon click handler
-                //element.find("#sidenav-header #menu-icon").on('click', function () {
-                //    if (expanded) {
-                //        close();
-                //    } else {
-                //        expand();
-                //    }
-                //});
             }
         };
     });
