@@ -21,25 +21,10 @@
   <body ng-controller="IndexCtrl">
 
       <sidenav>
-          <article>
-              <h1>jQuery/CSS3 Sidebar with Navigation</h1>
-              <h2>Slidebutton styled with CSS-Animation</h2>
-              <ul>
-                  <li>toggle with jQuery
-                  <li>Styled with CSS3
-                  <li>When Sidebar is active, the content is overlayed
-                  <li>Click on the Content or the Slidebutton to deactivate the Slidebar
-              </ul>
-          </article>
+          <div ng-view class="viewport"> </div>
       </sidenav>
 
     <!--<sidenav ng-if="sidenav.active" class="closed"></sidenav>-->
-
-    <!--<div ng-view class="viewport">-->
-    <!--</div>-->
-
-
-
 
     <!-- build:js app.js -->
 
