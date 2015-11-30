@@ -22,11 +22,14 @@
 
       #menu {
         height: calc(100% - 120px);
-        overflow: scroll;
+        overflow: auto;
+        overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
         margin: 0;
 
         li {
           height: 150px;
+          display: block;
         }
       }
 
