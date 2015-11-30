@@ -1,4 +1,5 @@
 /* Mobile first queries */
+
   /* Sidebar */
   #sidebar {
     position: fixed;
@@ -22,20 +23,69 @@
 
       #menu {
         height: calc(100% - 120px);
-        overflow: auto;
+        overflow: scroll;
         overflow-scrolling: touch;
         -webkit-overflow-scrolling: touch;
-        margin: 0;
 
-        li {
-          height: 150px;
-          display: block;
+        margin: 0;
+        padding: 0;
+
+        hr {
+          margin: 0;
         }
+
+        // DEFAULT MENU ITEM
+        li {
+          height: 60px;
+          display: block;
+          text-align: center;
+          cursor: pointer;
+
+          svg {
+            position: relative;
+            top: 20px;
+
+            path {
+              fill: #3c3c3c;
+            }
+          }
+
+          span {
+            display: none;
+          }
+        }
+
+        // ACTIVE MENU ITEM
+        li.active {
+          background: #e41034;
+
+          path {
+            fill: #ffffff;
+          }
+        }
+
+        // MENU ITEM HOVER
+        li:hover:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 5px;
+          height: 60px;
+          z-index: 100;
+          background: #e41034;
+          float: left;
+        }
+
       }
 
       #footer {
-        background: yellow;
+        text-align: center;
+        padding-top: 20px;
         height: 60px;
+
+        path {
+          fill: #e41034;
+        }
       }
     }
   }
