@@ -86,7 +86,7 @@ angular.module('eiFrontend')
                         if (main.hasClass('active')) {
                             toggle();
                         }
-                    }, 400);
+                    }, 300);
                 });
 
             }
