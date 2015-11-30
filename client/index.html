@@ -18,12 +18,30 @@
     <!-- endbuild -->
   </head>
 
-  <body class="bloody-red" ng-controller="IndexCtrl">
+  <body ng-controller="IndexCtrl">
 
-    <sidenav ng-if="sidenav.active" class="closed"></sidenav>
 
-    <div ng-view class="viewport">
-    </div>
+
+      <sidenav>
+          <article>
+              <h1>jQuery/CSS3 Sidebar with Navigation</h1>
+              <h2>Slidebutton styled with CSS-Animation</h2>
+              <ul>
+                  <li>toggle with jQuery
+                  <li>Styled with CSS3
+                  <li>When Sidebar is active, the content is overlayed
+                  <li>Click on the Content or the Slidebutton to deactivate the Slidebar
+              </ul>
+          </article>
+      </sidenav>
+
+    <!--<sidenav ng-if="sidenav.active" class="closed"></sidenav>-->
+
+    <!--<div ng-view class="viewport">-->
+    <!--</div>-->
+
+
+
 
     <!-- build:js app.js -->
 
@@ -46,18 +64,18 @@
     <script src="views/track/track.controller.js"></script>
     <script src="views/settings/settings.js"></script>
     <script src="views/settings/settings.controller.js"></script>
-    <script src="views/playlists/playlists.js"></script>
-    <script src="views/playlists/playlists.controller.js"></script>
     <script src="views/profile/profile.js"></script>
     <script src="views/profile/profile.controller.js"></script>
+    <script src="views/playlists/playlists.js"></script>
+    <script src="views/playlists/playlists.controller.js"></script>
     <script src="views/logout/logout.js"></script>
     <script src="views/logout/logout.controller.js"></script>
     <script src="views/login/login.js"></script>
     <script src="views/login/login.controller.js"></script>
-    <script src="views/listener/listener.js"></script>
-    <script src="views/listener/listener.controller.js"></script>
     <script src="views/export/export.js"></script>
     <script src="views/export/export.controller.js"></script>
+    <script src="views/listener/listener.js"></script>
+    <script src="views/listener/listener.controller.js"></script>
     <script src="views/dashboard/dashboard.js"></script>
     <script src="views/dashboard/dashboard.controller.js"></script>
     <script src="views/content/content.js"></script>

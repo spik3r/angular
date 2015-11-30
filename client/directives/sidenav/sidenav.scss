@@ -1,291 +1,450 @@
-#sidenav-header {
-  border: 1px solid #e41034;
-  background: #e41034;
-  color: white;
-  text-align: center;
-  float: left;
+/* Sidebar */
 
-  #menu-icon {
-    text-align: center;
+/* Mobile first queries */
+#sidebar {
+  position: fixed;
+  left: -60px;
+  height: 100%;
+  width: 60px;
+  background-color: #333;
+  z-index: 1
+}
+
+#sidebar.active {
+  left: 0
+}
+
+main.active {
+  margin-left: 60px
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+
+  #sidebar {
+    left: 0;
     width: 60px;
-    float: left;
-    margin-top: 20px;
-    z-index: 100;
-    cursor: pointer;
   }
 
-  #content-title {
-    margin-top: 17px;
-    text-align: left;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    width: calc(100% - 60px);
-    display: block;
-    float: left;
-    padding-left: 30%;
-    text-transform: capitalize;
-    position: relative;
+  main {
+    margin-left: 60px !important;
+  }
+
+  #nav-btn {
+    display: none;
   }
 }
+
+/* Larger than tablet */
+@media (min-width: 770px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+  #sidebar {
+    left: 0;
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px !important;
+  }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
 
 #sidenav {
-  float: left;
-  background: #f5f5f5;
-  min-height: 100%;
-
-  #user-area {
-    #profile-picture {
-      img {
-        width: 60px;
-        height: 60px;
-      }
-    }
-
-    #name {
-      display: none;
-    }
-
-    #sub-name {
-      display: none;
-    }
-  }
-
-  hr.separator {
-    margin-top: 0;
-    margin-bottom: 0;
-    border-color: #c8c8c8;
-  }
-
-  #menu {
-    .section {
-      .section-name {
-        display: none;
-      }
-
-      .menu-item {
-        width: 60px;
-        height: 60px;
-        text-align: center;
-
-        .menu-item-name {
-          display: none;
-        }
-
-        .menu-item-icon {
-          position: relative;
-          top: 22px;
-
-          path {
-            fill: black;
-          }
-        }
-      }
-
-      .menu-item.active {
-        background: #e41034;
-
-        .menu-item-icon {
-          path {
-            fill: white;
-          }
-        }
-      }
-    }
-  }
+  margin-top: 100px
 }
 
-@media (min-width: 599px) and (max-width: 959px) {
-  #sidenav {
-    #user-area {
-      #profile-picture {
-        text-align: center;
-
-        margin-top: 40px;
-        margin-bottom: 40px;
-
-        img {
-          height: 40px;
-          width: 40px;
-          border-radius: 50%;
-        }
-      }
-    }
-
-    #menu {
-      .menu-item:hover {
-        .active-line {
-          height: 60px;
-          position: fixed;
-          float: left;
-          width: 5px;
-          background: #e41034;
-        }
-      }
-    }
-  }
+#sidenav a {
+  padding: 0 50px;
+  font-size: 1.5em
 }
 
-@media (min-width: 960px) {
-  #sidenav {
-    width: 200px;
-
-    #user-area {
-      padding: 40px 0;
-
-      // Account name
-      #name {
-        color: #3c3c3c;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        text-align: center;
-        letter-spacing: 0.2px;
-        text-transform: capitalize;
-        display: block;
-        width: 100%;
-        height: 23px;
-        margin-top: 10px;
-      }
-
-      // Account role
-      #sub-name {
-        color: #3c3c3c;
-        text-align: center;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 200;
-        font-size: 12px;
-        display: block;
-        width: 100%;
-      }
-
-      #profile-picture {
-        text-align: center;
-
-        img {
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
-
-          width: 66px;
-          height: 66px;
-        }
-      }
-    }
-
-    hr.separator {
-      margin-left: 20px;
-    }
-
-    .menu.active + hr.separator {
-      display: none;
-    }
-
-    #menu {
-      .section {
-        .section-name {
-          display: block;
-          margin-left: 20px;
-          margin-top: 10px;
-          margin-bottom: 10px;
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          font-size: 10px;
-          text-transform: uppercase;
-          color: #8c8c8c;
-        }
-      }
-
-      .menu-item {
-        width: 200px !important;
-
-        .menu-item-icon {
-          width: 60px;
-        }
-
-        .menu-item-name {
-          display: block !important;
-          float: left;
-          margin-left: 60px;
-          position: relative;
-          top: -1px;
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          font-weight: 200;
-          font-size: 14px;
-        }
-
-      }
-
-      .menu-item.active {
-        background: #ffffff !important;
-
-        .active-line {
-          height: 60px;
-          position: absolute;
-          float: left;
-          width: 5px;
-          background: #e41034;
-        }
-
-        .menu-item-icon {
-          path {
-            fill: #e41034 !important;
-          }
-        }
-
-        .menu-item-name {
-          color: #e41034;
-          font-weight: bold;
-        }
-      }
-
-      .menu-item:hover {
-        cursor: pointer;
-
-        .active-line {
-          height: 60px;
-          position: absolute;
-          float: left;
-          width: 5px;
-          background: #e41034;
-        }
-      }
-    }
-  }
+#sidenav ul.bottom {
+  position: absolute;
+  bottom: 80px
 }
 
-@media (max-height: 700px) and (min-width: 960px) {
-  #sidenav {
-    #user-area {
-      padding: 20px 0 !important;
-    }
-  }
+main.active:before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 100;
+
+  background: transparent\9; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50990000,endColorstr=#50990000)\9;
+  zoom: 1\9
 }
 
-@media (max-height: 650px) and (min-width: 960px) {
-  #sidenav {
-    #user-area {
-      #profile-picture {
-        width: 40px;
-        float: left;
-        position: relative;
-        left: 25px;
-        top: 10px;
-
-        img {
-          width: 40px;
-          height: 40px;
-        }
-      }
-    }
-  }
+/* Content */
+main {
+  height: 100%
 }
 
-@media (max-height: 580px) and (min-width: 960px) {
-  #sidenav {
-    padding-top: 10px;
-
-    #user-area {
-      display: none;
-    }
-  }
+article {
+  padding: 20px 30px;
+  text-align: center;
 }
+
+/* Button */
+
+#nav-btn {
+  position: absolute;
+  right: -70px;
+
+  height: 70px;
+  width: 70px;
+  z-index: 2
+}
+
+#nav-btn > div {
+  position: relative;
+  height: 4px;
+  width: 35px;
+  margin: 7px auto;
+  background-color: #e41034;
+  border-radius: 5px
+}
+#nav-btn:hover:not(.active) > div {
+  -webkit-animation: hoverButton .4s infinite;
+  animation: hoverButton .4s infinite
+}
+
+#nav-btn.active {
+  top: 20px;
+}
+#nav-btn.active > div {
+  margin: -3px auto
+}
+#nav-btn.active > div:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg)
+}
+#nav-btn.active > div:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg)
+}
+#nav-btn.active > div:nth-child(2) {
+  display: none
+}
+
+/* Animation
+   ========================================================================== */
+
+@-webkit-keyframes hoverButton {
+  0%      {left: 0}
+  33%     {left: -1px}
+  66%     {left: 6px}
+  100%    {left: 0}
+}
+
+@keyframes hoverButton {
+  0%      {left: 0}
+  33%     {left: -1px}
+  66%     {left: 6px}
+  100%    {left: 0}
+}
+
+
+
+//#sidenav-header {
+//  border: 1px solid #e41034;
+//  background: #e41034;
+//  color: white;
+//  text-align: center;
+//  float: left;
+//
+//  #menu-icon {
+//    text-align: center;
+//    width: 60px;
+//    float: left;
+//    margin-top: 20px;
+//    z-index: 100;
+//    cursor: pointer;
+//  }
+//
+//  #content-title {
+//    margin-top: 17px;
+//    text-align: left;
+//    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//    font-size: 16px;
+//    font-weight: 400;
+//    width: calc(100% - 60px);
+//    display: block;
+//    float: left;
+//    padding-left: 30%;
+//    text-transform: capitalize;
+//    position: relative;
+//  }
+//}
+//
+//#sidenav {
+//  float: left;
+//  background: #f5f5f5;
+//  min-height: 100%;
+//
+//  #user-area {
+//    #profile-picture {
+//      img {
+//        width: 60px;
+//        height: 60px;
+//      }
+//    }
+//
+//    #name {
+//      display: none;
+//    }
+//
+//    #sub-name {
+//      display: none;
+//    }
+//  }
+//
+//  hr.separator {
+//    margin-top: 0;
+//    margin-bottom: 0;
+//    border-color: #c8c8c8;
+//  }
+//
+//  #menu {
+//    .section {
+//      .section-name {
+//        display: none;
+//      }
+//
+//      .menu-item {
+//        width: 60px;
+//        height: 60px;
+//        text-align: center;
+//
+//        .menu-item-name {
+//          display: none;
+//        }
+//
+//        .menu-item-icon {
+//          position: relative;
+//          top: 22px;
+//
+//          path {
+//            fill: black;
+//          }
+//        }
+//      }
+//
+//      .menu-item.active {
+//        background: #e41034;
+//
+//        .menu-item-icon {
+//          path {
+//            fill: white;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//@media (min-width: 599px) and (max-width: 959px) {
+//  #sidenav {
+//    #user-area {
+//      #profile-picture {
+//        text-align: center;
+//
+//        margin-top: 40px;
+//        margin-bottom: 40px;
+//
+//        img {
+//          height: 40px;
+//          width: 40px;
+//          border-radius: 50%;
+//        }
+//      }
+//    }
+//
+//    #menu {
+//      .menu-item:hover {
+//        .active-line {
+//          height: 60px;
+//          position: fixed;
+//          float: left;
+//          width: 5px;
+//          background: #e41034;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//@media (min-width: 960px) {
+//  #sidenav {
+//    width: 200px;
+//
+//    #user-area {
+//      padding: 40px 0;
+//
+//      // Account name
+//      #name {
+//        color: #3c3c3c;
+//        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//        font-size: 16px;
+//        font-weight: 600;
+//        text-align: center;
+//        letter-spacing: 0.2px;
+//        text-transform: capitalize;
+//        display: block;
+//        width: 100%;
+//        height: 23px;
+//        margin-top: 10px;
+//      }
+//
+//      // Account role
+//      #sub-name {
+//        color: #3c3c3c;
+//        text-align: center;
+//        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//        font-weight: 200;
+//        font-size: 12px;
+//        display: block;
+//        width: 100%;
+//      }
+//
+//      #profile-picture {
+//        text-align: center;
+//
+//        img {
+//          -webkit-border-radius: 50%;
+//          -moz-border-radius: 50%;
+//          border-radius: 50%;
+//
+//          width: 66px;
+//          height: 66px;
+//        }
+//      }
+//    }
+//
+//    hr.separator {
+//      margin-left: 20px;
+//    }
+//
+//    .menu.active + hr.separator {
+//      display: none;
+//    }
+//
+//    #menu {
+//      .section {
+//        .section-name {
+//          display: block;
+//          margin-left: 20px;
+//          margin-top: 10px;
+//          margin-bottom: 10px;
+//          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//          font-size: 10px;
+//          text-transform: uppercase;
+//          color: #8c8c8c;
+//        }
+//      }
+//
+//      .menu-item {
+//        width: 200px !important;
+//
+//        .menu-item-icon {
+//          width: 60px;
+//        }
+//
+//        .menu-item-name {
+//          display: block !important;
+//          float: left;
+//          margin-left: 60px;
+//          position: relative;
+//          top: -1px;
+//          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//          font-weight: 200;
+//          font-size: 14px;
+//        }
+//
+//      }
+//
+//      .menu-item.active {
+//        background: #ffffff !important;
+//
+//        .active-line {
+//          height: 60px;
+//          position: absolute;
+//          float: left;
+//          width: 5px;
+//          background: #e41034;
+//        }
+//
+//        .menu-item-icon {
+//          path {
+//            fill: #e41034 !important;
+//          }
+//        }
+//
+//        .menu-item-name {
+//          color: #e41034;
+//          font-weight: bold;
+//        }
+//      }
+//
+//      .menu-item:hover {
+//        cursor: pointer;
+//
+//        .active-line {
+//          height: 60px;
+//          position: absolute;
+//          float: left;
+//          width: 5px;
+//          background: #e41034;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//@media (max-height: 700px) and (min-width: 960px) {
+//  #sidenav {
+//    #user-area {
+//      padding: 20px 0 !important;
+//    }
+//  }
+//}
+//
+//@media (max-height: 650px) and (min-width: 960px) {
+//  #sidenav {
+//    #user-area {
+//      #profile-picture {
+//        width: 40px;
+//        float: left;
+//        position: relative;
+//        left: 25px;
+//        top: 10px;
+//
+//        img {
+//          width: 40px;
+//          height: 40px;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//@media (max-height: 580px) and (min-width: 960px) {
+//  #sidenav {
+//    padding-top: 10px;
+//
+//    #user-area {
+//      display: none;
+//    }
+//  }
+//}
