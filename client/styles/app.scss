@@ -1,3 +1,14 @@
+/*
+* SASS Variables
+---------------------------------------------------------------------------------
+*/
+$red:       #e41034;
+$black:     #3c3c3c;
+$lightgray: #f5f5f5;
+
+/* SASS Variables END
+--------------------------------------------------------------------------------- */
+
 @import "../directives/followers-age/followers-age";
 @import "../directives/followers-gender/followers-gender";
 @import "../views/artist/artist";
@@ -42,6 +53,30 @@ body {
 }
 /* Global END
    ========================================================================== */
+
+/**
+*  Viewport layout
+==============================================
+@author ry
+@date 1/12/2015
+*/
+.viewport {
+  height: 100%;
+}
+
+.viewport.ng-leave {
+  display: none;
+}
+
+
+
+
+/**
+*  NORMALIZE AND SKELETON (no custom css past this point)
+==============================================
+@author ry
+@date 1/12/2015
+*/
 
 /* NORMALIZE
    ========================================================================== */
@@ -837,12 +872,3 @@ there.
 /* SKELETON END
    ========================================================================== */
 
-
-/* Viewport */
-.viewport {
-  height: 100%;
-}
-
-.viewport.ng-leave {
-  display: none;
-}
