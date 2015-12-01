@@ -23,7 +23,7 @@
 
   #login-header span {
     position: relative;
-    top: 3px;
+    top: -1px;
   }
   //Login Header End
 
@@ -49,6 +49,10 @@
     border-bottom: 3px solid #f0e442;
   }
 
+  #login-buttons {
+    text-align: center;
+  }
+
   #login-button {
     background: white;
     color: #a9a9a9;
@@ -56,6 +60,7 @@
     height: 30px;
     font-size: 14px;
     margin-top: 30px;
+    text-align: center;
 
     border: 1px solid #a9a9a9;
     -webkit-border-radius: 3px;

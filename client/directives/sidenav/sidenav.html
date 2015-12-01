@@ -1,128 +1,69 @@
-<div id="sidenav">
+<aside id="sidebar" ng-show="active">
+    <div id="nav-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav id="sidenav">
 
-    <div id="user-area">
-        <div id="profile-picture">
+        <div id="user">
             <img src="http://placekitten.com/g/50/50">
+
+            <h5> Admin </h5>
+            <h6> Kitten </h6>
         </div>
 
-        <span id="name"> {{role}} </span>
-        <span id="sub-name"> Kitten </span>
-    </div>
+        <ul id="menu">
+            <li data-path="/dashboard">
+                <ng-include src="'assets/icons/dashboard.svg'"></ng-include>
+                <span> Dashboard </span>
+            </li>
 
-    <div id="menu">
-        <div id="dashboard-section" class="section">
-            <div id="menu-dashboard" class="menu-item">
-                <div class="active-line"></div>
+            <hr/>
 
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/dashboard.svg'"></ng-include>
-                </div>
+            <li data-path="/profile">
+                <ng-include src="'assets/icons/profile.svg'"></ng-include>
+                <span> Profile </span>
+            </li>
+            <li data-path="/playlists">
+                <ng-include src="'assets/icons/playlist.svg'"></ng-include>
+                <span> Playlists </span>
+            </li>
+            <li data-path="/content">
+                <ng-include src="'assets/icons/content.svg'"></ng-include>
+                <span> Content </span>
+            </li>
 
-                <span class="menu-item-name">Dashboard</span>
+            <hr/>
 
-            </div>
+            <li data-path="/export">
+                <ng-include src="'assets/icons/download.svg'"></ng-include>
+                <span>Export</span>
+            </li>
+            <li data-path="/billing">
+                <ng-include src="'assets/icons/billing.svg'"></ng-include>
+                <span> Billing </span>
+            </li>
+            <li data-path="/settings">
+                <ng-include src="'assets/icons/cog.svg'"></ng-include>
+                <span> Settings </span>
+            </li>
 
-            <hr class="separator dashboard">
+            <hr/>
+
+            <li data-path="/logout">
+                <ng-include src="'assets/icons/logout.svg'"></ng-include>
+                <span> Logout </span>
+            </li>
+        </ul>
+
+        <div id="footer">
+            <ng-include src="'assets/icons/star.svg'" class="small"></ng-include>
+            <ng-include src="'assets/icons/guvera-logo.svg'" class="large"></ng-include>
         </div>
+    </nav>
+</aside>
 
-
-        <div id="brand-channel-section" class="section">
-            <span class="section-name"> Brand Channel </span>
-
-            <div id="menu-profile" class="menu-item">
-
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/profile.svg'"></ng-include>
-                </div>
-
-                <span class="menu-item-name">Profile</span>
-
-            </div>
-
-            <div id="menu-playlists" class="menu-item">
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/playlist.svg'"></ng-include>
-                </div>
-
-                <span class="menu-item-name">Playlists</span>
-            </div>
-
-            <div id="menu-content" class="menu-item">
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/content.svg'"></ng-include>
-                </div>
-
-                <div class="menu-item-name">Content</div>
-            </div>
-
-            <hr class="separator export content">
-
-        </div>
-
-
-        <div id="utility-section" class="section">
-            <div id="menu-export" class="menu-item">
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/download.svg'"></ng-include>
-                </div>
-
-                <div class="menu-item-name">Export</div>
-            </div>
-
-            <div id="menu-billing" class="menu-item">
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/billing.svg'"></ng-include>
-                </div>
-
-                <div class="menu-item-name">Billing</div>
-            </div>
-
-            <div id="menu-settings" class="menu-item">
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/cog.svg'"></ng-include>
-                </div>
-
-                <div class="menu-item-name">Settings</div>
-
-            </div>
-
-            <hr class="separator settings logout">
-
-        </div>
-
-
-        <div id="logout-section" class="section">
-            <div id="menu-logout" class="menu-item">
-                <div class="active-line"></div>
-
-                <div class="menu-item-icon">
-                    <ng-include src="'assets/icons/logout.svg'"></ng-include>
-                </div>
-
-                <div class="menu-item-name">Logout</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="sidenav-header">
-    <div id="menu-icon">
-        <ng-include src="'assets/icons/menu.svg'"></ng-include>
-    </div>
-
-    <span id="content-title"> {{currentRoute}} </span>
-
-    <div id="backdrop"></div>
-</div>
+<main>
+    <ng-transclude></ng-transclude>
+</main>
