@@ -10,7 +10,7 @@
 
         <div id="login-form-container" class="row">
 
-            <div class="col-md-6">
+            <div class="one-half column">
                 <div class="input-container username-container">
                     <input name="username" ng-model="ctrl.login.username"
                            ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="one-half column">
                 <div class="input-container password-container">
                     <input name="password"
                            ng-model="ctrl.login.password" ng-class="{'warning': loginForm.$submitted && loginForm.$invalid}"
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div id="login-buttons" class="row text-center">
+        <div id="login-buttons" class="row">
             <button id="login-button" ng-class="{'active': loginForm.$valid}" type="submit"> Login</button>
         </div>
     </form>
