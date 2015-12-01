@@ -3,10 +3,10 @@
 angular.module('eiFrontend')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/channel/playlists', {
+      .when('/playlists', {
         templateUrl: 'views/playlists/playlists.html',
         controller: 'PlaylistsCtrl',
         controllerAs: 'ctrl',
-        access: ['brand']
+        access: []
       });
   });

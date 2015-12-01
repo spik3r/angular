@@ -7,6 +7,6 @@ angular.module('eiFrontend')
         templateUrl: 'views/export/export.html',
         controller: 'ExportCtrl',
         controllerAs: 'ctrl',
-        access: ['label']
+        access: []
       });
   });

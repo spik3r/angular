@@ -1,146 +1,446 @@
-.sp-container .sp-sidebar {
-  z-index: 10;
+/**
+*  Mobile first sidebar queries
+==============================================
+@author ry
+@date 1/12/2015
+*/
+
+/*
+* Sidebar style
+---------------------------------------------------------------------------------
+*/
+#sidebar {
   position: fixed;
+  left: -60px;
   height: 100%;
-  left: 240px;
-  margin-left: -240px;
-  width: 240px;
-  overflow: hidden;
-  overflow-y: auto;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-}
+  width: 60px;
+  background-color: $lightgray;
+  z-index: 1;
 
-.sp-toggle-sidebar .sp-container .sp-sidebar {
-  width: 0;
-}
+  /*
+  * Sidenav object
+  ---------------------------------------------------------------------------------
+  */
+  #sidenav {
+    height: 100%;
 
-#sidenav .nav {
-  height: 100%;
-}
+    /*
+    * User Area
+    ---------------------------------------------------------------------------------
+    */
+    #user {
+      height: 60px;
+      min-height: 60px;
 
-#sidenav .sp-sidebar .nav {
-  width: 240px;
-}
-#sidenav .sp-sidebar .nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#sidenav .sp-sidebar .nav ul li {
-  position: relative;
-  font-weight: 600;
-}
+      img {
+        height: 60px;
+        width: 60px;
+      }
 
-#sidenav .sp-sidebar .nav ul li.active .menu-item-container {
-  background: white;
-}
+      h5, h6 {
+        display: none;
+      }
+    }
 
-#sidenav .sp-sidebar .nav ul li .menu-icon {
-  color: black;
-}
+    /*
+    * Menu items container (fixed, scrollable)
+    ---------------------------------------------------------------------------------
+    */
+    #menu {
+      height: calc(100% - 100px);
+      overflow: auto;
+      overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch; // Fix touch scrolling for Safari
+      margin: 0;
+      padding: 0;
 
-#sidenav .sp-sidebar .nav ul li.nav-label {
-  display: block;
-  margin: 12px 0 0;
-  color: #91a0ad;
-  font-size: 16px;
-  line-height: 1;
-}
+      hr {
+        margin: 0;
+      }
 
-#sidenav .sp-sidebar .nav ul li a {
-  font-weight: 200;
-  display: inline-block;
-  padding: 20px 25px;
-  color: white;
-  font-size: 16px;
-  line-height: 1;
-  text-decoration: none;
-  -webkit-transition: all 0.3s linear 0s;
-  -moz-transition: all 0.3s linear 0s;
-  -ms-transition: all 0.3s linear 0s;
-  -o-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-  cursor: pointer;
-}
+      /*
+      * Default menu item
+      ---------------------------------------------------------------------------------
+      */
+      li {
+        height: 50px;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 0;
 
-#sidenav .sp-sidebar .nav ul li.active a {
-  color: black;
-}
+        svg {
+          position: relative;
+          top: 18px;
 
-#sidenav .sp-sidebar .nav ul li.active a.active {
-  color: black;
-  font-weight: 400;
-}
+          path {
+            fill: $black;
+          }
+        }
 
-#sidenav .sp-sidebar .nav ul li.active .submenu-item-container {
-  background: white;
-}
+        span {
+          display: none;
+        }
+      }
 
-#sidenav .menu-item-container .menu-icon {
-  float: right;
-  margin-top: 19px;
-  margin-right: 10px;
-  height: 100%
-}
+      /*
+      * Active menu item
+      ---------------------------------------------------------------------------------
+      */
+      li.active {
+        background: $red;
 
+        path {
+          fill: #ffffff;
+        }
+      }
 
-.submenu .active {
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  display: block;
-}
+      /*
+      * Menu item hover
+      ---------------------------------------------------------------------------------
+      */
+      li:hover:before {
+        content: "";
+        position: relative;
+        left: 0;
+        width: 5px;
+        height: 50px;
+        z-index: 100;
+        background: $red;
+        float: left;
+        margin-right: -5px;
+      }
+    }
 
-.sidenav-item .dropdown {
-  display: none;
-}
+    /*
+    * Menu footer
+    ---------------------------------------------------------------------------------
+    */
+    #footer {
+      text-align: center;
+      height: 40px;
 
-.submenu-item a {
-  position: relative;
-  left: 10px;
-}
+      path {
+        fill: $red;
+      }
 
-// User Area
-#sidenav #user-area {
-  height: 30%;
-  padding: 20px;
-  overflow: hidden;
-  min-height: 130px;
-}
-
-#sidenav #user-area #user-img img {
-  border-radius: 50%;
-  display: none;
-}
-
-@media (min-height: 550px) {
-  #sidenav #user-area #user-img img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: inline;
-    margin-top: 20px;
+      .large {
+        display: none;
+      }
+    }
   }
 }
 
-@media (min-height: 650px) {
-  #sidenav #user-area #user-img img {
-    border-radius: 50%;
-    width: 66px;
-    height: 66px;
-    display: inline;
+#sidebar.active {
+  left: 0
+}
+
+/*
+* Content section
+---------------------------------------------------------------------------------
+*/
+main {
+  height: 100%;
+
+  article {
+    padding: 20px 30px;
+    text-align: center;
   }
 }
 
-#sidenav #user-area .mini-link {
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
+main.active {
+  margin-left: 60px
 }
 
+/*
+* Content section overlay
+---------------------------------------------------------------------------------
+*/
+main.active:before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 100;
+
+  background: transparent \9
+;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#50990000, endColorstr=#50990000) \9
+;
+  zoom: 1 \9
+}
+
+/**
+*  Media queries for phablets
+==============================================
+@author ry
+@date 1/12/2015
+*/
+@media (min-width: 550px) {
+  // Display medium sidebar without ability to hide it
+  #sidebar {
+    left: 0;
+    width: 60px;
+
+    #nav-btn {
+      display: none;
+    }
+
+    #user {
+      width: 100%;
+      height: 20% !important;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 35%;
+        left: 10px;
+        height: 40px !important;
+        width: 40px !important;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+    }
+
+    #menu {
+      height: calc(80% - 40px) !important;
+    }
+  }
+
+  main {
+    margin-left: 60px !important;
+  }
+
+  aside.ng-hide + main {
+    margin-left: 0 !important;
+  }
+
+  // Dont show dark overlay if menu was previously hidden in another state
+  main.active:before {
+    display: none;
+  }
+}
+
+/**
+*  Media queries for tablet sidebar
+==============================================
+@author ry
+@date 1/12/2015
+*/
+@media (min-width: 1000px) {
+  #sidebar {
+    left: 0;
+    width: 200px;
+
+    #user {
+      text-align: center;
+      padding-top: 20px;
+      overflow: hidden;
+      min-height: 140px !important;
+
+      img {
+        position: relative;
+        height: 60px !important;
+        width: 60px !important;
+        border-radius: 50%;
+        position: relative;
+        left: 0;
+      }
+
+      h5, h6 {
+        display: block !important;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 200;
+        margin: 0;
+      }
+
+      h5 {
+        margin-top: 10px;
+        top: 60% !important;
+        width: 100%;
+        text-align: center;
+
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      h6 {
+        font-size: 14px !important;
+      }
+    }
+
+    #menu {
+
+      hr {
+        margin-left: 20px !important;
+        border-color: #e1e1e1 !important;
+      }
+
+      /*
+      * Menu item
+      ---------------------------------------------------------------------------------
+      */
+      li {
+        text-align: left !important;
+
+        svg {
+          margin-left: 22px;
+
+          path {
+            fill: $black !important;
+          }
+        }
+
+        span {
+          display: block !important;
+          margin-left: 50px;
+          position: relative;
+          top: -8px;
+          font-size: 14px;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 200;
+          color: $black !important;
+        }
+      }
+
+      /*
+      * Active menu item
+      ---------------------------------------------------------------------------------
+      */
+      li.active {
+        background: #ffffff !important;
+        color: $black !important;
+
+        svg {
+          margin-left: 22px;
+
+          path {
+            fill: $red !important;
+          }
+        }
+
+        span {
+          color: $red !important;
+          font-weight: 400;
+        }
+      }
+
+      li.active:before {
+        content: "";
+        position: relative;
+        left: 0;
+        width: 5px;
+        height: 50px;
+        z-index: 100;
+        background: $red;
+        float: left;
+        margin-right: -5px;
+      }
+    }
+
+    #footer {
+      .small {
+        display: none !important;
+      }
+      .large {
+        display: block !important;
+      }
+
+      path {
+        fill: #ebebeb !important;
+      }
+    }
+  }
+
+  main {
+    margin-left: 200px !important;
+  }
+}
+
+/*
+* Hamburger menu button with animations
+---------------------------------------------------------------------------------
+*/
+#nav-btn {
+  position: absolute;
+  right: -65px;
+  height: 50px;
+  width: 70px;
+  z-index: 2;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+#nav-btn > div {
+  position: relative;
+  height: 4px;
+  width: 35px;
+  margin: 7px auto;
+  background-color: $red;
+  border-radius: 5px
+}
+
+#nav-btn:hover:not(.active) > div {
+  -webkit-animation: hoverButton .4s infinite;
+  animation: hoverButton .4s infinite
+}
+
+#nav-btn.active {
+  top: 20px;
+}
+
+#nav-btn.active > div {
+  margin: -3px auto
+}
+
+#nav-btn.active > div:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg)
+}
+
+#nav-btn.active > div:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg)
+}
+
+#nav-btn.active > div:nth-child(2) {
+  display: none
+}
+
+/* Animation
+   ========================================================================== */
+
+@-webkit-keyframes hoverButton {
+  0% {
+    left: 0
+  }
+  33% {
+    left: -1px
+  }
+  66% {
+    left: 6px
+  }
+  100% {
+    left: 0
+  }
+}
+
+@keyframes hoverButton {
+  0% {
+    left: 0
+  }
+  33% {
+    left: -1px
+  }
+  66% {
+    left: 6px
+  }
+  100% {
+    left: 0
+  }
+}

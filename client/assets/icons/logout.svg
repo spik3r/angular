@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: sketchtool 3.4 (375) - http://www.bohemiancoding.com/sketch -->
+    <title>Logout</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Style-Guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="EI-Style-Guide" sketch:type="MSArtboardGroup" transform="translate(-881.000000, -664.000000)" fill="#3C3C3C">
+            <g id="Icons" sketch:type="MSLayerGroup" transform="translate(560.000000, 660.000000)">
+                <path d="M321.202,9.907 L324.795,13.5 C324.99,13.695 325.306,13.695 325.5,13.5 C325.695,13.305 325.695,12.99 325.5,12.795 L322.706,10 L331.003,10 L331.003,14.502 C331.003,14.777 331.226,15 331.501,15 C331.777,15 332,14.777 332,14.502 L332,9.499 C332,9.224 331.777,9 331.501,9 L331.501,9.001 C331.5,9.001 331.5,9 331.5,9 L322.705,9 L325.5,6.206 C325.695,6.011 325.695,5.695 325.5,5.5 C325.305,5.306 324.99,5.306 324.795,5.5 L321.202,9.093 C321.193,9.102 321.19,9.113 321.182,9.123 C321.073,9.214 321,9.347 321,9.5 C321,9.654 321.074,9.787 321.183,9.879 C321.191,9.887 321.194,9.899 321.202,9.907 M336.5,4 L331.5,4 C331.224,4 331,4.224 331,4.5 C331,4.777 331.224,5 331.5,5 L336,5 L336,19 L321.998,19 L321.998,15.499 C321.998,15.224 321.774,15 321.499,15 C321.223,15 321,15.224 321,15.499 L321,19.502 C321,19.777 321.223,20 321.499,20 L321.499,20 L321.5,20 L336.5,20 C336.776,20 337,19.777 337,19.5 L337,4.5 C337,4.224 336.776,4 336.5,4" id="Logout" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

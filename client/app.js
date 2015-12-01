@@ -18,7 +18,7 @@ angular.module('eiFrontend', [
 
     $routeProvider
       .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/dashboard'
       });
 
     $locationProvider.html5Mode(true);
@@ -49,6 +49,7 @@ angular.module('eiFrontend', [
               }
               // If user does not have required role, redirect.
               if (!allowed) {
+                  console.log("Not allowed");
                 $location.path(redirectPath);
               }
             }

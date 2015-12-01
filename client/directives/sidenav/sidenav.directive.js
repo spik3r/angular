@@ -1,66 +1,100 @@
 'use strict';
 
 angular.module('eiFrontend')
-  .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Sidenav, Auth) {
-    return {
-      restrict: 'EA',
-      scope: {
-        menu: '='
-      },
-      templateUrl: 'directives/sidenav/sidenav.html',
-      link: function (scope) {
-        // Filter menu based on user permissions
-        scope.filteredMenu = [];
-        for (var i = 0; i < scope.menu.length; i++) {
-          if (Auth.match(scope.menu[i].role)) {
-            // If menu item has dropdown, filter it
-            if (scope.menu[i].dropdown && scope.menu[i].dropdown.length > 0) {
-              var tempDropdown = [];
+    .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Auth, Sidenav) {
+        return {
+            restrict: 'EA',
+            transclude: true,
+            scope: {
+                active: '='
+            },
+            templateUrl: 'directives/sidenav/sidenav.html',
+            link: function (scope, element) {
+                // Get active status from service
+                scope.active = Sidenav.isActive();
+                // Listen for events to update active status
+                scope.$on('sidenav:activated',   function() { scope.active = true; });
+                scope.$on('sidenav:deactivated', function() { scope.active = false; });
 
-              for (var j = 0; j < scope.menu[i].dropdown.length; j++) {
-                if (Auth.match(scope.menu[i].dropdown[j].role)) {
-                  tempDropdown.push(scope.menu[i].dropdown[j]);
+                // Links to toggled elements
+                var button  = element.find('#nav-btn');
+                var sidebar = element.find('#sidebar');
+                var main    = element.find('main');
+                var cover   = element.find('#cover');
+                var items   = element.find("#menu li");
+
+                // Get initial route and activate relevant menu item
+                var currentRoute = $route.current.$$route.originalPath;
+                activate(currentRoute);
+
+                /**
+                 * Function that toggles sidebar menu on mobile screen using CSS
+                 * 'active' class on following elements: button, sidebar, main section
+                 * and content cover.
+                 */
+                function toggle() {
+                    button  .toggleClass('active');
+                    sidebar .toggleClass('active');
+                    main    .toggleClass('active');
+                    cover   .toggleClass('active');
                 }
-              }
 
-              if (tempDropdown.length > 0) {
-                scope.menu[i].dropdown = tempDropdown;
-              } else {
-                delete scope.menu[i].dropdown;
-              }
+                /**
+                 * Function that activates menu item relevant to the given path.
+                 * Returns last activated item, or false if item with given path cannot be found.
+                 *
+                 * @param path of the tab that needs to be activated
+                 * @type {String}
+                 */
+                var found = false;
+                function activate(path) {
+                    items.removeClass('active');
 
-              scope.filteredMenu.push(scope.menu[i]);
-            } else {
-              scope.filteredMenu.push(scope.menu[i]);
+                    for (var i=0; i < items.length; i++) {
+                        // If menu item has desired path, set it as active
+                        if (items[i].dataset.path === path) {
+                            element.find(items[i]).addClass('active');
+                            found = items[i];
+                        }
+                    }
+
+                    if (!found) {
+                        // Throw warning to console if menu item is not found
+                        Log.warn('sidenav', "Cannot find menu item with path: " + path);
+                    }
+                    return found;
+                }
+
+                /**
+                 * Click event handlers
+                 */
+                // Menu toggle click handlers
+                button  .on('click', toggle);
+                main    .on('click', function () {
+                    if (main.hasClass('active')) {
+                        toggle();
+                    }
+                });
+
+                // Redirect click handler
+                var path;
+                items   .on('click touchend', function (event) {
+                    // Get redirect path
+                    path = event.currentTarget.dataset.path;
+                    // Redirect
+                    $location.path(path);
+                    scope.$apply(); // Location path does not get updated without this line
+                    // Activate relevant menu item
+                    activate(path);
+                    // Hide menu after a small delay
+                    $timeout(function () {
+                        // This if is needed to properly hide menu after redirect on mobiles
+                        if (main.hasClass('active')) {
+                            toggle();
+                        }
+                    }, 300);
+                });
+
             }
-          }
-        }
-        scope.menu = scope.filteredMenu;
-
-        var sidenav = Sidenav;
-        scope.currentRoute = $route.current.$$route.originalPath;
-        scope.user = Auth.user;
-
-        // When route is changed, update current route
-        scope.$on('$routeChangeSuccess', function (event, route) {
-          scope.currentRoute = route.$$route.originalPath;
-        });
-
-        // When tab is clicked, redirect to that tab
-        scope.$on('activateTab', function (event, tab) {
-          // Create redirect path from the tab name
-          Log.say('sidenav', 'Redirect to: ' + tab.path);
-
-          $timeout(function () {
-            $location.path(tab.path);
-            // Broadcast that tab has changed, so children can update their styles
-            scope.$broadcast('activateTabSuccess', tab);
-          }, 100);
-        });
-
-        scope.hide = function () {
-          sidenav.toggle();
-        }
-      }
-    };
-  });
+        };
+    });

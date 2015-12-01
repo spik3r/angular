@@ -1,21 +1,69 @@
-<div id="sidenav" class="sp-container">
-  <div class='sp-sidebar bloody-red'>
-    <div class='nav'>
-      <div id="user-area" class="text-center">
-        <div id="user-img">
-          <img src="http://placekitten.com/g/50/50">
+<aside id="sidebar" ng-show="active">
+    <div id="nav-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav id="sidenav">
+
+        <div id="user">
+            <img src="http://placekitten.com/g/50/50">
+
+            <h5> Admin </h5>
+            <h6> Kitten </h6>
         </div>
 
-        <h4> {{user.role | capitalize:'first' }} </h4>
-        <h5> Kitten </h5>
+        <ul id="menu">
+            <li data-path="/dashboard">
+                <ng-include src="'assets/icons/dashboard.svg'"></ng-include>
+                <span> Dashboard </span>
+            </li>
 
-        <span class="mini-link"><a ng-href='/logout'>logout</a></span>
-        <span class="mini-link"><a ng-click="hide()">hide</a></span>
-      </div>
+            <hr/>
 
-      <ul>
-        <sidenav-item ng-repeat="item in menu" object="item" route="currentRoute"></sidenav-item>
-      </ul>
-    </div>
-  </div>
-</div>
+            <li data-path="/profile">
+                <ng-include src="'assets/icons/profile.svg'"></ng-include>
+                <span> Profile </span>
+            </li>
+            <li data-path="/playlists">
+                <ng-include src="'assets/icons/playlist.svg'"></ng-include>
+                <span> Playlists </span>
+            </li>
+            <li data-path="/content">
+                <ng-include src="'assets/icons/content.svg'"></ng-include>
+                <span> Content </span>
+            </li>
+
+            <hr/>
+
+            <li data-path="/export">
+                <ng-include src="'assets/icons/download.svg'"></ng-include>
+                <span>Export</span>
+            </li>
+            <li data-path="/billing">
+                <ng-include src="'assets/icons/billing.svg'"></ng-include>
+                <span> Billing </span>
+            </li>
+            <li data-path="/settings">
+                <ng-include src="'assets/icons/cog.svg'"></ng-include>
+                <span> Settings </span>
+            </li>
+
+            <hr/>
+
+            <li data-path="/logout">
+                <ng-include src="'assets/icons/logout.svg'"></ng-include>
+                <span> Logout </span>
+            </li>
+        </ul>
+
+        <div id="footer">
+            <ng-include src="'assets/icons/star.svg'" class="small"></ng-include>
+            <ng-include src="'assets/icons/guvera-logo.svg'" class="large"></ng-include>
+        </div>
+    </nav>
+</aside>
+
+<main>
+    <ng-transclude></ng-transclude>
+</main>
