@@ -3,6 +3,13 @@
   width: 100%;
   background: #e41034;
 
+  * {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+
   //Login Header
   #login-header {
     padding-top: 200px;

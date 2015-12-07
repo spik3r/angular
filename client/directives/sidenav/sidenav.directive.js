@@ -68,7 +68,7 @@ angular.module('eiFrontend')
                 /**
                  * Click event handlers
                  */
-                // Menu toggle click handlers
+                    // Menu toggle click handlers
                 button  .on('click', toggle);
                 main    .on('click', function () {
                     if (main.hasClass('active')) {
