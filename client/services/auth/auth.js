@@ -66,7 +66,7 @@ angular.module('eiFrontend')
                 }
 
 
-                var fakeLogin = function () {
+                var fakeLogin = function (username, password) {
 
                     var response = {};
 
@@ -115,7 +115,9 @@ angular.module('eiFrontend')
                     }
 
                     callback(response);
-                }
+
+                    return response;
+                };
 
                 // Declare public functions
                 /**
@@ -134,7 +136,8 @@ angular.module('eiFrontend')
                     var url = createAuthURL();
                     console.log(url);
 
-                    window.location.replace(url);
+                    $window.location.href = '/dashboard';
+                    // window.location.replace(url);
                 };
 
                 function createAuthURL() {

@@ -9,6 +9,7 @@
 * Sidebar style
 ---------------------------------------------------------------------------------
 */
+
 #sidebar {
   position: fixed;
   left: -60px;
@@ -389,51 +390,50 @@ main.active:before {
   z-index: 2;
   margin-top: 10px;
   margin-left: 15px;
-}
 
-#nav-btn > div {
-  position: relative;
-  height: 4px;
-  width: 35px;
-  margin: 7px auto;
-  background-color: $red;
-  border-radius: 5px
-}
+  & > div {
+    position: relative;
+    height: 4px;
+    width: 35px;
+    margin: 7px auto;
+    background-color: $red;
+    border-radius: 5px
+  }
 
-#nav-btn:hover:not(.active) > div {
-  -webkit-animation: hoverButton .4s infinite;
-  animation: hoverButton .4s infinite
-}
+  &:hover:not(.active) > div {
+    -webkit-animation: hoverButton .4s infinite;
+    animation: hoverButton .4s infinite
+  }
 
-#nav-btn.active {
-  top: 20px;
-}
+  &.active {
+    top: 20px;
+  }
 
-#nav-btn.active > div {
-  margin: -3px auto
-}
+  &.active > div {
+    margin: -3px auto
+  }
 
-#nav-btn.active > div:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg)
-}
+  &.active > div:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg)
+  }
 
-#nav-btn.active > div:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg)
-}
+  &.active > div:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+  }
 
-#nav-btn.active > div:nth-child(2) {
-  display: none
+  &.active > div:nth-child(2) {
+    display: none
+  }
 }
 
 /* Animation
    ========================================================================== */
-
 @-webkit-keyframes hoverButton {
   0% {
     left: 0
