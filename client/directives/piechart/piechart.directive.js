@@ -6,7 +6,7 @@ angular.module('eiFrontend')
             restrict: 'EA',
             replace: true,
             scope: {
-                percent: '='
+              percent: '='
             },
             templateUrl: 'directives/piechart/piechart.html',
             link: function (scope, element) {
@@ -17,6 +17,10 @@ angular.module('eiFrontend')
                 if (percent > 50) {
                     element.addClass('gt-50');
                 }
+
+                console.log(percent);
+
+                $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
             }
         };
     });
