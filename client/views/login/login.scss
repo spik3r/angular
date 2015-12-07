@@ -78,7 +78,7 @@
   }
 
   /* Medium devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
+  @media (min-width: 550px) {
     .username-container {
       text-align: right;
     }
@@ -111,7 +111,6 @@
       color: white;
     }
   }
-
   // Login Footer End
 }
 
