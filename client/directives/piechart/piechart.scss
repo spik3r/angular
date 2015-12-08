@@ -5,25 +5,28 @@
 @date 8/12/2015
 */
 
+// TODO make this variable be in the directive scope, not global scope
+$pie-size: 190px;
+
 // Mixin that creates an absolute centered circle
-@mixin circle($size) {
+@mixin circle($pie-size) {
   content: "";
   position: absolute;
   border-radius: 50%;
-  left: calc(50% - #{$size/2});
-  top: calc(50% - #{$size/2});
-  width: $size;
-  height: $size;
+  left: calc(50% - #{$pie-size/2});
+  top: calc(50% - #{$pie-size/2});
+  width: $pie-size;
+  height: $pie-size;
 }
 
-$size: 200px;
 .pie-chart-container {
-  width: $size;
-  height: $size;
+  width: $pie-size;
+  height: $pie-size;
   border-radius: 50%;
   background-color: $black;
   position: relative;
-  left: calc(50% - #{$size / 2});
+  left: calc(50% - #{$pie-size / 2});
+  margin-top: 5px;
 
   &.over-50 {
     background-color: $red;
@@ -35,18 +38,19 @@ $size: 200px;
 ---------------------------------------------------------------------------------
 */
 .pie-chart {
-  @include circle($size);
-  clip: rect(0, $size, $size, #{$size/2});
+
+  @include circle($pie-size);
+  clip: rect(0, $pie-size, $pie-size, #{$pie-size/2});
   .pie-chart-fill {
-    @include circle($size);
-    clip: rect(0, #{$size/2}, $size, 0);
+    @include circle($pie-size);
+    clip: rect(0, #{$pie-size/2}, $pie-size, 0);
     background: $red;
     transform: rotate(60deg);
   }
   .over-50 & {
-    clip: rect(0, #{$size/2}, $size, 0);
+    clip: rect(0, #{$pie-size/2}, $pie-size, 0);
     .pie-chart-fill {
-      clip: rect(0, $size, $size, #{$size/2});
+      clip: rect(0, $pie-size, $pie-size, #{$pie-size/2});
       background: $black;
     }
   }
@@ -57,7 +61,7 @@ $size: 200px;
 ---------------------------------------------------------------------------------
 */
 .legend {
-  @include circle(#{$size/1.15});
+  @include circle(#{$pie-size/1.10});
   background: #fff;
   text-align: center;
   display: table;
@@ -73,9 +77,11 @@ $size: 200px;
   */
   %label {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
     font-weight: 200;
     text-align: left;
     padding-left: 30%;
+    text-transform: capitalize;
 
     .percent {
       color: $darkgray;
@@ -90,9 +96,11 @@ $size: 200px;
   .female-label {
     @extend %label;
 
+    margin-bottom: 10px;
+
     &:after {
       background: $black;
-      top: 39%;
+      top: 38%;
     }
   }
 
@@ -101,7 +109,7 @@ $size: 200px;
 
     &:after {
       background: $red;
-      top: 54%;
+      top: 55%;
     }
   }
 }

@@ -1,18 +1,14 @@
 .slice-chart {
   // Slice chart settings
-  $slice-width: 200px;
+  $slice-width: 250px;
   $span-width: 45px;
-  $row-height: 25px;
+  $row-height: 27px;
 
-
-  width: $slice-width;
-
-  list-style: none;
-  margin-left: 10px;
-  margin-right: 10px;
-
-  position: relative;
   left: calc(50% - #{$slice-width / 2});
+  list-style: none;
+  margin: 20px 10px;
+  position: relative;
+  width: $slice-width;
 
   /*
   * Slice Label
@@ -23,10 +19,11 @@
     display: block;
     float: left;
     font-family: $default-fonts;
+    font-size: 13px;
     font-weight: 200;
     height: $row-height;
     padding-right: 3px;
-    padding-top: 2px;
+    padding-top: 4px;
     text-align: right;
     width: $span-width;
   }

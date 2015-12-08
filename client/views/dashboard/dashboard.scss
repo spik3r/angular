@@ -24,19 +24,13 @@ Dashboard Content Styles
     }
   }
 
-  /*
-  * Followers demographics section
-  ---------------------------------------------------------------------------------
-  */
-  #followers-demographics {
-    padding: 20px;
+  #dashboard-content {
+    .gender {
+      margin-top: 20px;
+    }
+
+    .age {
+      margin-top: 20px;
+    }
   }
-
-  .gender {
-
-  }
-
-  .age {
-  }
-
 }

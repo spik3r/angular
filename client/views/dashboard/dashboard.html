@@ -3,22 +3,22 @@
         <h1>Dashboard</h1>
     </div>
 
-    <div id="dashboard-content">
-        <div id="followers-insights">
-            <div id="followers-demographics" class="row">
-                <followers-gender>  </followers-gender>
-                <followers-age>     </followers-age>
-            </div>
-        </div>
-    </div>
+    <!--<div id="dashboard-content">-->
+        <!--<div id="followers-insights">-->
+            <!--<div id="followers-demographics" class="row">-->
+                <!--<followers-gender>  </followers-gender>-->
+                <!--<followers-age>     </followers-age>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-    <div class="row">
+    <div id="dashboard-content" class="row">
         <div class="column one-half gender">
-            <piechart data-percent="80"></piechart>
+            <piechart data-percent="ctrl.gender.percent" data-labels="ctrl.gender.labels"></piechart>
         </div>
 
         <div class="column one-half age">
-            <slicechart></slicechart>
+            <slicechart data-slices="ctrl.ages"></slicechart>
         </div>
     </div>
 

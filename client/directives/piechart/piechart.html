@@ -4,16 +4,14 @@
     </div>
     <div class="legend">
         <div class="legend-wrapper">
-
             <div class="female-label">
-                <span class="percent">(30%)</span>
-                <span>= female</span>
+                <span>= {{labels[1]}}</span>
+                <span class="percent">({{100 - percent}}%)</span>
             </div>
             <div class="male-label">
-                <span class="percent">(70%)</span>
-                <span>= male</span>
+                <span>= {{labels[0]}}</span>
+                <span class="percent">({{percent}}%)</span>
             </div>
-
         </div>
     </div>
 </div>
