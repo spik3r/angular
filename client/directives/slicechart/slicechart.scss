@@ -1,0 +1,52 @@
+.slice-chart {
+  // Slice chart settings
+  $slice-width: 250px;
+  $span-width: 45px;
+  $row-height: 27px;
+
+  left: calc(50% - #{$slice-width / 2});
+  list-style: none;
+  margin: 20px 10px;
+  position: relative;
+  width: $slice-width;
+
+  /*
+  * Slice Label
+  ---------------------------------------------------------------------------------
+  */
+  span {
+    color: $darkgray;
+    display: block;
+    float: left;
+    font-family: $default-fonts;
+    font-size: 13px;
+    font-weight: 200;
+    height: $row-height;
+    padding-right: 3px;
+    padding-top: 4px;
+    text-align: right;
+    width: $span-width;
+  }
+
+  /*
+  * Slice line container
+  ---------------------------------------------------------------------------------
+  */
+  .slice-container {
+    float: left;
+    height: $row-height;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 10px;
+    width: calc(100% - #{$span-width});
+
+    /*
+    * Slice line, width is set by angular in range from 0% to 100%
+    ---------------------------------------------------------------------------------
+    */
+    div {
+      background: $red;
+      height: 10px;
+    }
+  }
+}

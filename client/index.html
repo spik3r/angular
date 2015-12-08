@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="eiFrontend" ng-cloak>
-  <head>
+<head>
     <base href="/">
 
     <title> Engagement Informatics</title>
@@ -16,78 +16,80 @@
     <link rel="stylesheet" href="styles/css/app.css">
 
     <!-- endbuild -->
-  </head>
+</head>
 
-  <body ng-controller="IndexCtrl">
+<body ng-controller="IndexCtrl">
 
-      <sidenav>
-          <div ng-view class="viewport"> </div>
-      </sidenav>
+<sidenav>
+    <div ng-view class="viewport"></div>
+</sidenav>
 
-    <!--<sidenav ng-if="sidenav.active" class="closed"></sidenav>-->
+<!--<sidenav ng-if="sidenav.active" class="closed"></sidenav>-->
 
-    <!-- build:js app.js -->
+<!-- build:js app.js -->
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
 
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <!-- endinject -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!-- endinject -->
 
-    <!-- inject:js -->
-    <script src="app.js"></script>
-    <script src="views/users/users.js"></script>
-    <script src="views/users/users.controller.js"></script>
-    <script src="views/track/track.js"></script>
-    <script src="views/track/track.controller.js"></script>
-    <script src="views/profile/profile.js"></script>
-    <script src="views/profile/profile.controller.js"></script>
-    <script src="views/settings/settings.js"></script>
-    <script src="views/settings/settings.controller.js"></script>
-    <script src="views/playlists/playlists.js"></script>
-    <script src="views/playlists/playlists.controller.js"></script>
-    <script src="views/logout/logout.js"></script>
-    <script src="views/logout/logout.controller.js"></script>
-    <script src="views/login/login.js"></script>
-    <script src="views/login/login.controller.js"></script>
-    <script src="views/listener/listener.js"></script>
-    <script src="views/listener/listener.controller.js"></script>
-    <script src="views/export/export.js"></script>
-    <script src="views/export/export.controller.js"></script>
-    <script src="views/dashboard/dashboard.js"></script>
-    <script src="views/dashboard/dashboard.controller.js"></script>
-    <script src="views/content/content.js"></script>
-    <script src="views/content/content.controller.js"></script>
-    <script src="views/channel/channel.js"></script>
-    <script src="views/channel/channel.controller.js"></script>
-    <script src="views/billing/billing.js"></script>
-    <script src="views/billing/billing.controller.js"></script>
-    <script src="views/artist/artist.js"></script>
-    <script src="views/artist/artist.controller.js"></script>
-    <script src="views/approvals/approvals.js"></script>
-    <script src="views/approvals/approvals.controller.js"></script>
-    <script src="services/tableau/tableau.js"></script>
-    <script src="services/redshift/redshift.js"></script>
-    <script src="services/log/log.js"></script>
-    <script src="services/base64/base64.js"></script>
-    <script src="services/auth/auth.js"></script>
-    <script src="filters/capitalize/capitalize.js"></script>
-    <script src="directives/sidenav/sidenav.service.js"></script>
-    <script src="directives/sidenav/sidenav.directive.js"></script>
-    <script src="directives/followers-gender/followers-gender.directive.js"></script>
-    <script src="directives/role/role.directive.js"></script>
-    <script src="directives/followers-age/followers-age.directive.js"></script>
-    <script src="index.controller.js"></script>
-    <!-- endinject -->
+<!-- inject:js -->
+<script src="app.js"></script>
+<script src="views/users/users.js"></script>
+<script src="views/users/users.controller.js"></script>
+<script src="views/track/track.js"></script>
+<script src="views/track/track.controller.js"></script>
+<script src="views/settings/settings.js"></script>
+<script src="views/settings/settings.controller.js"></script>
+<script src="views/profile/profile.js"></script>
+<script src="views/profile/profile.controller.js"></script>
+<script src="views/playlists/playlists.js"></script>
+<script src="views/playlists/playlists.controller.js"></script>
+<script src="views/login/login.js"></script>
+<script src="views/login/login.controller.js"></script>
+<script src="views/logout/logout.js"></script>
+<script src="views/logout/logout.controller.js"></script>
+<script src="views/listener/listener.js"></script>
+<script src="views/listener/listener.controller.js"></script>
+<script src="views/export/export.js"></script>
+<script src="views/export/export.controller.js"></script>
+<script src="views/dashboard/dashboard.js"></script>
+<script src="views/dashboard/dashboard.controller.js"></script>
+<script src="views/content/content.js"></script>
+<script src="views/content/content.controller.js"></script>
+<script src="views/billing/billing.js"></script>
+<script src="views/billing/billing.controller.js"></script>
+<script src="views/channel/channel.js"></script>
+<script src="views/channel/channel.controller.js"></script>
+<script src="views/artist/artist.js"></script>
+<script src="views/artist/artist.controller.js"></script>
+<script src="views/approvals/approvals.js"></script>
+<script src="views/approvals/approvals.controller.js"></script>
+<script src="services/tableau/tableau.js"></script>
+<script src="services/base64/base64.js"></script>
+<script src="services/redshift/redshift.js"></script>
+<script src="services/log/log.js"></script>
+<script src="services/auth/auth.js"></script>
+<script src="filters/capitalize/capitalize.js"></script>
+<script src="directives/slicechart/slicechart.directive.js"></script>
+<script src="directives/sidenav/sidenav.service.js"></script>
+<script src="directives/sidenav/sidenav.directive.js"></script>
+<script src="directives/role/role.directive.js"></script>
+<script src="directives/piechart/piechart.directive.js"></script>
+<script src="directives/followers-gender/followers-gender.directive.js"></script>
+<script src="directives/followers-age/followers-age.directive.js"></script>
+<script src="index.controller.js"></script>
+<!-- endinject -->
 
-    <!-- endbuild -->
+<!-- endbuild -->
 
-    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+<script src="http://localhost:35729/livereload.js?snipver=1"></script>
 
-  </body>
+</body>
 </html>
