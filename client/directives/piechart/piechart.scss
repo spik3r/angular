@@ -23,6 +23,7 @@ $size: 200px;
   border-radius: 50%;
   background-color: $black;
   position: relative;
+  left: calc(50% - #{$size / 2});
 
   &.over-50 {
     background-color: $red;

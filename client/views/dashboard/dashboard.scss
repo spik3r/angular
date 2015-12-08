@@ -33,13 +33,10 @@ Dashboard Content Styles
   }
 
   .gender {
-    padding-left: calc(25% - 100px);
-    padding-right: 25px;
-    position: absolute;
 
-    @media (max-width: 550px) {
-      padding-left: calc(50% - 100px);
-    }
+  }
+
+  .age {
   }
 
 }

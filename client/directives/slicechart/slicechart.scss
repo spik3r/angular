@@ -1,14 +1,18 @@
 .slice-chart {
   // Slice chart settings
+  $slice-width: 200px;
   $span-width: 45px;
   $row-height: 25px;
-  width: 200px;
+
+
+  width: $slice-width;
 
   list-style: none;
   margin-left: 10px;
   margin-right: 10px;
 
-  position: absolute;
+  position: relative;
+  left: calc(50% - #{$slice-width / 2});
 
   /*
   * Slice Label
