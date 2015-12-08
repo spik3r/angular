@@ -15,12 +15,12 @@ angular.module('eiFrontend')
                     deg = 360*percent/100;
 
                 if (percent > 50) {
-                    element.addClass('gt-50');
+                    element.addClass('over-50');
                 }
 
                 console.log(percent);
 
-                $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
+                $('.pie-chart-fill').css('transform','rotate('+ deg +'deg)');
             }
         };
     });

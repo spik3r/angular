@@ -9,46 +9,79 @@
 }
 
 $size: 200px;
-.progress-pie-chart {
+.pie-chart-container {
   width: $size;
   height: $size;
   border-radius: 50%;
-  background-color: #E5E5E5;
+  background-color: $black;
   position: relative;
-  &.gt-50 {
+  &.over-50 {
     background-color: $red;
   }
 }
-.ppc-progress {
+.pie-chart {
   @include circle($size);
   clip: rect(0, $size, $size, #{$size/2});
-  .ppc-progress-fill {
+  .pie-chart-fill {
     @include circle($size);
     clip: rect(0, #{$size/2}, $size, 0);
     background: $red;
     transform: rotate(60deg);
   }
-  .gt-50 & {
+  .over-50 & {
     clip: rect(0, #{$size/2}, $size, 0);
-    .ppc-progress-fill {
+    .pie-chart-fill {
       clip: rect(0, $size, $size, #{$size/2});
-      background: #E5E5E5;
+      background: $black;
     }
   }
 }
-.ppc-percents {
+
+/*
+* Pie Chart Legend
+---------------------------------------------------------------------------------
+*/
+.legend {
   @include circle(#{$size/1.15});
   background: #fff;
   text-align: center;
   display: table;
-  span {
-    display: block;
-    font-size: 2.6em;
-    font-weight: bold;
-    color: $red;
-  }
 }
-.pcc-percents-wrapper {
+.legend-wrapper {
   display: table-cell;
   vertical-align: middle;
+
+  %label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    text-align: left;
+    padding-left: 30%;
+
+    .percent {
+      color: #8c8c8c;
+    }
+
+    &:after {
+      @include circle(15px);
+      left: 30px;
+    }
+  }
+
+  .female-label {
+    @extend %label;
+
+    &:after {
+      background: $black;
+      top: 39%;
+    }
+  }
+
+  .male-label {
+    @extend %label;
+
+    &:after {
+      background: $red;
+      top: 54%;
+    }
+  }
 }

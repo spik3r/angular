@@ -31,4 +31,15 @@ Dashboard Content Styles
   #followers-demographics {
     padding: 20px;
   }
+
+  .gender {
+    padding-left: calc(25% - 100px);
+    padding-right: 25px;
+    position: absolute;
+
+    @media (max-width: 550px) {
+      padding-left: calc(50% - 100px);
+    }
+  }
+
 }
