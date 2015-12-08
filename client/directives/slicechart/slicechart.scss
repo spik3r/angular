@@ -1,21 +1,26 @@
 .slice-chart {
   // Slice chart settings
-  border: 1px solid red;
   $span-width: 45px;
-
-  height: 30px;
-  list-style: none;
+  $row-height: 25px;
   width: 200px;
+
+  list-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  position: absolute;
 
   /*
   * Slice Label
   ---------------------------------------------------------------------------------
   */
   span {
-    border: 1px solid blue;
+    color: $darkgray;
     display: block;
     float: left;
-    height: 30px;
+    font-family: $default-fonts;
+    font-weight: 200;
+    height: $row-height;
     padding-right: 3px;
     padding-top: 2px;
     text-align: right;
@@ -27,10 +32,10 @@
   ---------------------------------------------------------------------------------
   */
   .slice-container {
-    border: 1px solid black;
     float: left;
-    height: 30px;
+    height: $row-height;
     padding-left: 3px;
+    padding-right: 3px;
     padding-top: 10px;
     width: calc(100% - #{$span-width});
 

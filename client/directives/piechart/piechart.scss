@@ -23,6 +23,7 @@ $size: 200px;
   border-radius: 50%;
   background-color: $black;
   position: relative;
+
   &.over-50 {
     background-color: $red;
   }
@@ -65,6 +66,10 @@ $size: 200px;
   display: table-cell;
   vertical-align: middle;
 
+  /*
+  * Legend Labels
+  ---------------------------------------------------------------------------------
+  */
   %label {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 200;
@@ -72,7 +77,7 @@ $size: 200px;
     padding-left: 30%;
 
     .percent {
-      color: #8c8c8c;
+      color: $darkgray;
     }
 
     &:after {
