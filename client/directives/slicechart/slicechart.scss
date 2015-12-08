@@ -1,0 +1,46 @@
+.slice-chart {
+  // Slice chart settings
+  border: 1px solid red;
+  $span-width: 45px;
+
+  height: 30px;
+  list-style: none;
+  width: 200px;
+
+  /*
+  * Slice Label
+  ---------------------------------------------------------------------------------
+  */
+  span {
+    border: 1px solid blue;
+    display: block;
+    float: left;
+    height: 30px;
+    padding-right: 3px;
+    padding-top: 2px;
+    text-align: right;
+    width: $span-width;
+  }
+
+  /*
+  * Slice line container
+  ---------------------------------------------------------------------------------
+  */
+  .slice-container {
+    border: 1px solid black;
+    float: left;
+    height: 30px;
+    padding-left: 3px;
+    padding-top: 10px;
+    width: calc(100% - #{$span-width});
+
+    /*
+    * Slice line, width is set by angular in range from 0% to 100%
+    ---------------------------------------------------------------------------------
+    */
+    div {
+      background: $red;
+      height: 10px;
+    }
+  }
+}
