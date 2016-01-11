@@ -1,0 +1,115 @@
+/**
+*  Pie Chart Stylesheet
+==============================================
+@author ry
+@date 8/12/2015
+*/
+
+// TODO make this variable be in the directive scope, not global scope
+$pie-size: 190px;
+
+// Mixin that creates an absolute centered circle
+@mixin circle($pie-size) {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - #{$pie-size/2});
+  top: calc(50% - #{$pie-size/2});
+  width: $pie-size;
+  height: $pie-size;
+}
+
+.pie-chart-container {
+  width: $pie-size;
+  height: $pie-size;
+  border-radius: 50%;
+  background-color: $black;
+  position: relative;
+  left: calc(50% - #{$pie-size / 2});
+  margin-top: 5px;
+
+  &.over-50 {
+    background-color: $red;
+  }
+}
+
+/*
+* Pie Chart
+---------------------------------------------------------------------------------
+*/
+.pie-chart {
+
+  @include circle($pie-size);
+  clip: rect(0, $pie-size, $pie-size, #{$pie-size/2});
+  .pie-chart-fill {
+    @include circle($pie-size);
+    clip: rect(0, #{$pie-size/2}, $pie-size, 0);
+    background: $red;
+    transform: rotate(60deg);
+  }
+  .over-50 & {
+    clip: rect(0, #{$pie-size/2}, $pie-size, 0);
+    .pie-chart-fill {
+      clip: rect(0, $pie-size, $pie-size, #{$pie-size/2});
+      background: $black;
+    }
+  }
+}
+
+/*
+* Pie Chart Legend
+---------------------------------------------------------------------------------
+*/
+.legend {
+  @include circle(#{$pie-size/1.10});
+  background: #fff;
+  text-align: center;
+  display: table;
+}
+
+.legend-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+
+  /*
+  * Legend Labels
+  ---------------------------------------------------------------------------------
+  */
+  %label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    text-align: left;
+    padding-left: 30%;
+    text-transform: capitalize;
+
+    .percent {
+      color: $darkgray;
+    }
+
+    &:after {
+      @include circle(15px);
+      left: 30px;
+    }
+  }
+
+  .female-label {
+    @extend %label;
+
+    margin-bottom: 10px;
+
+    &:after {
+      background: $black;
+      top: 38%;
+    }
+  }
+
+  .male-label {
+    @extend %label;
+
+    &:after {
+      background: $red;
+      top: 55%;
+    }
+  }
+}

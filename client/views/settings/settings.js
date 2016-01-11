@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+    $stateProvider
       .when('/settings', {
         templateUrl: 'views/settings/settings.html',
         controller: 'SettingsCtrl',
         controllerAs: 'ctrl',
-        access: ['user', 'brand', 'label', 'admin', 'artist']
+        access: []
       });
   });

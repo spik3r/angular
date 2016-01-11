@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eiFrontend')
+angular.module('ei.console')
   .controller('LogoutCtrl',
   ['Auth', '$window',
     function (Auth) {

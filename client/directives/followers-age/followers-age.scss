@@ -1,0 +1,45 @@
+/**
+*  Followers age breakdown style
+==============================================
+@author ry
+@date 1/12/2015
+*/
+#followers-age {
+  height: 45px;
+  /*
+  * Age label layout
+  ---------------------------------------------------------------------------------
+  */
+  .age-label-container {
+    float: left;
+    min-width: 5%;
+
+    .age-label {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+  }
+
+  /*
+  * Age label custom styles
+  ---------------------------------------------------------------------------------
+  */
+  #line-13-17,  #line-35-45 {
+    height: 9px;
+    background-color: #e41034;
+    float: left;
+  }
+
+  #line-25-35, #line-56-plus {
+    height: 9px;
+    background-color: #787878;
+    float: left;
+  }
+
+  #line-18-24, #line-46-55 {
+    height: 9px;
+    background-color: #3c3c3c;
+    float: left;
+  }
+}

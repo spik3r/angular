@@ -1,13 +1,24 @@
 'use strict';
 
 var path = require('path');
-var _ = require('lodash');
 
 var all = {
-
-  env: process.env.NODE_ENV || 'development',
-  root: path.normalize(__dirname + '/../../..'),
-  port: process.env.PORT || 9000
+    env: process.env.NODE_ENV || 'development',
+    root: path.normalize(__dirname + '/../../..')
 };
 
-module.exports = _.merge(all, require('./' + all.env + '.js'));
+switch (all.env) {
+    case 'development':
+        all.port = process.env.PORT || 9000;
+        break;
+
+    case 'testing':
+        all.port = process.env.PORT || 8080;
+        break;
+
+    case 'production':
+        all.port = process.env.PORT || 80;
+        break;
+}
+
+module.exports = all;

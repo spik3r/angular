@@ -4,11 +4,11 @@
  * Test tasks
  */
 
-var gulp       = require('gulp');
-var util       = require('gulp-util');
-var chalk      = require('chalk');
-var protractor = require('gulp-protractor');
-var karma      = require('karma').server;
+var gulp        = require('gulp');
+var util        = require('gulp-util');
+var chalk       = require('chalk');
+var protractor  = require('gulp-protractor');
+var KarmaServer = require('karma').Server;
 
 /**
  * Log. With options.
@@ -49,9 +49,11 @@ function testClient (done) {
 
   log('Running client tests...', { padding: true });
 
-  karma.start({
-    configFile: __dirname + '/../karma.config.js'
+  var server = new KarmaServer({
+    configFile: __dirname + '/../karma.conf.js'
   }, done);
+
+  server.start();
 }
 
 exports.test = function (done) {
@@ -66,12 +68,11 @@ exports.test = function (done) {
     });
   } else if (arg === false) {
     return testClient(function (code) {
-      //if (code) { return done(code); }
-      //
-      //testServer(function (code) {
-      //  done(code);
-      //  process.exit(code);
-      //});
+      if (code) { return done(code); }
+      testServer(function (code) {
+        done(code);
+        process.exit(code);
+      });
     });
   } else {
     console.log('Wrong parameter [%s], availables : --client, --server', arg);

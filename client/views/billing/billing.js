@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+    $stateProvider
       .when('/billing', {
         templateUrl: 'views/billing/billing.html',
         controller: 'BillingCtrl',
         controllerAs: 'ctrl',
-        access: ['brand']
+        access: []
       });
   });

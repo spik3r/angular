@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/dashboard', {
-        templateUrl: 'views/dashboard/dashboard.html',
-        controller: 'DashboardCtrl',
-        controllerAs: 'ctrl',
-        access: ['user', 'artist', 'brand', 'label', 'admin']
-      });
-  });
+angular.module('ei.console')
+    .config(function ($stateProvider) {
+        $stateProvider
+            .state('dashboard', {
+                url: "/dashboard",
+                templateUrl: "/views/dashboard/dashboard.html"
+            });
+    });

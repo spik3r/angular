@@ -1,40 +1,23 @@
-//exports.config = { // jshint ignore:line
-//
-//  // The version is susceptible to change
-//  seleniumServerJar: './node_modules/gulp-protractor/node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
-//  // chromeDriver: './node_modules/gulp-protractor/node_modules/protractor/selenium/chromedriver',
-//
-//  baseUrl: 'http://localhost:9000',
-//
-//  capabilities: {
-//    browserName: 'chrome'
-//    // chromeOptions: {
-//    //    binary: '/usr/bin/google-chrome-stable'
-//    // }
-//  },
-//
-//  framework: 'jasmine',
-//
-//  jasmineNodeOpts: {
-//    showColors: true,
-//    defaultTimeoutInterval: 30000
-//  }
-//
-//};
+exports.config = { // jshint ignore:line
 
-exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  // The version is susceptible to change
+  seleniumServerJar: './node_modules/gulp-protractor/node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
+  // chromeDriver: './node_modules/gulp-protractor/node_modules/protractor/selenium/chromedriver',
+
   baseUrl: 'http://localhost:9000',
-  //specs: ['tests/e2e/*.js'],
-  multiCapabilities: [{
-    browserName: 'firefox'
-  }, {
+
+  capabilities: {
     browserName: 'chrome'
-  }],
+    // chromeOptions: {
+    //    binary: '/usr/bin/google-chrome-stable'
+    // }
+  },
+
   framework: 'jasmine',
 
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000
   }
+
 };

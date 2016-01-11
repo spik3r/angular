@@ -13,7 +13,7 @@ var plumber              = require('gulp-plumber');
 var usemin               = require('gulp-usemin');
 var cssRebaseUrls        = require('gulp-css-url-rebase');
 var autoprefixer         = require('gulp-autoprefixer');
-var minifyCss            = require('gulp-minify-css');
+var nano                 = require('gulp-cssnano');
 var angularTemplatecache = require('gulp-angular-templatecache');
 var concat               = require('gulp-concat');
 var ngAnnotate           = require('gulp-ng-annotate');
@@ -35,14 +35,16 @@ module.exports = function (done) {
 };
 
 gulp.task('clean:dist', function (done) {
-  del(['dist/**', '!dist', '!dist/.git{,/**}'], done);
+  del(['dist/**', '!dist', '!dist/.git{,/**}'])
+    .then(function () { done(); }).catch(done);
 });
 
 gulp.task('clean:finish', function (done) {
   del([
     '.tmp/**',
     'dist/client/app.{css,js}'
-  ].concat(toDelete), done);
+  ].concat(toDelete))
+    .then(function () { done(); }).catch(done);
 });
 
 gulp.task('copy:dist', function () {
@@ -63,7 +65,7 @@ gulp.task('usemin', ['inject'], function () {
 gulp.task('cssmin', function () {
   return gulp.src('dist/client/app.css')
     .pipe(autoprefixer())
-    .pipe(minifyCss())
+    .pipe(nano())
     .pipe(gulp.dest('dist/client/'));
 });
 
@@ -71,13 +73,13 @@ gulp.task('scripts', function () {
   var views = gulp.src('client/views/**/*.html')
     .pipe(angularTemplatecache({
       root: 'views',
-      module: 'eiFrontend'
+      module: 'testproj'
     }));
 
   var tpls = gulp.src('client/directives/**/*.html')
     .pipe(angularTemplatecache({
       root: 'directives',
-      module: 'eiFrontend'
+      module: 'testproj'
     }));
 
   var app = gulp.src('dist/client/app.js');

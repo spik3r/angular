@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+    $stateProvider
       .when('/export', {
         templateUrl: 'views/export/export.html',
         controller: 'ExportCtrl',
         controllerAs: 'ctrl',
-        access: ['label']
+        access: []
       });
   });

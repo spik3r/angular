@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eiFrontend')
+angular.module('ei.console')
   .filter('capitalize', function () {
     return function (input, format) {
       if (!input) {

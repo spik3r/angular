@@ -1,63 +1,97 @@
 'use strict';
 
-// Array Remove - By John Resig (MIT Licensed)
-Array.prototype.remove = function (from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
-};
+//// Array Remove - By John Resig (MIT Licensed)
+//Array.prototype.remove = function (from, to) {
+//    var rest = this.slice((to || from) + 1 || this.length);
+//    this.length = from < 0 ? this.length + from : from;
+//    return this.push.apply(this, rest);
+//};
+//
+//// String Format prototype - http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
+//// First, checks if it isn't implemented yet.
+//if (!String.prototype.format) {
+//    String.prototype.format = function () {
+//        var args = arguments;
+//        return this.replace(/{(\d+)}/g, function (match, number) {
+//            return typeof args[number] != 'undefined'
+//                ? args[number]
+//                : match
+//                ;
+//        });
+//    };
+//}
 
-angular.module('eiFrontend', [
-  'ngRoute',
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngAnimate'
-])
-  .config(function ($routeProvider, $locationProvider) {
+angular.module('ei.console', [
+        'ui.router',
+        'ngCookies',
+        'ngResource',
+        'ngSanitize',
+        'ngAnimate',
+        'oc.lazyLoad'
+    ])
+    .config(function ($locationProvider, $urlRouterProvider) {
 
-    $routeProvider
-      .otherwise({
-        redirectTo: '/home'
-      });
+        // Set location provider to use html5Mode
+        $locationProvider.html5Mode(true);
 
-    $locationProvider.html5Mode(true);
-  })
-  .run(
-  ['$rootScope', '$route', '$location', 'Auth',
-    function ($rootScope, $route, $location, Auth) {
+        $urlRouterProvider.otherwise("/404");
 
-      var redirectPath = '/login';
+        //$stateProvider
+        //    // Catch token on back redirect from OpenID server
+        //    .when('/access_token=:accessToken', {
+        //        template: '',
+        //        access: [],
+        //        controller: function ($location, $rootScope) {
+        //            var hash = $location.path().substr(1);
+        //            var splitted = hash.split("&");
+        //            var params = {};
+        //
+        //            for (var i = 0; i < splitted.length; i++) {
+        //                var param   = splitted[i].split("=");
+        //                var key     = param[0];
+        //                params[key] = param[1];
+        //            }
+        //
+        //            $rootScope.token = params;
+        //            $location.path("/dashboard");
+        //        }
+        //    })
+        //    .otherwise({
+        //        redirectTo: '/dashboard'
+        //    });
+    })
+    .run(function ($rootScope, $location) {
 
-      // Check that user has access on every route change
-      $rootScope.$on('$routeChangeStart', function (event, next) {
-        if (next.$$route && next.$$route.access) {
-          // If page is public, skip auth credentials check
-          if (next.$$route.access.length !== 0) {
-            // User needs to be logged in at that point.
-            // If user is not logged in, redirect to login
-            if (!Auth.isLoggedIn()) {
-              $location.path(redirectPath);
-            } else {
-              // Check that user role matches access restrictions
-              var allowed = false;
-              for (var i = 0; i < next.$$route.access.length; i++) {
-                var accessRole = next.$$route.access[i];
-                if (Auth.user.role === accessRole) {
-                  allowed = true;
-                }
-              }
-              // If user does not have required role, redirect.
-              if (!allowed) {
-                $location.path(redirectPath);
-              }
-            }
-          }
-        } else if (next.$$route && !next.$$route.access) {
-          console.error('Access parameter for ' + next.$$route.templateUrl + ' is not specified. Redirecting to /login.');
-          $location.path(redirectPath);
-        }
-
-      });
-    }]);
+                //var redirectPath = '/login';
+                //
+                //// Check that user has access on every route change
+                //$rootScope.$on('$routeChangeStart', function (event, next) {
+                //    if (next.$$route && next.$$route.access) {
+                //        // If page is public, skip auth credentials check
+                //        if (next.$$route.access.length !== 0) {
+                //            // User needs to be logged in at that point.
+                //            // If user is not logged in, redirect to login
+                //            if (!Auth.isLoggedIn()) {
+                //                $location.path(redirectPath);
+                //            } else {
+                //                // Check that user role matches access restrictions
+                //                var allowed = false;
+                //                for (var i = 0; i < next.$$route.access.length; i++) {
+                //                    var accessRole = next.$$route.access[i];
+                //                    if (Auth.user.role === accessRole) {
+                //                        allowed = true;
+                //                    }
+                //                }
+                //                // If user does not have required role, redirect.
+                //                if (!allowed) {
+                //                    $location.path(redirectPath);
+                //                }
+                //            }
+                //        }
+                //    } else if (next.$$route && !next.$$route.access) {
+                //        console.error('Access parameter for ' + next.$$route.templateUrl + ' is not specified. Redirecting to /login.');
+                //        $location.path(redirectPath);
+                //    }
+                //});
+            });
 
