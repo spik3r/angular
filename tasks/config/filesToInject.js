@@ -7,6 +7,7 @@ module.exports = [
     'client/app.js',
     'client/directives/sidenav/sidenav.directive.js',
     'client/services/log/log.js',
+    'client/services/auth/auth.js',
     //'client/index.controller.js',
     //'client/animations/*.js',
     //'client/directives/**/*.js', '!client/directives/**/*.spec.js',
