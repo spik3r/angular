@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eiFrontend')
+angular.module('ei.console')
   .service('Redshift', function ($resource) {
 
     var actions = {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eiFrontend')
+angular.module('ei.console')
   .service('Log', function () {
     // Extend date prototype with timeNow function to get current time
     Date.prototype.timeNow = function () {

@@ -1,6 +1,10 @@
 'use strict';
 
+<<<<<<< HEAD
 angular.module('eiFrontend')
+=======
+angular.module('ei.console')
+>>>>>>> master
     .service('Auth',
         ['$http', '$cookies', 'Base64', '$timeout', '$window',
             function ($http, $cookies, Base64, $timeout, $window, Log) {

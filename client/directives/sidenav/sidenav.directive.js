@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('eiFrontend')
-    .directive('sidenav', function ($route, $rootScope, $location, $timeout, Log, Auth, Sidenav) {
+
+angular.module('ei.console')
+    .directive('sidenav', function ($rootScope, $location, $timeout, Log) {
         return {
             restrict: 'EA',
             transclude: true,
@@ -11,21 +12,24 @@ angular.module('eiFrontend')
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
                 // Get active status from service
-                scope.active = Sidenav.isActive();
+
+                scope.active = true;
+
                 // Listen for events to update active status
                 scope.$on('sidenav:activated',   function() { scope.active = true; });
                 scope.$on('sidenav:deactivated', function() { scope.active = false; });
 
                 // Links to toggled elements
                 var button  = element.find('#nav-btn');
-                var sidebar = element.find('#sidebar');
+                var sidebar = element.find('aside');
                 var main    = element.find('main');
                 var cover   = element.find('#cover');
                 var items   = element.find("#menu li");
 
+                // TODO
                 // Get initial route and activate relevant menu item
-                var currentRoute = $route.current.$$route.originalPath;
-                activate(currentRoute);
+                // var currentRoute = $route.current.$$route.originalPath;
+                // activate(currentRoute);
 
                 /**
                  * Function that toggles sidebar menu on mobile screen using CSS
@@ -68,7 +72,7 @@ angular.module('eiFrontend')
                 /**
                  * Click event handlers
                  */
-                    // Menu toggle click handlers
+                // Menu toggle click handlers
                 button  .on('click', toggle);
                 main    .on('click', function () {
                     if (main.hasClass('active')) {

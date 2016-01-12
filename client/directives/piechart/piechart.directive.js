@@ -3,7 +3,11 @@
 /**
  * This directive describes a pie chart that takes percent value and two labels.
  */
+<<<<<<< HEAD
 angular.module('eiFrontend')
+=======
+angular.module('ei.console')
+>>>>>>> master
     .directive('piechart', function () {
         return {
             restrict: 'EA',

@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/settings', {
-        templateUrl: 'views/settings/settings.html',
-        controller: 'SettingsCtrl',
-        controllerAs: 'ctrl',
-        access: []
-      });
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+      $stateProvider
+          .state('settings', {
+              url: "/settings",
+              templateUrl: "/views/settings/settings.html"
+          });
   });

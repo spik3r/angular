@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/profile', {
-        templateUrl: 'views/profile/profile.html',
-        controller: 'ProfileCtrl',
-        controllerAs: 'ctrl',
-        access: []
-      });
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+      $stateProvider
+          .state('profile', {
+              url: "/profile",
+              templateUrl: "/views/profile/profile.html"
+          });
   });

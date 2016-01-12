@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/logout', {
-        templateUrl: 'views/logout/logout.html',
-        controller: 'LogoutCtrl',
-        controllerAs: 'vm',
-        access: []
-      });
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+      $stateProvider
+          .state('logout', {
+              url: "/logout",
+              templateUrl: "/views/logout/logout.html"
+          });
   });

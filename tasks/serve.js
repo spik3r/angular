@@ -8,13 +8,13 @@ var gulp       = require('gulp');
 var ripe       = require('ripe');
 var nodemon    = require('gulp-nodemon');
 var open       = require('gulp-open');
-var livereload = require('gulp-livereload');
+var bsync      = require('browser-sync');
 
 var config = require('../server/config/environment');
 
 var openOpts = {
-  url: 'http://localhost:' + config.port,
-  already: false
+  url: 'http://localhost:9001',
+  already: true
 };
 
 module.exports = {
@@ -34,10 +34,9 @@ module.exports = {
           });
         } else {
           ripe.wait(function () {
-            livereload.changed('/');
+              bsync.reload();
           });
         }
       });
   }
-
 };

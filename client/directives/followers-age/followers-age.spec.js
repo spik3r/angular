@@ -2,7 +2,11 @@
 
 describe('Directive: followers-age', function () {
 
+<<<<<<< HEAD
   beforeEach(module('eiFrontend', 'templates'));
+=======
+  beforeEach(module('ei.console', 'templates'));
+>>>>>>> master
 
   var element, scope;
 

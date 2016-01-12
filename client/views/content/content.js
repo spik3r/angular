@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/content', {
-        templateUrl: 'views/content/content.html',
-        controller: 'ContentCtrl',
-        controllerAs: 'ctrl',
-        access: []
-      });
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+      $stateProvider
+          .state('content', {
+              url: "/content",
+              templateUrl: "/views/content/content.html"
+          });
   });

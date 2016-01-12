@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/dashboard/listener', {
-        templateUrl: 'views/listener/listener.html',
-        controller: 'ListenerCtrl',
-        controllerAs: 'ctrl',
-        access: ['label', 'artist']
-      });
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+      $stateProvider
+          .state('listener', {
+              url: "/listener",
+              templateUrl: "/views/listener/listener.html"
+          });
   });

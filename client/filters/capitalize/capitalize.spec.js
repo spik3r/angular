@@ -2,7 +2,7 @@
 
 describe('capitalize filter', function () {
 
-  beforeEach(module('eiFrontend'));
+  beforeEach(module('ei.console'));
 
   var capitalize;
 

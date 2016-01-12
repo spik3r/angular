@@ -1,8 +1,7 @@
-# Angular-seed [![Generated with](https://img.shields.io/badge/generated%20with-bangular-blue.svg?style=flat-square)](https://github.com/42Zavattas/generator-bangular)
 
 # Requirements: 
 
-- Node.JS v.0.12.x
+- Node.JS v.5.2
 - Gulp and Bower
 
 

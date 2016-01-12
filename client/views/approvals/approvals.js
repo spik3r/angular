@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('eiFrontend')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/approvals', {
-        templateUrl: 'views/approvals/approvals.html',
-        controller: 'ApprovalsCtrl',
-        controllerAs: 'ctrl',
-        access: ['admin']
-      });
+angular.module('ei.console')
+  .config(function ($stateProvider) {
+      $stateProvider
+          .state('approvals', {
+              url: "/approvals",
+              templateUrl: "/views/approvals/approvals.html"
+          });
   });

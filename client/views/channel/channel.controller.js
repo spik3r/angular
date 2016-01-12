@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eiFrontend')
+angular.module('ei.console')
   .controller('ChannelCtrl', function (Sidenav) {
     // Get access to sidenav object and show it
     Sidenav.show();

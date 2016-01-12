@@ -2,7 +2,7 @@
 
 describe('Auth service', function () {
 
-  beforeEach(module('eiFrontend'));
+  beforeEach(module('ei.console'));
 
   var authService;
 

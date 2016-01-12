@@ -2,7 +2,7 @@
 
 describe('Sidenav directive', function () {
 
-  beforeEach(module('eiFrontend'));
+  beforeEach(module('ei.console'));
 
   beforeEach(module('my.templates'));
 

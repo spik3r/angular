@@ -7,12 +7,9 @@
  * @author ry
  * @date 26/11/2015
  */
-angular.module('eiFrontend')
+angular.module('ei.console')
     .service('Sidenav',
-        [
-            '$rootScope',
             function ($rootScope) {
-
                 // Sidenav is deactivated by default
                 var active = false;
 
@@ -27,4 +24,4 @@ angular.module('eiFrontend')
                         $rootScope.$broadcast("sidenav:deactivated");
                     }
                 };
-            }]);
+            });

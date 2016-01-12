@@ -3,7 +3,7 @@ describe('Login controller (LoginCtrl)', function () {
   var controller;
 
   beforeEach(function () {
-    module('eiFrontend');
+    module('ei.console');
 
     inject(function ($rootScope, $controller) {
       // create a scope object for us to use.

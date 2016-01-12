@@ -2,7 +2,11 @@
 
 describe('Directive: slicechart', function () {
 
+<<<<<<< HEAD
   beforeEach(module('eiFrontend', 'templates'));
+=======
+  beforeEach(module('ei.console', 'templates'));
+>>>>>>> master
 
   var element, scope;
 

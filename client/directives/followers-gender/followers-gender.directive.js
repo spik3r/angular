@@ -1,6 +1,10 @@
 'use strict';
 
+<<<<<<< HEAD
 angular.module('eiFrontend')
+=======
+angular.module('ei.console')
+>>>>>>> master
     .directive('followersGender', function () {
         return {
             restrict: 'EA',
