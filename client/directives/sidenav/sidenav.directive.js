@@ -2,7 +2,7 @@
 
 
 angular.module('ei.console')
-    .directive('sidenav', function ($rootScope, $location, $timeout, Log) {
+    .directive('sidenav', function ($rootScope, $location, $timeout, $state, Log) {
         return {
             restrict: 'EA',
             transclude: true,
@@ -11,25 +11,43 @@ angular.module('ei.console')
             },
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
-                // Get active status from service
+                scope.active = false;
 
-                scope.active = true;
+                // List of routes to display sidenav on
+                var allowed = [
+                    'dashboard',
+                    'playlists',
+                    'profile',
+                    'content',
+                    'export',
+                    'billing',
+                    'settings'
+                ];
 
                 // Listen for events to update active status
-                scope.$on('sidenav:activated',   function() { scope.active = true; });
-                scope.$on('sidenav:deactivated', function() { scope.active = false; });
+                scope.$on('sidenav:activated', function () {
+                    scope.active = true;
+                });
+                scope.$on('sidenav:deactivated', function () {
+                    scope.active = false;
+                });
 
                 // Links to toggled elements
-                var button  = element.find('#nav-btn');
+                var button = element.find('#nav-btn');
                 var sidebar = element.find('aside');
-                var main    = element.find('main');
-                var cover   = element.find('#cover');
-                var items   = element.find("#menu li");
+                var main = element.find('main');
+                var cover = element.find('#cover');
+                var items = element.find("#menu li");
 
-                // TODO
-                // Get initial route and activate relevant menu item
-                // var currentRoute = $route.current.$$route.originalPath;
-                // activate(currentRoute);
+                // Activate current tab on route change success
+                $rootScope.$on("$stateChangeSuccess", function () {
+                    if (allowed.indexOf($state.current.name) >= 0) {
+                        scope.active = true;
+                        activate($state.current.name);
+                    } else {
+                        scope.active = false;
+                    }
+                });
 
                 /**
                  * Function that toggles sidebar menu on mobile screen using CSS
@@ -37,10 +55,10 @@ angular.module('ei.console')
                  * and content cover.
                  */
                 function toggle() {
-                    button  .toggleClass('active');
-                    sidebar .toggleClass('active');
-                    main    .toggleClass('active');
-                    cover   .toggleClass('active');
+                    button.toggleClass('active');
+                    sidebar.toggleClass('active');
+                    main.toggleClass('active');
+                    cover.toggleClass('active');
                 }
 
                 /**
@@ -51,10 +69,11 @@ angular.module('ei.console')
                  * @type {String}
                  */
                 var found = false;
+
                 function activate(path) {
                     items.removeClass('active');
 
-                    for (var i=0; i < items.length; i++) {
+                    for (var i = 0; i < items.length; i++) {
                         // If menu item has desired path, set it as active
                         if (items[i].dataset.path === path) {
                             element.find(items[i]).addClass('active');
@@ -72,9 +91,9 @@ angular.module('ei.console')
                 /**
                  * Click event handlers
                  */
-                // Menu toggle click handlers
-                button  .on('click', toggle);
-                main    .on('click', function () {
+                    // Menu toggle click handlers
+                button.on('click', toggle);
+                main.on('click', function () {
                     if (main.hasClass('active')) {
                         toggle();
                     }
@@ -82,7 +101,7 @@ angular.module('ei.console')
 
                 // Redirect click handler
                 var path;
-                items   .on('click touchend', function (event) {
+                items.on('click touchend', function (event) {
                     // Get redirect path
                     path = event.currentTarget.dataset.path;
                     // Redirect

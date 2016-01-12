@@ -5,6 +5,19 @@ angular.module('ei.console')
         $stateProvider
             .state('login', {
                 url: "/login",
-                templateUrl: "/views/login/login.html"
-            });
+                templateUrl: "/views/login/login.html",
+                controller: 'LoginCtrl',
+                resolve: {
+                    LoginCtrl: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/views/login/login.controller.js')
+                    }
+                }
+            })
+            .state('logout', {
+                url: "/logout",
+                template: '<h3> Logging out </h3>',
+                controller: function ($state) {
+                    $state.go('login');
+                }
+            })
     });
