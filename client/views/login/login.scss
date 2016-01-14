@@ -59,18 +59,16 @@
     }
 
     button {
-      background: white;
-      color: #a9a9a9;
-      width: 93px;
-      height: 30px;
-      font-size: 14px;
-      margin-top: 30px;
-      text-align: center;
-
-      border: 1px solid #a9a9a9;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
+      margin-top: 20px;
+      background: #ffffff;
+      border: 1px solid #e41034;
       border-radius: 3px;
+      color: white;
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 12px;
+      height: 53px;
+      text-transform: uppercase;
+      width: 185px;
 
       &:hover, &.active {
         color: black;

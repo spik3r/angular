@@ -3,8 +3,6 @@
 angular.module('ei.console')
     .controller('LoginCtrl',
         function (Auth) {
-
-            Auth.hello();
             // // link to self
             // var ctrl = this;
             //
