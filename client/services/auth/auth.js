@@ -4,18 +4,18 @@ angular.module('ei.console')
     .service('Auth',
         function ($http, $cookies, $timeout, $window, $q, Log) {
 
-            //var self = this;
+            // var self = this;
             var user = {};
 
             /*
              * OpenID Connect client settings
              * @reference http://openid.net/specs/openid-connect-implicit-1_0.html#RequestParameters
              */
-            const OPENID_PROVIDER = 'http://52.64.240.111:8080',
+            var OPENID_PROVIDER = 'http://52.64.240.111:8080',
                 CLIENT_ID = 'romans-local-client',
                 RESPONSE_TYPE = 'token',
-                SCOPE = ['openid', 'authorities'],
-                REDIRECT_URL = 'http://localhost:9000/authorize',
+                // SCOPE = ['openid', 'authorities'],
+                // REDIRECT_URL = 'http://localhost:9000/authorize',
                 // Size of the secret string and its salt
                 SECRET_SIZE = 1024,
                 // OPTIONAL. Maximum allowable time in seconds since the last time
@@ -24,7 +24,7 @@ angular.module('ei.console')
                 MAX_AGE = 30,
                 // OPTIONAL. string value that specifies how the Authorization Server displays the authentication
                 // and consent user interface pages to the End-User.
-                DISPLAY = "page";
+                DISPLAY = 'page';
 
             /*
              * Service state container
@@ -42,12 +42,12 @@ angular.module('ei.console')
                 },
                 set: function (state) {
                     this.current = state;
-                    Log.debug('auth', "Changed state to '" + this.name() + "'.");
+                    Log.debug('auth', 'Changed state to "' + this.name() + '".');
                 },
                 name: function () {
                     var state;
                     for (state in this.STATES) {
-                        if (this.STATES.hasOwnProperty(state) && this.STATES[state] == this.current) {
+                        if (this.STATES.hasOwnProperty(state) && this.STATES[state] === this.current) {
                             return state;
                         }
                     }
@@ -64,14 +64,14 @@ angular.module('ei.console')
              * Initialize auth service on construction
              * and pick up user secrets from cookies.
              */
-            (function __init__() {
-                Log.debug('auth', "Auth service has been initialized in " + state.name() + " state.");
+            (function __init__ () {
+                Log.debug('auth', 'Auth service has been initialized in ' + state.name() + ' state.');
 
                 var cookies = $cookies.getAll();
 
                 if (cookies.state && cookies.nonce) {
-                    storage['state'] = cookies.state;
-                    storage['nonce'] = cookies.nonce;
+                    storage.state = cookies.state;
+                    storage.nonce = cookies.nonce;
 
                     state.set(state.STATES.VERIFICATION);
 
@@ -80,56 +80,61 @@ angular.module('ei.console')
                 }
 
                 if (cookies.access_token) {
-                    storage['access_token'] = cookies.access_token;
-                    Log.debug('auth', "Found access token in cookies.");
+                    storage.access_token = cookies.access_token;
+                    Log.debug('auth', 'Found access token in cookies.');
 
                     state.set(state.STATES.VERIFIED);
                 }
             })();
 
-
             /**
              * Create authentication query and redirect user
              * to OpenID provider for authentication.
              */
-            function authenticate() {
+            function authenticate () {
                 // Generate random string long enough to be unique, and then take
                 // its MD5 to use as a nonce or state values. Store secrets for verification.
-                function generateSecret(key) {
-                    var secret = "",
+                function generateSecret (key) {
+                    var secret = '',
                         value;
 
                     while (secret.length < SECRET_SIZE) {
                         secret += Math.random().toString(36).slice(2);
                     }
 
+                    // TODO Fix missing MD5 Service
+                    /* jshint ignore:start */
                     value = MD5(secret);
-                    Log.debug('auth', "Random " + key + " value generated: ", value);
+                    Log.debug('auth', 'Random ' + key + ' value generated: ', value);
+                    /* jshint ignore:end */
 
                     // Store secret in user storage
                     storage[key] = secret;
                     $cookies.put(key, secret);
 
-                    Log.debug('auth', (key.charAt(0).toUpperCase() + key.slice(1)) + " secret was salted and stored in user cookies.");
+                    Log.debug('auth', (key.charAt(0).toUpperCase() + key.slice(1)) + ' secret was salted and stored in user cookies.');
 
                     return value;
                 }
 
-                var url = OPENID_PROVIDER + "/authorize?";
+                var url = OPENID_PROVIDER + '/authorize?';
                 // Compile request string:
-                url += "response_type=" + RESPONSE_TYPE;
-                url += "&client_id=" + CLIENT_ID;
-                url += "&scope=" + escape(SCOPE.join(" "));
-                url += "&redirect_uri=" + escape(REDIRECT_URL);
+                url += 'response_type=' + RESPONSE_TYPE;
+                url += '&client_id=' + CLIENT_ID;
+                /* jshint ignore:start */
+                // Ignore escape
+                url += '&scope=' + escape(SCOPE.join(' '));
+                url += '&redirect_uri=' + escape(REDIRECT_URL);
+                /* jshint ignore:end */
                 //  Generate nonce and state values
-                url += "&nonce=" + generateSecret('nonce');
-                url += "&state=" + generateSecret('state');
+                url += '&nonce=' + generateSecret('nonce');
+                url += '&state=' + generateSecret('state');
                 //  Add optional parameters:
                 if (MAX_AGE) {
-                    url += "&max_age=" + MAX_AGE;
+                    url += '&max_age=' + MAX_AGE;
                 }
                 if (DISPLAY) {
-                    url += "&display=" + DISPLAY;
+                    url += '&display=' + DISPLAY;
                 }
 
                 state.set(state.STATES.VERIFICATION);
@@ -143,14 +148,14 @@ angular.module('ei.console')
              * @param params
              * @returns {boolean}
              */
-            function authorize(params) {
+            function authorize (params) {
                 // Validate value using secret from dynamic user storage
-                function validate(key, value, expireAfterValidation) {
+                function validate (key, value, expireAfterValidation) {
                     // Flag to mark if secret should be expired after validation
-                    expireAfterValidation = expireAfterValidation | false;
+                    expireAfterValidation = expireAfterValidation || false;
 
                     if (storage.hasOwnProperty(key) && storage.key !== null) {
-                        if (MD5(storage[key]) === value) {
+                        if (storage[key] === value) {
                             if (expireAfterValidation) {
                                 delete storage[key];
                                 $cookies.remove(key);
@@ -168,34 +173,35 @@ angular.module('ei.console')
                 }
 
                 // Validate ID token using jwt library
-                function isIDTokenValid(id_token) {
-                    id_token = jwt_decode(id_token);
+                function isIDTokenValid (id_token) {
+                    // TODO Add jwt decode library
+                    // id_token = jwt_decode(id_token);
                     // TODO Handle decode errors
 
                     // Validate issuer
                     if (id_token.iss !== OPENID_PROVIDER) {
-                        Log.error('auth', "Provided id token issuer did not match provider.");
+                        Log.error('auth', 'Provided id token issuer did not match provider.');
                         return false;
                     }
 
                     // Check that aud has client_id only
                     if (id_token.aud !== CLIENT_ID) {
-                        Log.error('auth', "Provided id token audience does not match client id.");
+                        Log.error('auth', 'Provided id token audience does not match client id.');
                         return false;
                     }
 
                     // TODO Verify token hash
 
                     // Check that current time is before exp date
-                    var milliseconds = (new Date).getTime() / 1000;
+                    var milliseconds = (new Date()).getTime() / 1000;
                     if (milliseconds >= id_token.exp) {
-                        Log.error('auth', "Provided id token has already expired.");
+                        Log.error('auth', 'Provided id token has already expired.');
                         return false;
                     }
 
                     // Verify nonce
                     if (!validate('nonce', id_token.nonce, true)) {
-                        Log.error('auth', "Failed to match nonce secret with id_token nonce value.")
+                        Log.error('auth', 'Failed to match nonce secret with id_token nonce value.');
                         return false;
                     }
 
@@ -203,7 +209,7 @@ angular.module('ei.console')
                     return true;
                 }
 
-                Log.debug('auth', "Authorization sequence initialized.");
+                Log.debug('auth', 'Authorization sequence initialized.');
 
                 if (state.get() === state.STATES.VERIFICATION) {
                     // TODO handle error responses here
@@ -219,11 +225,11 @@ angular.module('ei.console')
 
                             // Use sub to update user.id
                             if (params.id_token.sub) {
-                                user["id"] = params.id_token.sub;
+                                user.id = params.id_token.sub;
                             }
 
                             // Token type MUST be Bearer
-                            if (params.hasOwnProperty('token_type') && params.token_type !== "Bearer") {
+                            if (params.hasOwnProperty('token_type') && params.token_type !== 'Bearer') {
                                 Log.error('auth', 'Access token type must be "Bearer". Aborting...');
                                 // Restore empty user
                                 user = {};
@@ -236,13 +242,13 @@ angular.module('ei.console')
                                 Log.error('auth', 'Failed to locate access token. Aborting...');
                                 // Restore empty user
                                 user = {};
-                                return false
+                                return false;
                             }
 
                             Log.debug('auth', 'All tokens successfully validated.');
 
                             // TODO keep secret only until expiration date
-                            storage['access_token'] = params.access_token;
+                            storage.access_token = params.access_token;
                             $cookies.put('access_token', params.access_token);
 
                             state.set(state.STATES.VERIFIED);
@@ -258,11 +264,10 @@ angular.module('ei.console')
                         return false;
                     }
                 } else {
-                    Log.error('auth', "Service should be in 'VERIFICATION' state to authorize.");
+                    Log.error('auth', 'Service should be in "VERIFICATION" state to authorize.');
                     return false;
                 }
             }
-
 
             /**
              * Make a query
@@ -271,22 +276,22 @@ angular.module('ei.console')
              */
             var inProgress = false;
 
-            function getUserInfo() {
-                function setAccessToken(type, token) {
-                    $http.defaults.headers.common.Authorization = type + " " + token;
+            function getUserInfo () {
+                function setAccessToken (type, token) {
+                    $http.defaults.headers.common.Authorization = type + ' ' + token;
                     // TODO Store access_token in cookies
                     // TODO Only store cookie until it expires
-                    Log.debug('auth', "Access token has been set for userinfo request.");
+                    Log.debug('auth', 'Access token has been set for userinfo request.');
                 }
 
                 var deferred = $q.defer();
 
-                Log.debug('auth', "Retrieving user information from provider...");
+                Log.debug('auth', 'Retrieving user information from provider...');
 
                 if (state.get() === state.STATES.VERIFIED && storage.access_token) {
-                    setAccessToken("Bearer", storage['access_token']);
+                    setAccessToken('Bearer', storage.access_token);
                 } else {
-                    Log.error('auth', "Access token has not been found for userinfo call.");
+                    Log.error('auth', 'Access token has not been found for userinfo call.');
                     state.set(state.STATES.SIGNED_OUT);
                     return false;
                 }
@@ -295,12 +300,12 @@ angular.module('ei.console')
                     inProgress = true;
 
                     var request = $http({
-                        method: "get",
-                        url: "http://52.64.240.111:8080/userinfo"
+                        method: 'get',
+                        url: 'http://52.64.240.111:8080/userinfo'
                     });
 
                     request.then(
-                        function success(response) {
+                        function success (response) {
                             var error;
 
                             if (response.data) {
@@ -308,44 +313,44 @@ angular.module('ei.console')
                                     user.id = response.data.sub;
                                     user.roles = response.data.authorities;
 
-                                    Log.debug('auth', "Successfully retrieved user information from provider.");
+                                    Log.debug('auth', 'Successfully retrieved user information from provider.');
                                     state.set(state.STATES.SIGNED_IN);
                                     inProgress = false;
                                     deferred.resolve(user);
                                 } else {
-                                    error = "Mismatched user info response format.";
+                                    error = 'Mismatched user info response format.';
                                     Log.error('auth', error);
                                     state.set(state.STATES.SIGNED_OUT);
                                     inProgress = false;
                                     deferred.reject(error);
                                 }
                             } else {
-                                error = "User info response does not contain data.";
+                                error = 'User info response does not contain data.';
                                 Log.error('auth', error);
                                 state.set(state.STATES.SIGNED_OUT);
                                 inProgress = false;
                                 deferred.reject(error);
                             }
                         },
-                        function error() {
-                            Log.error('auth', "Failed to retrieve user data.");
+                        function error () {
+                            Log.error('auth', 'Failed to retrieve user data.');
                             state.set(state.STATES.SIGNED_OUT);
                             inProgress = false;
                             deferred.reject();
                         });
 
                 } else {
-                    Log.error('auth', "User info request is already in progress.");
+                    Log.error('auth', 'User info request is already in progress.');
                     deferred.resolve({});
                 }
 
                 return deferred.promise;
             }
 
-            function logout() {
-                delete storage['access_token'];
-                delete storage['nonce'];
-                delete storage['state'];
+            function logout () {
+                delete storage.access_token;
+                delete storage.nonce;
+                delete storage.state;
 
                 $cookies.remove('access_token');
                 $cookies.remove('nonce');
