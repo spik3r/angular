@@ -1,13 +1,13 @@
 {
-  "name": "mean-vagrant",
-  "description": "Sample MEAN Stack application with vagrant environment support.",
+  "name": "ei.console",
+  "description": "Guvera EI project front end application.",
   "author": "Roman Yakobnyuk <roman.yakobnyuk@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/camomiles/mean-vagrant"
+    "url": "https://bitbucket.org/guvera/ei.console"
   },
   "bugs": {
-    "url": "https://github.com/camomiles/mean-vagrant/issues"
+    "url": "https://bitbucket.org/guvera/ei.console/issues"
   },
   "version": "0.0.1",
   "license": "MIT",
