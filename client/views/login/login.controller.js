@@ -2,5 +2,10 @@
 
 angular.module('ei.console')
     .controller('LoginCtrl',
-        function () {
+        function ($state, $scope) {
+
+            $scope.login = function () {
+                $state.go('dashboard');
+            };
+
         });

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Created by Kai on 11/11/2015.
  */
@@ -5,7 +7,7 @@ describe('Test Login', function () {
 
     var userInput = element(by.css('[ng-model="ctrl.login.username"]'));
 
-    beforeEach(function() {
+    beforeEach(function () {
         browser.get('http://localhost:9000/login');
     });
 

@@ -1,7 +1,8 @@
+'use strict';
+
 describe('Test SideNav', function () {
 
     var sideNav = element(by.id('sidenav'));
-    var profile = element(by.linkText("/profile"));
     var menu = element(by.id('menu'));
     var selectedMenuItem = element(by.css('#menu > .active'));
 
@@ -9,11 +10,11 @@ describe('Test SideNav', function () {
         browser.get('http://localhost:9000/dashboard');
     });
 
-    it('Sidenav exsists', function () {
+    it('Sidenav exists', function () {
         expect(sideNav).not.toBe(undefined);
     });
 
-    it('Menu exsists', function () {
+    it('Menu exists', function () {
         expect(menu).not.toBe(undefined);
     });
 
@@ -24,22 +25,22 @@ describe('Test SideNav', function () {
     describe('Test all menu items', function () {
 
         var menuItems = ['profile',
-                         'playlists',
-                         'content',
-                         'export',
-                         'billing',
-                         'settings',
-                         'logout'];
+            'playlists',
+            'content',
+            'export',
+            'billing',
+            'settings',
+            'logout'];
 
-        function click(path) {
+        function click (path) {
             var menuItem = element(by.css('[data-path="' + path + '"]'));
 
             it('Find menu item with /' + path + ' path', function () {
-               expect(menuItem).not.toBe(undefined);
+                expect(menuItem).not.toBe(undefined);
             });
 
             it('Click /' + path + ' menu item', function () {
-               menuItem.click();
+                menuItem.click();
             });
 
             if (path !== 'logout') {

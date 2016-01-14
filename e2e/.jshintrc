@@ -1,0 +1,17 @@
+{
+  "bitwise": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "globalstrict": true,
+  "latedef": true,
+  "laxbreak": true,
+  "maxdepth": 4,
+  "nonbsp": true,
+  "nonew": false,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "predef": [ "describe", "element", "it", "expect", "beforeEach", "browser", "by",
+              "beforeAll"]
+}
