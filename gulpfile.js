@@ -17,3 +17,4 @@ gulp.task('control',                  require('./tasks/control'));
 gulp.task('e2e:update',               require('./tasks/test').e2eUpdate);
 gulp.task('e2e',                      require('./tasks/test').e2eTests);
 gulp.task('test',                     require('./tasks/test').test);
+gulp.task('clean',                    require('./tasks/chore').clean);

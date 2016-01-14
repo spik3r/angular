@@ -1,13 +1,14 @@
 'use strict';
 
 /**
- * Git versioning and bump
+ * Git versioning, bump and dist clean task.
  */
 
 var gulp = require('gulp');
 var fs = require('fs');
 var bump = require('gulp-bump');
 var git = require('gulp-git');
+var del = require('del');
 
 module.exports = {
 
@@ -28,6 +29,12 @@ module.exports = {
                 .pipe(git.add())
                 .pipe(git.commit('chore(core): bump to ' + JSON.parse(data).version));
         });
-    }
+    },
 
+    clean: function (done) {
+        del(['dist/**', '!dist', '!dist/.git{,/**}', 'dist'])
+            .then(function () {
+                done();
+            }).catch(done);
+    }
 };
