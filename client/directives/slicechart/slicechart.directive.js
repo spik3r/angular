@@ -1,18 +1,19 @@
 'use strict';
 
-
 angular.module('ei.console')
     .directive('slicechart', function () {
         return {
             restrict: 'EA',
             replace: true,
             scope: {
-              slices: '='
+                slices: '='
             },
             templateUrl: 'directives/slicechart/slicechart.html',
-            link: function (scope, element) {
+            link: function (scope) {
                 // Create relative slice sizes to display:
                 // 1. Find biggest age group
+
+                // TODO Fix deep nesting
                 var biggest_slice_size = null;
                 var slice;
                 for (slice in scope.slices) {
@@ -27,6 +28,7 @@ angular.module('ei.console')
                         }
                     }
                 }
+
                 // 2. Scale other groups according to biggest group
                 scope.ages = {};
                 for (slice in scope.slices) {
@@ -34,6 +36,7 @@ angular.module('ei.console')
                         scope.ages[slice] = 100 / biggest_slice_size * scope.slices[slice];
                     }
                 }
+
             }
         };
     });

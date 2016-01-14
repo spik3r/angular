@@ -4,7 +4,7 @@ angular.module('ei.console')
   .config(function ($stateProvider) {
       $stateProvider
           .state('billing', {
-              url: "/billing",
-              templateUrl: "/views/billing/billing.html"
+              url: '/billing',
+              templateUrl: '/views/billing/billing.html'
           });
   });

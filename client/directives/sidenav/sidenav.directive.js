@@ -1,6 +1,5 @@
 'use strict';
 
-
 angular.module('ei.console')
     .directive('sidenav', function ($rootScope, $location, $timeout, $state, Log) {
         return {
@@ -37,10 +36,10 @@ angular.module('ei.console')
                 var sidebar = element.find('aside');
                 var main = element.find('main');
                 var cover = element.find('#cover');
-                var items = element.find("#menu li");
+                var items = element.find('#menu li');
 
                 // Activate current tab on route change success
-                $rootScope.$on("$stateChangeSuccess", function () {
+                $rootScope.$on('$stateChangeSuccess', function () {
                     if (allowed.indexOf($state.current.name) >= 0) {
                         scope.active = true;
                         activate($state.current.name);
@@ -54,7 +53,7 @@ angular.module('ei.console')
                  * 'active' class on following elements: button, sidebar, main section
                  * and content cover.
                  */
-                function toggle() {
+                function toggle () {
                     button.toggleClass('active');
                     sidebar.toggleClass('active');
                     main.toggleClass('active');
@@ -70,7 +69,7 @@ angular.module('ei.console')
                  */
                 var found = false;
 
-                function activate(path) {
+                function activate (path) {
                     items.removeClass('active');
 
                     for (var i = 0; i < items.length; i++) {
@@ -83,7 +82,7 @@ angular.module('ei.console')
 
                     if (!found) {
                         // Throw warning to console if menu item is not found
-                        Log.warn('sidenav', "Cannot find menu item with path: " + path);
+                        Log.warn('sidenav', 'Cannot find menu item with path: ' + path);
                     }
                     return found;
                 }
@@ -91,7 +90,7 @@ angular.module('ei.console')
                 /**
                  * Click event handlers
                  */
-                    // Menu toggle click handlers
+                // Menu toggle click handlers
                 button.on('click', toggle);
                 main.on('click', function () {
                     if (main.hasClass('active')) {
@@ -117,7 +116,6 @@ angular.module('ei.console')
                         }
                     }, 300);
                 });
-
             }
         };
     });

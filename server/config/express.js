@@ -10,18 +10,18 @@ var config = require('./environment');
 
 module.exports = function (app) {
 
-  var env = config.env;
+    var env = config.env;
 
-  app.set('view engine', 'html');
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(bodyParser.json());
-  app.use(compression());
-  app.use(morgan('dev'));
-  app.use(express.static(path.join(config.root, 'client')));
-  app.set('appPath', 'client');
+    app.set('view engine', 'html');
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    app.use(compression());
+    app.use(morgan('dev'));
+    app.use(express.static(path.join(config.root, 'client')));
+    app.set('appPath', 'client');
 
-  if (env === 'development' || env === 'test') {
-    app.use(require('errorhandler')());
-  }
+    if (env === 'development' || env === 'test') {
+        app.use(require('errorhandler')());
+    }
 
 };

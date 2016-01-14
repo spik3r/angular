@@ -6,7 +6,7 @@
   "globalstrict": true,
   "latedef": true,
   "laxbreak": true,
-  "maxdepth": 3,
+  "maxdepth": 4,
   "nonbsp": true,
   "nonew": false,
   "strict": true,

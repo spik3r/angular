@@ -4,7 +4,7 @@ angular.module('ei.console')
   .config(function ($stateProvider) {
       $stateProvider
           .state('export', {
-              url: "/export",
-              templateUrl: "/views/export/export.html"
+              url: '/export',
+              templateUrl: '/views/export/export.html'
           });
   });

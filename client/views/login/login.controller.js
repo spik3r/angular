@@ -5,16 +5,16 @@ angular.module('ei.console')
         function (Auth) {
 
             Auth.hello();
-            //// link to self
-            //var ctrl = this;
+            // // link to self
+            // var ctrl = this;
             //
-            //// If logged in, redirect to /home page
-            //if (Auth.isLoggedIn()) {
-            //    $window.location.href = '/dashboard';
-            //}
+            // // If logged in, redirect to /home page
+            // if (Auth.isLoggedIn()) {
+            //     $window.location.href = '/dashboard';
+            // }
             //
-            //// Take login form and login
-            //ctrl.login = function (form) {
+            // // Take login form and login
+            // ctrl.login = function (form) {
             //    if (form.$valid && !form.$pristine) {
             //        Auth.login(form.username.$viewValue, form.password.$viewValue, function (response) {
             //            if (response.success) {
@@ -31,5 +31,5 @@ angular.module('ei.console')
             //    } else {
             //        ctrl.error = "Required fields are empty";
             //    }
-            //};
+            // };
         });

@@ -9,13 +9,15 @@ angular.module('ei.console')
             restrict: 'EA',
             replace: true,
             scope: {
-              percent: '=', // Percent value for first label
-              labels: '=' // Two labels to display (if more then two labels, they are ignored and first two are used)
+                percent: '=', // Percent value for first label
+                labels: '=' // Two labels to display (if more then two labels, they are ignored and first two are used)
             },
             templateUrl: 'directives/piechart/piechart.html',
             link: function (scope, element) {
-                if (scope.percent > 50) { element.addClass('over-50'); }
-                element.find('.pie-chart-fill').css('transform','rotate('+ 360*scope.percent/100 +'deg)');
+                if (scope.percent > 50) {
+                    element.addClass('over-50');
+                }
+                element.find('.pie-chart-fill').css('transform', 'rotate(' + 360 * scope.percent / 100 + 'deg)');
             }
         };
     });
