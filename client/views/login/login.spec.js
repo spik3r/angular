@@ -25,7 +25,8 @@ describe('Login controller (LoginCtrl)', function () {
     expect(ctrl).not.toBe(undefined);
   });
 
-  it('should provide login function to perform login', function () {
-    expect(ctrl.login).not.toBe(undefined);
-  })
+  //
+  //it('should provide login function to perform login', function () {
+  //  expect(ctrl.login).not.toBe(undefined);
+  //})
 });

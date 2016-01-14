@@ -1,10 +1,7 @@
 'use strict';
 
-<<<<<<< HEAD
-angular.module('eiFrontend')
-=======
+
 angular.module('ei.console')
->>>>>>> master
     .directive('slicechart', function () {
         return {
             restrict: 'EA',
@@ -40,5 +37,4 @@ angular.module('ei.console')
             }
         };
     });
-
 
