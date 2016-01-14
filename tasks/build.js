@@ -30,6 +30,7 @@ module.exports = function (done) {
         ['replace', 'scripts', 'cssmin'],
         'rev',
         'clean:finish',
+        'test',
         done);
 };
 

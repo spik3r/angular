@@ -1,23 +1,24 @@
-exports.config = { // jshint ignore:line
+exports.config = {
+    // Point config to selenium jar so that protractor starts and stops
+    // selenium server. Update version accordingly.
+    // https://github.com/mllrsohn/gulp-protractor
+    seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.48.2.jar',
+    // seleniumAddress: 'http://localhost:4444/wd/hub',
 
-  // The version is susceptible to change
-  seleniumServerJar: './node_modules/gulp-protractor/node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
-  // chromeDriver: './node_modules/gulp-protractor/node_modules/protractor/selenium/chromedriver',
+    multiCapabilities: [{
+        browserName: 'firefox'
+    }],
+    framework: 'jasmine2',
 
-  baseUrl: 'http://localhost:9000',
-
-  capabilities: {
-    browserName: 'chrome'
-    // chromeOptions: {
-    //    binary: '/usr/bin/google-chrome-stable'
-    // }
-  },
-
-  framework: 'jasmine',
-
-  jasmineNodeOpts: {
-    showColors: true,
-    defaultTimeoutInterval: 30000
-  }
+    jasmineNodeOpts: {
+        showColors: true,
+        print: function() {},
+        defaultTimeoutInterval: 30000
+    },
+    onPrepare: function() {
+        var SpecReporter = require('jasmine-spec-reporter');
+        // add jasmine spec reporter
+        jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'all'}));
+    }
 
 };

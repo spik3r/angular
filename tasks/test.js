@@ -25,10 +25,10 @@ function log (msg, options) {
     );
 }
 
-exports.e2eUpdate = protractor.webdriver_update;
+exports.e2eUpdate = protractor.webdriver_start;
 
 exports.e2eTests = function () {
-    gulp.src('client/views/**/*.e2e.js')
+    gulp.src('e2e/**/*.js')
         .pipe(protractor.protractor({ configFile: 'protractor.conf.js' }))
         .on('error', function (e) {
             util.log(e.message);
