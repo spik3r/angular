@@ -25,7 +25,7 @@ function log (msg, options) {
     );
 }
 
-exports.e2eUpdate = protractor.webdriver_start;
+exports.e2eUpdate = protractor.webdriver_update;
 
 exports.e2eTests = function () {
     gulp.src('e2e/**/*.js')
