@@ -16,7 +16,9 @@ You will require following tools to build project successfully, for reference lo
 - [Yeoman](http://yeoman.io/)
 - [Mean-Generator](https://github.com/camomiles/mean-generator)
 
-On Linux or Mac Os machine, those tools can be installed using following commands (you might need ```build-essential``` package):
+On Linux machine, those tools can be installed using following commands
+
+(you might need ```build-essential``` package):
 
 ```javascript
 // Install Node
