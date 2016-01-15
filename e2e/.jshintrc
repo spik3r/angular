@@ -12,6 +12,7 @@
   "strict": true,
   "undef": true,
   "unused": true,
-  "predef": [ "describe", "element", "it", "expect", "beforeEach", "browser", "by",
+  "predef": [ "describe", "element", "it", "xit",
+              "expect", "beforeEach", "browser", "by",
               "beforeAll"]
 }

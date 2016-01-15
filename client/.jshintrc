@@ -8,6 +8,7 @@
     "module": true,
     "console": true,
     "it": true,
+    "xit": true,
     "describe": true,
     "inject": true,
     "expect": true,
