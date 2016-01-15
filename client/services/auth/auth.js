@@ -14,6 +14,7 @@ angular.module('ei.console')
             var OPENID_PROVIDER = 'http://52.64.240.111:8080',
                 CLIENT_ID = 'romans-local-client',
                 RESPONSE_TYPE = 'token',
+
                 SCOPE = ['openid', 'authorities'],
                 REDIRECT_URL = 'http://localhost:9000/authorize',
                 // Size of the secret string and its salt
@@ -116,16 +117,14 @@ angular.module('ei.console')
 
                     return value;
                 }
-
+                /*global escape: true */
                 var url = OPENID_PROVIDER + '/authorize?';
                 // Compile request string:
                 url += 'response_type=' + RESPONSE_TYPE;
                 url += '&client_id=' + CLIENT_ID;
-                /* jshint ignore:start */
                 // Ignore escape
                 url += '&scope=' + escape(SCOPE.join(' '));
                 url += '&redirect_uri=' + escape(REDIRECT_URL);
-                /* jshint ignore:end */
                 //  Generate nonce and state values
                 url += '&nonce=' + generateSecret('nonce');
                 url += '&state=' + generateSecret('state');

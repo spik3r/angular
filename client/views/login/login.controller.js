@@ -8,5 +8,4 @@ angular.module('ei.console')
                 Auth.authenticate();
             };
 
-
         });
