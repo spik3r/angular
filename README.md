@@ -11,10 +11,12 @@ You will require following tools to build project successfully, for reference lo
 - [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/)
 - [PhantomJS](http://phantomjs.org/)
 
-### Optional Management Tools:
+**Optional Tools:**
 
 - [Yeoman](http://yeoman.io/)
 - [Mean-Generator](https://github.com/camomiles/mean-generator)
+
+## To build in Vagrant environment
 
 Another way to build and develop this project is using Vagrant environment provided with
 this project. It lets you build new virtual environment for the project from scratch with
