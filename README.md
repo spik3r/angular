@@ -38,7 +38,7 @@ sudo npm install -g yo
 **Note:**
 *If version number is not specified, assume the latest version*
 
-## To build in Vagrant environment:
+### To build in Vagrant environment:
 
 Another way to build and develop this project is using Vagrant environment provided with
 this project. It lets you build new virtual environment for the project from scratch with
