@@ -27,6 +27,7 @@ minimal initial setup, however it has its limitations too. For that option you w
 
 
 *Note:*
+
 *If version number is not specified, assume the latest version*
 
 
