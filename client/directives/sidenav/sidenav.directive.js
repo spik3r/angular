@@ -37,17 +37,6 @@ angular.module('ei.console')
                 var main = element.find('main');
                 var cover = element.find('#cover');
                 var items = element.find('#menu li');
-
-                // Activate current tab on route change success
-                $rootScope.$on('$stateChangeSuccess', function () {
-                    if (allowed.indexOf($state.current.name) >= 0) {
-                        scope.active = true;
-                        activate($state.current.name);
-                    } else {
-                        scope.active = false;
-                    }
-                });
-
                 /**
                  * Function that toggles sidebar menu on mobile screen using CSS
                  * 'active' class on following elements: button, sidebar, main section
@@ -86,6 +75,16 @@ angular.module('ei.console')
                     }
                     return found;
                 }
+
+                // Activate current tab on route change success
+                $rootScope.$on('$stateChangeSuccess', function () {
+                    if (allowed.indexOf($state.current.name) >= 0) {
+                        scope.active = true;
+                        activate($state.current.name);
+                    } else {
+                        scope.active = false;
+                    }
+                });
 
                 /**
                  * Click event handlers

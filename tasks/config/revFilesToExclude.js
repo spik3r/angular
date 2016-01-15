@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * These filenames will not be revisioned.
  */
