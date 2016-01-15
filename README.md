@@ -1,8 +1,23 @@
 
 # Requirements: 
 
+This project can be installed in two different ways. First way is to install it in your
+home environment, which is a most convenient way to develop but requires initial setup.
+You will require following tools to build project successfully, for reference look at ```environment.sh``` :
+
 - Node.JS v.5.x
 - Gulp and Bower
+- PhantomJS
+
+- *[OPTIONAL]* Yeoman
+- *[OPTIONAL]* Mean-generator
+
+Another way to build and develop this project is using Vagrant environment provided with
+this project. It lets you build new virtual environment for the project from scratch with
+minimal initial setup, however it has its limitations too. For that option you will need:
+
+- VirtualBox
+- Vagrant
 
 # Install project
 
