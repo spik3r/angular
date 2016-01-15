@@ -57,19 +57,19 @@ minimal initial setup, however it has its limitations too. For that option you w
 **Inside your project folder, execute following commands in order:**
 ## Build in local environment:
 
-1. Install necessary node modules:
+Install necessary node modules:
 ```
 [sudo] npm install
 ```
 
-2. Install necessary bower libraries:
+Install necessary bower libraries:
 ```
 bower install
 ```
 
 ## Build in vagrant environment:
 
-1. Bring vagrant environment up and provision it:
+Bring vagrant environment up and provision it with ```environment.sh```:
 ```
 vagrant up
 ```
