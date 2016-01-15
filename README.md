@@ -51,21 +51,37 @@ minimal initial setup, however it has its limitations too. For that option you w
 **Note:**
 *If version number is not specified, assume the latest version*
 
+# Build Project
+*To build your project successfully, make sure your have everything installed properly from Requirements section, or following steps will fail.*
 
-# Install project
+**Inside your project folder, execute following commands in order:**
+## Build in local environment:
 
-** First of all, install bower and gulp if you dont have it already on your machine **
+1. Install necessary node modules:
+```
+[sudo] npm install
+```
 
-    npm install gulp -g 
-    npm install bower -g
-    
-** Install necessary node modules **
+2. Install necessary bower libraries:
+```
+bower install
+```
 
-    [sudo] npm install
+## Build in vagrant environment:
 
-** Install necessary bower libraries **
+1. Bring vagrant environment up and provision it:
+```
+vagrant up
+```
 
-    bower install
+This step will take a while on first provisioning, it will download Ubuntu 14.04 environment and then provision it (~30 min). Get a coffee or something stronger. Once it is done, your project will be running at http://10.10.10.10:9000/
+
+To manage your vagrant environment, you can ssh into it using:
+
+```
+vagrant ssh
+```
+
 
 # Run project in development mode
 
