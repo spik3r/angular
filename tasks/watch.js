@@ -13,7 +13,7 @@ var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var bowerFiles = require('main-bower-files');
 var gaze = require('gaze');
-var fileSort = require('gulp-angular-filesort');
+var sort = require('gulp-sort');
 
 var toInject = require('./config/filesToInject');
 var toExclude = require('./config/bowerFilesToExclude');
@@ -114,7 +114,7 @@ module.exports = function () {
                 }
                 lastInjection = Date.now();
                 gulp.src('client/index.html')
-                    .pipe(inject(gulp.src(toInject).pipe(fileSort()), { relative: true }))
+                    .pipe(inject(gulp.src(toInject).pipe(sort()), { relative: true }))
                     .pipe(gulp.dest('client'));
 
                 bsync.reload();

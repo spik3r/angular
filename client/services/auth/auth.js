@@ -14,8 +14,8 @@ angular.module('ei.console')
             var OPENID_PROVIDER = 'http://52.64.240.111:8080',
                 CLIENT_ID = 'romans-local-client',
                 RESPONSE_TYPE = 'token',
-                // SCOPE = ['openid', 'authorities'],
-                // REDIRECT_URL = 'http://localhost:9000/authorize',
+                SCOPE = ['openid', 'authorities'],
+                REDIRECT_URL = 'http://localhost:9000/authorize',
                 // Size of the secret string and its salt
                 SECRET_SIZE = 1024,
                 // OPTIONAL. Maximum allowable time in seconds since the last time
@@ -104,7 +104,7 @@ angular.module('ei.console')
 
                     // TODO Fix missing MD5 Service
                     /* jshint ignore:start */
-                    value = MD5(secret);
+                    value = secret;
                     Log.debug('auth', 'Random ' + key + ' value generated: ', value);
                     /* jshint ignore:end */
 

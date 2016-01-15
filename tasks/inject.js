@@ -6,7 +6,7 @@
 
 var gulp = require('gulp');
 var bowerFiles = require('main-bower-files');
-var fileSort = require('gulp-angular-filesort');
+var sort = require('gulp-sort');
 var inject = require('gulp-inject');
 
 var toInject = require('./config/filesToInject');
@@ -20,7 +20,7 @@ module.exports = function () {
             ignorePath: toExclude
         }))
         .pipe(inject(
-            gulp.src(toInject).pipe(fileSort()), { relative: true }
+            gulp.src(toInject).pipe(sort()), { relative: true }
         ))
         .pipe(gulp.dest('client'));
 };
