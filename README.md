@@ -1,7 +1,7 @@
 
 # Requirements
 
-## To build in your environment:
+### To build in your environment:
 
 This project can be installed in two different ways. First way is to install it in your
 home environment, which is a most convenient way to develop but requires initial setup.
@@ -65,7 +65,7 @@ export NODE_ENV=development
 
 If you did not specify any values for ```NODE_ENV``` it will fall back to ```development``` by default.
 
-## Build in local environment:
+### Build in local environment:
 
 **Inside your project folder, execute following commands in order:**
 
@@ -80,7 +80,7 @@ Install necessary bower libraries:
 bower install
 ```
 
-## Build in Vagrant environment:
+### Build in Vagrant environment:
 
 Bring vagrant environment up and provision it with ```environment.sh```:
 ```
@@ -95,7 +95,7 @@ To manage your vagrant environment, you can ssh into it using:
 vagrant ssh
 ```
 
-## Build minified distribution:
+### Build minified distribution:
 
 Wipe old generated `dist` directory while keeping the `.git` to preserve your remotes configuration. Concat all the scripts and vendors in one minified `.js` file, same thing for your styles. Rev all resources for caching purposes; copy the server part.
 
@@ -106,14 +106,14 @@ gulp build
 # Run project
 *To run project, you need to complete all the steps from Build Project section, or it will fail otherwise.*
 
-## In Development Mode:
+### In Development Mode:
 
 **Default task, run the server.** Build `sass` files, inject all scripts and styles to the project, watch them and reload on change. Uses ```NODE_ENV``` to determine running environment.
 ```
 gulp
 ```
 
-## In Production
+### In Production
 
 **Run server and dont watch for file changes.** Uses ```NODE_ENV``` to determine running environment.
 ```
@@ -123,7 +123,7 @@ npm start
 # Test Project
 *Some of the following commands require project to be running already in order to be tested successfully. For example, e2e tests will look for project running in ```development``` mode on port ```9000```.*
 
-## Running Unit Tests
+### Running Unit Tests
 
 Launch client and server tests, using Karma and Mocha, both by default. You don't need server to be running.
 ```
@@ -132,7 +132,7 @@ gulp test [--client || --server]
 
 Unit tests are located in the folders relevant to items checked, and have naming format of ```*.spec.js```.
 
-## Running e2e Tests
+### Running e2e Tests
 
 Running e2e requires standalone install of Selenium and relevand webdriver for your browser. Both of them can be installed using following gulp task. You only need to run it once:
 
@@ -148,7 +148,7 @@ gulp e2e
 
 **Note**: *Running e2e tests requires project to be running in ```development``` mode on port ```9000```. Make sure you start project before attempting to run e2e tests, or they will fail.*
 
-## Syntax Validation
+### Syntax Validation
 
 Validate javascript files through [JSHint](http://jshint.com/) and [JSCS](http://jscs.info/).
 
