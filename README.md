@@ -16,6 +16,23 @@ You will require following tools to build project successfully, for reference lo
 - [Yeoman](http://yeoman.io/)
 - [Mean-Generator](https://github.com/camomiles/mean-generator)
 
+On Linux or Mac Os machine, those tools can be installed using following commands (you might need ```build-essential``` package):
+
+```javascript
+// Install Node
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
+npm rebuild node-sass
+// Install Gulp globally
+sudo npm install -g gulp
+// Install Bower globally
+sudo npm install -g bower
+// Install PhantomJS from CDN
+sudo npm install -g phantomjs --phantomjs_cdnurl=http://cnpmjs.org/downloads
+// Install Yeoman
+sudo npm install -g yo
+```
+
 **Note:**
 *If version number is not specified, assume the latest version*
 
@@ -29,7 +46,7 @@ minimal initial setup, however it has its limitations too. For that option you w
 - [Vagrant](https://www.vagrantup.com/)
 
 
-**Note:** 
+**Note:**
 *If version number is not specified, assume the latest version*
 
 
