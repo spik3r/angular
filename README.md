@@ -25,11 +25,10 @@ minimal initial setup, however it has its limitations too. For that option you w
 - [VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/)
 
-
-<br/>
-<br/>
+&nbsp;
 
 *If version number is not specified, assume the latest version*
+
 
 # Install project
 
