@@ -1,16 +1,20 @@
 
-# Requirements: 
+# Requirements
+
+## To build in your environment:
 
 This project can be installed in two different ways. First way is to install it in your
 home environment, which is a most convenient way to develop but requires initial setup.
 You will require following tools to build project successfully, for reference look at ```environment.sh``` :
 
-- Node.JS v.5.x
-- Gulp and Bower
-- PhantomJS
+- [Node.JS v.5.x](https://nodejs.org/en/)
+- [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/)
+- [PhantomJS](http://phantomjs.org/)
 
-- *[OPTIONAL]* Yeoman
-- *[OPTIONAL]* Mean-generator
+### Optional Management Tools:
+
+- [Yeoman](http://yeoman.io/)
+- [Mean-Generator](https://github.com/camomiles/mean-generator)
 
 Another way to build and develop this project is using Vagrant environment provided with
 this project. It lets you build new virtual environment for the project from scratch with
