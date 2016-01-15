@@ -16,6 +16,9 @@ You will require following tools to build project successfully, for reference lo
 - [Yeoman](http://yeoman.io/)
 - [Mean-Generator](https://github.com/camomiles/mean-generator)
 
+**Note:**
+*If version number is not specified, assume the latest version*
+
 ## To build in Vagrant environment:
 
 Another way to build and develop this project is using Vagrant environment provided with
@@ -26,8 +29,7 @@ minimal initial setup, however it has its limitations too. For that option you w
 - [Vagrant](https://www.vagrantup.com/)
 
 
-**Note:**
-
+**Note:** 
 *If version number is not specified, assume the latest version*
 
 
