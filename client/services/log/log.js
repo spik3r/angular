@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ei.console')
-    .service('Log', function () {
+    .service('Log', function (LOG_LEVEL) {
         /* jshint ignore:start */
         // TODO Fix it to be simple method
         // Extend date prototype with timeNow function to get current time
@@ -15,22 +15,36 @@ angular.module('ei.console')
             var dateNow = new Date();
             return dateNow.timeNow();
         }
-
+        // Possible states of LOG_LEVEL:
+        // none - no output at all
+        // info - only say, error and info output
+        // warn - say, error, info and warn output
+        // debug - all possible outputs
         return {
             say: function (author, text) {
-                console.log('[' + time() + ']' + ' (' + author + ')', text);
-            },
-            info: function (author, text) {
-                console.info('[' + time() + ']' + ' (' + author + ')', text);
-            },
-            warn: function (author, text) {
-                console.warn('[' + time() + ']' + ' (' + author + ')', text);
+                if (LOG_LEVEL !== 'none') {
+                    console.log('[' + time() + ']' + ' (' + author + ')', text);
+                }
             },
             error: function (author, text) {
-                console.error('[' + time() + ']' + ' (' + author + ')', text);
+                if (LOG_LEVEL !== 'none') {
+                    console.error('[' + time() + ']' + ' (' + author + ')', text);
+                }
+            },
+            info: function (author, text) {
+                if (LOG_LEVEL === 'info' || LOG_LEVEL === 'warn' || LOG_LEVEL === 'debug') {
+                    console.info('[' + time() + ']' + ' (' + author + ')', text);
+                }
+            },
+            warn: function (author, text) {
+                if (LOG_LEVEL === 'warn' || LOG_LEVEL === 'debug') {
+                    console.warn('[' + time() + ']' + ' (' + author + ')', text);
+                }
             },
             debug: function (author, text) {
-                console.debug('[' + time() + ']' + ' (' + author + ')', text);
+                if (LOG_LEVEL === 'debug') {
+                    console.debug('[' + time() + ']' + ' (' + author + ')', text);
+                }
             }
         };
     });
