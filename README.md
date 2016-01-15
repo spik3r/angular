@@ -16,14 +16,16 @@ You will require following tools to build project successfully, for reference lo
 - [Yeoman](http://yeoman.io/)
 - [Mean-Generator](https://github.com/camomiles/mean-generator)
 
-## To build in Vagrant environment
+## To build in Vagrant environment:
 
 Another way to build and develop this project is using Vagrant environment provided with
 this project. It lets you build new virtual environment for the project from scratch with
 minimal initial setup, however it has its limitations too. For that option you will need:
 
-- VirtualBox
-- Vagrant
+- [VirtualBox](https://www.virtualbox.org/)
+- [Vagrant](https://www.vagrantup.com/)
+
+* If version number is not specified, assume the latest version *
 
 # Install project
 
