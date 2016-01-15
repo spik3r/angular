@@ -153,7 +153,7 @@ gulp e2e
 Validate javascript files through [JSHint](http://jshint.com/) and [JSCS](http://jscs.info/).
 
 ```
-gulp control
+gulp lint
 ```
 
 # Utility
