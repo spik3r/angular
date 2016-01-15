@@ -54,6 +54,17 @@ minimal initial setup, however it has its limitations too. For that option you w
 # Build Project
 *To build your project successfully, make sure your have everything installed properly from Requirements section, or following steps will fail.*
 
+Before building your project, you might want to explicitly specify which environment you want to build, ```development```, ```production``` or ```testing```
+This will affect which libraries will be installed by ```npm``` tool and which ports will be used for the project, as well as some other project settings.
+
+To specify environment, you need to set ```NODE_ENV``` variable to the environment you want. E.g.:
+
+```
+export NODE_ENV=development
+```
+
+If you did not specify any values for ```NODE_ENV``` it will fall back to ```development``` by default.
+
 **Inside your project folder, execute following commands in order:**
 ## Build in local environment:
 
@@ -67,7 +78,7 @@ Install necessary bower libraries:
 bower install
 ```
 
-## Build in vagrant environment:
+## Build in Vagrant environment:
 
 Bring vagrant environment up and provision it with ```environment.sh```:
 ```
@@ -82,7 +93,7 @@ To manage your vagrant environment, you can ssh into it using:
 vagrant ssh
 ```
 
-## Build Minified Distribution
+## Build minified distribution:
 
 Wipe old generated `dist` directory while keeping the `.git` to preserve your remotes configuration. Concat all the scripts and vendors in one minified `.js` file, same thing for your styles. Rev all resources for caching purposes; copy the server part.
 
