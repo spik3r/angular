@@ -21,7 +21,6 @@ var toExclude = require('./config/bowerFilesToExclude');
 module.exports = function () {
 
     var coreFiles = [
-        'client/index.html',
         'client/app.js',
         'client/views',
         'client/views/**/*.html',
