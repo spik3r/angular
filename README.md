@@ -65,8 +65,10 @@ export NODE_ENV=development
 
 If you did not specify any values for ```NODE_ENV``` it will fall back to ```development``` by default.
 
-**Inside your project folder, execute following commands in order:**
 ## Build in local environment:
+
+**Inside your project folder, execute following commands in order:**
+
 
 Install necessary node modules:
 ```
@@ -101,19 +103,62 @@ Wipe old generated `dist` directory while keeping the `.git` to preserve your re
 gulp build
 ```
 
+# Run project
+*To run project, you need to complete all the steps from Build Project section, or it will fail otherwise.*
 
-# Protractor
+## In Development Mode:
 
-## Install Selenium and Webdriver ##
+**Default task, run the server.** Build `sass` files, inject all scripts and styles to the project, watch them and reload on change. Uses ```NODE_ENV``` to determine running environment.
+```
+gulp
+```
 
-    gulp e2e:update
+## In Production
 
-## Run e2e tests ##
+**Run server and dont watch for file changes.** Uses ```NODE_ENV``` to determine running environment.
+```
+npm start
+```
 
-**1. Start web server in a separate tab**
-	
-	gulp
+# Test Project
+*Some of the following commands require project to be running already in order to be tested successfully. For example, e2e tests will look for project running in ```development``` mode on port ```9000```.*
 
-**2. Start e2e tests**
+## Running Unit Tests
 
-	gulp e2e
+Launch client and server tests, using Karma and Mocha, both by default. You don't need server to be running.
+```
+gulp test [--client || --server]
+```
+
+Unit tests are located in the folders relevant to items checked, and have naming format of ```*.spec.js```.
+
+## Running e2e Tests
+
+Running e2e requires standalone install of Selenium and relevand webdriver for your browser. Both of them can be installed using following gulp task. You only need to run it once:
+
+```
+gulp e2e:update
+```
+
+Once you have that, you can run e2e tests using:
+
+```
+gulp e2e
+```
+
+**Note**: *Running e2e tests requires project to be running in ```development``` mode on port ```9000```. Make sure you start project before attempting to run e2e tests, or they will fail.*
+
+## Syntax Validation
+
+Validate javascript files through [JSHint](http://jshint.com/) and [JSCS](http://jscs.info/).
+
+```
+gulp control
+```
+
+# Utility
+
+Bump versions of `package.json` and `bower.json` files using *Semantic Versioning* and commit them. Default to **patch**.
+```
+gulp bump [--major || --minor || --patch]
+```
