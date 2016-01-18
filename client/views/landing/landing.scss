@@ -1,0 +1,677 @@
+/**
+ * landing.scss
+ */
+/*
+* 1. Header Section
+---------------------------------------------------------------------------------
+*/
+section#header {
+  background: url("/assets/landing/guitar_guy.jpg") center;
+  background-size: 350% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 500px;
+
+  #logo {
+    display: flex;
+    padding-top: 34px;
+    justify-content: center;
+  }
+
+  #title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 20px;
+      width: 20px;
+      align-self: center;
+    }
+
+    h1 {
+      border: none;
+      color: white;
+      font-size: 26px;
+      font-weight: 100;
+      max-width: 70%;
+    }
+
+    h2 {
+      color: white;
+      font-size: 14px;
+      font-weight: 100;
+      letter-spacing: 0.6px;
+      line-height: 22px;
+      margin-left: 10%;
+      margin-right: 10%;
+      max-width: 500px;
+    }
+  }
+
+  #buttons {
+
+    .request.button {
+      margin-top: 20px;
+      background: #e41034;
+      border: 1px solid #e41034;
+      border-radius: 3px;
+      color: white;
+      font-size: 11px;
+      height: 53px;
+      text-transform: uppercase;
+      width: 185px;
+    }
+
+    .login.button {
+      border: 1px solid white;
+      border-radius: 4px;
+      color: white;
+      font-size: 11px;
+      height: 40px;
+      text-transform: uppercase;
+      width: 75px;
+    }
+  }
+
+  #learn-more {
+    margin-bottom: 20px;
+    max-width: 200px;
+    align-self: center;
+    cursor: pointer;
+
+    span {
+      color: white;
+      display: block;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 100;
+      letter-spacing: 0.4px;
+      margin-bottom: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 500px) {
+    background-size: cover;
+    min-height: 860px;
+  }
+
+  // IPHONE 5 Landscape and Portrait
+  @media (min-device-height: 568px) and (orientation: portrait) { min-height: 600px; }
+  @media (min-device-height: 320px) and (orientation: landscape) { min-height: 600px; }
+
+  // IPHONE 6 Landscape and Portrait
+  @media (min-device-height: 414px) and (orientation: landscape) { min-height: 414px; }
+  @media (min-device-height: 736px) and (orientation: portrait) { min-height: 700px; }
+  @media (min-device-height: 700px) and (max-device-height: 736px) and (orientation: portrait) { min-height: 736px;  }
+
+  // IPAD Landscape and Portrait
+  @media (min-width: 768px) and (orientation: portrait) { min-height: 900px;}
+  @media (min-width: 768px) and (orientation: landscape) { min-height: 768px; }
+  // Laptop
+  @media (min-device-height: 900px) and (orientation: landscape) { min-height: 800px; }
+  // Big screens
+  @media (min-device-height: 1024px) and (orientation: landscape) { min-height: 1024px; }
+}
+
+/*
+* 2. Benefits Section
+---------------------------------------------------------------------------------
+*/
+section#benefits {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  .artists {
+    height: 250px;
+    order: 1;
+    flex-basis: 100%;
+  }
+  .labels {
+    height: 250px;
+    order: 3;
+    flex-basis: 100%;
+  }
+  .brands {
+    height: 250px;
+    order: 2;
+    flex-basis: 100%;
+  }
+
+  .benefit {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-bottom: 25px;
+    }
+
+    span {
+      color: #e41034;
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 21px;
+      font-weight: 100;
+      letter-spacing: 0.9px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 100;
+      letter-spacing: 0.9px;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    flex-wrap: nowrap;
+
+    .artists {
+      flex-basis: 33%;
+      order: 1;
+    }
+    .labels {
+      flex-basis: 34%;
+      order: 2;
+    }
+    .brands {
+      flex-basis: 33%;
+      order: 3;
+    }
+  }
+}
+
+/*
+* 3. Dashboard Section
+---------------------------------------------------------------------------------
+*/
+section#dashboard {
+  background-color: #e41034;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-bottom: -200px;
+
+  div:first-child {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      width: 260px;
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 32px;
+      font-weight: 100;
+      line-height: 40px;
+      text-transform: capitalize;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 100;
+      letter-spacing: 0.3px;
+      margin-top: 39px;
+      text-align: justify;
+      width: 260px;
+    }
+  }
+
+  div:nth-child(2) {
+    flex-basis: 100%;
+  }
+
+  @media screen and (min-width: 800px) {
+    div:first-child {
+      position: relative;
+      left: 50px;
+      flex-basis: 30%;
+      top: -100px;
+    }
+
+    div:last-child {
+      flex-basis: 70%;
+    }
+  }
+
+  // Show full ipad on iphone 4
+  @media screen and (max-width:321px) {
+    margin-bottom: 0;
+  }
+}
+
+/*
+* 4. Audience Section
+---------------------------------------------------------------------------------
+*/
+section#audience {
+  background: url("/assets/landing/audience-mobile.jpg") no-repeat;
+  background-position: top;
+  background-size: cover;
+  color: white;
+  display: flex;
+
+  flex-direction: column;
+  font-family: Helvetica Neue, Helvetica, Arial, serif;
+  padding-right: 20px;
+  padding-top: 70px;
+
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  & > span {
+    color: #505050;
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
+    font-size: 32px;
+    font-weight: 100;
+    margin-bottom: 25px;
+  }
+
+  & > p {
+    color: #505050;
+    font-weight: 100;
+    max-width: 250px;
+    text-align: right;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-top: 30px;
+    }
+
+    span {
+      color: #505050;
+      font-size: 12px;
+      margin-top: 17px;
+    }
+  }
+
+  @media screen and (min-width: 550px) {
+    padding-right: 50px;
+    background: url("/assets/landing/audience.jpg") no-repeat;
+    background-position: left;
+    background-size: 150% 100%;
+  }
+
+  @media screen and (min-width: 700px) {
+    background: url("/assets/landing/audience.jpg") no-repeat top;
+    background-size: cover;
+    padding-right: 20%;
+  }
+
+  @media screen and (min-width: 800px) {
+    background: url("/assets/landing/audience.jpg") no-repeat left;
+    background-size: 150% 100%;
+
+  }
+
+  @media screen and (min-width: 900px) {
+    background: url("/assets/landing/audience.jpg") no-repeat left;
+    background-size: cover;
+    padding-right: 20%;
+  }
+
+  // Show full ipad on iphone 4
+  @media screen and (max-width:321px) {
+    background-position: right;
+    padding-top: 5px;
+
+    & > p {
+      max-width: 200px;
+    }
+  }
+}
+
+/*
+* 5. Engagement Section
+---------------------------------------------------------------------------------
+*/
+section#engagement {
+  background: url("/assets/landing/engagement.jpg") center;
+  color: white;
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 580px;
+  padding-left: 10%;
+  align-items: center;
+
+  & > div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    span {
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 12px;
+      font-weight: 100;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    span:nth-child(2) {
+      position: relative;
+      right: 20px;
+    }
+  }
+
+  span {
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
+    font-size: 39px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    align-self: flex-start;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+    max-width: 300px;
+    align-self: flex-start;
+  }
+}
+
+/*
+* 6. Content Marketing Section
+---------------------------------------------------------------------------------
+*/
+section#content-marketing {
+  display: flex;
+  flex-wrap: wrap;
+
+  div.background {
+    background: url("/assets/landing/content-marketing.jpg") center;
+    background-size: cover;
+    height: 350px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  div.content {
+    background: #2f2f2f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    flex-basis: 100%;
+    align-content: center;
+
+    span {
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 32px;
+      font-weight: 100;
+      letter-spacing: 0.2px;
+      line-height: 40px;
+      margin-bottom: 30px;
+      margin-top: 41px;
+      text-align: center;
+    }
+
+    p {
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 14px;
+      font-weight: 100;
+      letter-spacing: 0.2px;
+      line-height: 24px;
+      margin-bottom: 40px;
+      max-width: 300px;
+      text-align: center;
+      align-self: center;
+    }
+
+    div {
+      display: flex;
+      margin-bottom: 50px;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    flex-wrap: nowrap;
+
+    div {
+      flex-basis: 50%;
+    }
+  }
+}
+
+/*
+* 7. Request Access Section
+---------------------------------------------------------------------------------
+*/
+section#request-access {
+  background: url("/assets/landing/access.jpg") center;
+  display: flex;
+
+  flex-direction: column;
+  height: 500px;
+  align-items: center;
+  padding-top: 40px;
+
+  & > a {
+    color: white;
+    cursor: pointer;
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    line-height: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 53px;
+    width: 185px;
+
+    &.active {
+      background: #e41034;
+      border: 1px solid #e41034;
+      border-radius: 3px;
+    }
+  }
+
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    input:not(.submit) {
+      border: none;
+      border-bottom: 2px solid white;
+      color: white;
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 16px;
+      font-weight: 100;
+      margin-bottom: 25px;
+      text-align: center;
+      width: 200px;
+      align-self: center;
+      background: none;
+      height: 50px;
+    }
+
+    div {
+      display: flex;
+      margin-bottom: 60px;
+    }
+
+    div > a {
+      color: white;
+      cursor: pointer;
+      display: flex;
+      font-size: 11px;
+      height: 40px;
+      line-height: 14px;
+      width: 75px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    div > a.active {
+      border: 1px solid white;
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+    }
+
+    input.submit {
+      background: white;
+      border-color: white;
+      border-radius: 4px;
+      color: #e41034;
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 11px;
+      width: 175px;
+      align-self: center;
+      height: 30px;
+    }
+  }
+}
+
+/*
+* 8. Footer Section
+---------------------------------------------------------------------------------
+*/
+section#footer {
+  background-color: #e41034;
+
+  div.back {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: white;
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  div.who {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+      padding: 0 20px;
+      flex-basis: 100%;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        color: white;
+        font-family: Helvetica Neue, Helvetica, Arial, serif;
+        font-size: 11px;
+        font-weight: 200;
+        letter-spacing: 0.2px;
+        line-height: 22px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: white;
+        font-family: Helvetica Neue, Helvetica, Arial, serif;
+        font-size: 15px;
+        font-weight: 100;
+        max-width: 250px;
+        text-align: center;
+
+        b {
+          font-weight: 200;
+        }
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      & > div:nth-child(1) {
+        flex-basis: 33%;
+      }
+
+      & > div:nth-child(2) {
+        flex-basis: 34%;
+      }
+
+      & > div:nth-child(3) {
+        flex-basis: 33%;
+      }
+    }
+  }
+
+  div.logo {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img:first-child {
+      height: 20px;
+      margin-bottom: 20px;
+      width: 20px;
+    }
+
+    img:nth-child(2) {
+      height: 11px;
+      width: 86px;
+    }
+
+    span {
+      font-family: Helvetica Neue, Helvetica, Arial, serif;
+      font-size: 10px;
+      font-weight: 100;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
+}

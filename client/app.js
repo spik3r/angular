@@ -19,12 +19,6 @@ angular.module('ei.console', [
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/404');
 
-        $stateProvider
-            .state('root', {
-                url: '/',
-                template: '<h1> Root </h1>'
-            });
-
         // Temporary state
         $stateProvider
             .state('authorize', {

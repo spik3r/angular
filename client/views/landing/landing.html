@@ -1,0 +1,198 @@
+<section id="header" class="row">
+    <div id="logo">
+        <img src="assets/landing/logo.png"/>
+    </div>
+
+    <div id="title">
+        <img src="assets/landing/dashboard.png"/>
+
+        <h1> Made by music. Measured&nbspfor&nbspyou. </h1>
+
+        <h2> Discover how your fans are engaging with you via Guvera's new insight,
+            analytics and&nbspmanagement&nbspplatform, Engagement&nbspInformatics </h2>
+
+        <div id="buttons">
+            <button class="request button"
+                    ng-click="scrollTo('request-access')">
+                Request Access
+            </button>
+            <button class="login button"
+                    ng-click="login()"> Login </button>
+        </div>
+    </div>
+
+    <div id="learn-more" ng-click="scrollTo('benefits')">
+        <span> learn more </span>
+
+        <div class="icon">
+            <img src="assets/landing/chevron.png">
+        </div>
+    </div>
+</section>
+
+<section id="benefits" class="container">
+    <div class="benefit artists">
+        <img src="assets/landing/artists-icon.svg"/>
+        <span> Artists </span>
+
+        <p> Claim and manage your artist profile <br>
+            Build your audience and following <br>
+            Promote your music and merchandise </p>
+    </div>
+    <div class="benefit labels">
+        <img src="assets/landing/labels-icon.svg"/>
+        <span> Labels </span>
+
+        <p> Get real-time track play intelligence <br>
+            View artist performance <br>
+            Access listener trends </p>
+
+    </div>
+    <div class="benefit brands">
+        <img src="assets/landing/brands-icon.svg"/>
+        <span> Brands </span>
+
+        <p> Measure your brand engagement <br>
+            Access your follower demographics <br>
+            Build your brand presence </p>
+    </div>
+</section>
+
+<section id="dashboard">
+    <div>
+        <span> Engagement&nbspMetrics </span>
+
+        <p> Access your dashboard to discover how your fans engage with you
+            <br><br>
+            Quickly see valuable metrics and track the way your content is being consumed</p>
+    </div>
+
+    <div>
+        <img src="assets/landing/ipad.png"/>
+    </div>
+
+</section>
+
+<section id="audience">
+    <span> Know your audience </span>
+
+    <p> Discover where and when your followers are listening to
+        Guvera and interacting with your content so you target
+        your content more effectively </p>
+
+    <div class="icons">
+        <img src="assets/landing/gender.svg"/>
+        <span> <b>who</b> is listening </span>
+
+        <img src="assets/landing/devices.svg"/>
+        <span> <b>how</b> they are listening </span>
+
+        <img src="assets/landing/location.svg"/>
+        <span> <b>where</b> they are listening </span>
+
+        <img src="assets/landing/cake.svg"/>
+        <span> and more </span>
+    </div>
+</section>
+
+<section id="engagement">
+    <div class="events">
+        <span> <b>@bridget</b> just followed your profile </span>
+        <span> <b>@musicaddict</b> just listened to your <i>Workout</i> playlist</span>
+        <span> <b>@adam</b> just purchased a product </span>
+    </div>
+
+    <span> Redefining Engagement </span>
+
+    <p>
+        Measure the milestones that matter like audience conversion or a product purchase.
+        Through EI, you can measure the intrinsic value that Guvera delivers.
+    </p>
+</section>
+
+<section id="content-marketing">
+    <div class="background"></div>
+    <div class="content">
+        <span> Content Marketing </span>
+
+        <p> Craft immersive and holistic experiences for your Guvera audience
+            via EI platform with a range of content
+            marketing tools. </p>
+
+        <div class="logos">
+            <img src="assets/landing/toyota-logo.png"/>
+            <img src="assets/landing/harley-davidson-logo.png"/>
+            <img src="assets/landing/virgin-logo.png"/>
+            <img src="assets/landing/american-express-logo.png"/>
+            <img src="assets/landing/zalora-logo.png"/>
+        </div>
+    </div>
+</section>
+
+<section id="request-access">
+    <a class="request access"
+       ng-class="{active: form.type == 'Access'}"
+       ng-click="form.setType('Access')"> Request Access</a>
+
+    <a class="request updates"
+       ng-class="{active: form.type == 'Updates'}"
+       ng-click="form.setType('Updates')"> Get Updates </a>
+
+    <form name="accessForm">
+        <!-- This input value only passed to the model if valid email format -->
+        <input type="email" name="userEmail"
+               ng-model="form.email"
+               ng-keyup="form.cancel($event)"
+               placeholder="Your Email"
+               onfocus="this.placeholder = ''"
+               onblur="this.placeholder = 'Your Email'"/>
+
+        <div ng-hide="form.type == 'Updates'">
+            <a ng-click="form.setUser('Artist')"
+               ng-class="{active: form.user == 'Artist'}"> ARTIST or MANAGER </a>
+            <a ng-click="form.setUser('Label')"
+               ng-class="{active: form.user == 'Label'}"> LABEL </a>
+            <a ng-click="form.setUser('Brand')"
+               ng-class="{active: form.user == 'Brand'}"> BRAND </a>
+        </div>
+
+        <input type="submit" class="submit" ng-click="form.submit()">
+    </form>
+
+</section>
+
+<section id="footer">
+    <div class="back" ng-click="scrollTo('header')">
+        <img src="assets/landing/chevron-white-up.png">
+        <span> Back to the top </span>
+    </div>
+
+    <div class="who">
+        <div class="artists">
+            <img src="assets/landing/artists-icon-white.png"/>
+            <span> Artists & Managers </span>
+
+            <p> Request access to manage your music on Guvera. </p>
+        </div>
+
+        <div class="labels">
+            <img src="assets/landing/labels-icon-white.png"/>
+            <span> Labels </span>
+
+            <p> Request access to manage your artists' performance on Guvera. </p>
+        </div>
+
+        <div class="brands">
+            <img src="assets/landing/brands-icon-white.png"/>
+            <span> Brands </span>
+
+            <p> Request access to manage your <b>brand channel</b> on Guvera.</b> </p>
+        </div>
+    </div>
+
+    <div class="logo">
+        <img src="assets/landing/dashboard.png"/>
+        <img src="assets/landing/logo.png"/>
+        <span> © 2016 Guvera Pty. Ltd. </span>
+    </div>
+</section>

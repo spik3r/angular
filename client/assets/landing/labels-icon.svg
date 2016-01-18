@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="23px" height="24px" viewBox="0 0 23 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: sketchtool 3.4.4 (395) - http://www.bohemiancoding.com/sketch -->
+    <title>Labels Icon</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Landing-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="EI-Landing-Page-(mobile)" sketch:type="MSArtboardGroup" transform="translate(-176.000000, -939.000000)" stroke-linecap="round" stroke="#E41034" stroke-linejoin="round">
+            <g id="•-Benefits" sketch:type="MSLayerGroup" transform="translate(0.000000, 670.000000)">
+                <g id="Group" transform="translate(50.000000, 80.000000)" sketch:type="MSShapeGroup">
+                    <g id="Star-+-Labels" transform="translate(19.000000, 189.000000)">
+                        <path d="M129.8,8.73189596 L122.91181,14.1515536 L125.413974,22.8036691 L118.380376,17.5942802 L111.322973,22.7691878 L113.863741,14.1292421 L107,8.67577924 L115.604769,8.54393877 L118.419624,0 L121.196518,8.55813698 L129.8,8.73189596 Z" id="Labels-Icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
