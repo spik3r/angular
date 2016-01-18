@@ -5,6 +5,7 @@ angular.module('ei.console')
         $stateProvider
             .state('dashboard', {
                 url: '/dashboard',
-                templateUrl: '/views/dashboard/dashboard.html'
+                templateUrl: '/views/dashboard/dashboard.html',
+                controller: 'DashboardCtrl'
             });
     });
