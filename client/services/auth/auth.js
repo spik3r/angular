@@ -99,15 +99,13 @@ angular.module('ei.console')
                     var secret = '',
                         value;
 
+                    // Generate random entropy string
                     while (secret.length < SECRET_SIZE) {
                         secret += Math.random().toString(36).slice(2);
                     }
 
-                    // TODO Fix missing MD5 Service
-                    /* jshint ignore:start */
-                    value = secret;
-                    Log.debug('auth', 'Random ' + key + ' value generated: ', value);
-                    /* jshint ignore:end */
+                    value = CryptoJS.MD5(secret);
+                    Log.debug('auth', 'Random ' + key + ' value generated: ' + value);
 
                     // Store secret in user storage
                     storage[key] = secret;
@@ -149,12 +147,17 @@ angular.module('ei.console')
              */
             function authorize (params) {
                 // Validate value using secret from dynamic user storage
+                // TODO Refactor expireAfterValidation param
                 function validate (key, value, expireAfterValidation) {
                     // Flag to mark if secret should be expired after validation
                     expireAfterValidation = expireAfterValidation || false;
 
+                    console.log(storage);
+
                     if (storage.hasOwnProperty(key) && storage.key !== null) {
-                        if (storage[key] === value) {
+
+                        if (CryptoJS.MD5(storage[key]).toString() === value) {
+
                             if (expireAfterValidation) {
                                 delete storage[key];
                                 $cookies.remove(key);
@@ -256,10 +259,11 @@ angular.module('ei.console')
 
                         } else {
                             // TODO Invalid tokens configuration
+                            Log.error('auth', 'Invalid token configuration. Cannot authorize.')
                             return false;
                         }
                     } else {
-                        // TODO State validation error
+                        Log.error('auth', 'Could not validate state value.');
                         return false;
                     }
                 } else {
