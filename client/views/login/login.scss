@@ -1,7 +1,8 @@
 #login-container {
   height: 100%;
   width: 100%;
-  background: #e41034;
+  background: url("/assets/landing/engagement.jpg") left;
+  background-size: cover;
 
   * {
     -webkit-transition: none;
