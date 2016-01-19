@@ -6,6 +6,6 @@ angular.module('ei.console')
             .state('home', {
                 url: '/',
                 templateUrl: '/views/home/home.html',
-                controller: 'HomeCtrl'
+                controller: 'workoutCtrl'
             });
     });

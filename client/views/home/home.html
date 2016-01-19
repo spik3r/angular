@@ -1,7 +1,33 @@
 <div id="dashboard-container">
 
-    <span> Hello World </span>
+    <h2>My Workout Log</h2>
 
-    <button ng-click="sayHello()"> Hello! </button>
+<form ng-submit="workoutAdd()">
+    <input required type="text" ng-model="exerciseInput" size="50" placeholder="Add Exercise">
+    <input required type="text" ng-model="repsInput" size="50" placeholder="Add Reps">
+    <input required type="text" ng-model="weightInput" size="50" placeholder="Add Weight">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+    <table>
+  <tr ng-repeat="x in workoutLog track by $index">
+    <td> <input type="checkbox" ng-model="x.done"> </td>
+    <td ng-bind="x.exerciseText"> {{ x.exerciseText }} </td>
+    <td ng-bind="x.repsText"> {{ x.repsText }} </td>
+    <td ng-bind="x.weightText"> {{ x.weightText }} </td>
+    <td>{{ x.count + " Sets"}}</td>
+    <td> <button ng-click="clickAdd(x)">Add Set!</button> </td>
+    <td ng-bind="x.buttonDisabled"> {{ x.buttonDisabled }} </td>
+    <td> <button ng-disabled="x.buttonDisabled" ng-click="clickRemove(x)">Remove Set!</button> </td>
+
+  </tr>
+</table>
+
+
+
+<p><button ng-click="remove()">Remove marked</button></p>
+<p> <button ng-click="archive()">Archive!</button> </p>
 
 </div>
