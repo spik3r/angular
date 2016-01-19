@@ -23,9 +23,7 @@
 
 <body>
 
-<sidenav>
-    <div ui-view class="viewport"></div>
-</sidenav>
+<div ui-view class="viewport"></div>
 
 <!--<sidenav ng-if="sidenav.active" class="closed"></sidenav>-->
 
@@ -39,7 +37,6 @@
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
 <script src="bower_components/jwt-decode/build/jwt-decode.js"></script>
@@ -48,33 +45,8 @@
 
 <!-- inject:js -->
 <script src="app.js"></script>
-<script src="directives/piechart/piechart.directive.js"></script>
-<script src="directives/sidenav/sidenav.directive.js"></script>
-<script src="directives/slicechart/slicechart.directive.js"></script>
-<script src="services/auth/auth.js"></script>
-<script src="services/auth/auth.route.js"></script>
-<script src="services/auth/userinfo-required.js"></script>
-<script src="services/log/log.js"></script>
-<script src="services/smooth-scroll/smooth-scroll.js"></script>
-<script src="views/404/404.route.js"></script>
-<script src="views/billing/billing.controller.js"></script>
-<script src="views/billing/billing.route.js"></script>
-<script src="views/content/content.controller.js"></script>
-<script src="views/content/content.route.js"></script>
-<script src="views/dashboard/dashboard.controller.js"></script>
-<script src="views/dashboard/dashboard.route.js"></script>
-<script src="views/export/export.controller.js"></script>
-<script src="views/export/export.route.js"></script>
-<script src="views/landing/landing.controller.js"></script>
-<script src="views/landing/landing.route.js"></script>
-<script src="views/login/login.controller.js"></script>
-<script src="views/login/login.route.js"></script>
-<script src="views/playlists/playlists.controller.js"></script>
-<script src="views/playlists/playlists.route.js"></script>
-<script src="views/profile/profile.controller.js"></script>
-<script src="views/profile/profile.route.js"></script>
-<script src="views/settings/settings.controller.js"></script>
-<script src="views/settings/settings.route.js"></script>
+<script src="views/home/home.controller.js"></script>
+<script src="views/home/home.route.js"></script>
 <!-- endinject -->
 
 <!-- endbuild -->

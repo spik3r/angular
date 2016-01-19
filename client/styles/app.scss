@@ -473,11 +473,5 @@ th {
 /* SASS Variables END
 --------------------------------------------------------------------------------- */
 // Views
-@import "../views/login/login";
-@import "../views/dashboard/dashboard";
-@import "../views/landing/landing";
-@import "../views/404/404";
-// Directives
-@import "../directives/sidenav/sidenav";
-@import "../directives/piechart/piechart";
-@import "../directives/slicechart/slicechart";
+@import "../views/home/home";
+
