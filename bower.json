@@ -9,7 +9,9 @@
     "angular-animate": "~1.4.0",
     "angular-ui-router": "~0.2.15",
     "jquery": "jQuery#~2.1.4",
-    "oclazyload": "~1.0.9"
+    "oclazyload": "~1.0.9",
+    "jwt-decode": "~1.5.0",
+    "moment": "~2.11.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0",

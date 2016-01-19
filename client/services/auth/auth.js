@@ -148,20 +148,14 @@ angular.module('ei.console')
             function authorize (params) {
                 // Validate value using secret from dynamic user storage
                 // TODO Refactor expireAfterValidation param
-                function validate (key, value, expireAfterValidation) {
+                function validate (key, value) {
                     // Flag to mark if secret should be expired after validation
-                    expireAfterValidation = expireAfterValidation || false;
-
-                    console.log(storage);
-
                     if (storage.hasOwnProperty(key) && storage.key !== null) {
 
                         if (CryptoJS.MD5(storage[key]).toString() === value) {
 
-                            if (expireAfterValidation) {
-                                delete storage[key];
-                                $cookies.remove(key);
-                            }
+                            delete storage[key];
+                            $cookies.remove(key);
 
                             return true;
                         } else {
@@ -177,7 +171,7 @@ angular.module('ei.console')
                 // Validate ID token using jwt library
                 function isIDTokenValid (id_token) {
                     // TODO Add jwt decode library
-                    // id_token = jwt_decode(id_token);
+                    id_token = jwt_decode(id_token);
                     // TODO Handle decode errors
 
                     // Validate issuer
@@ -202,7 +196,7 @@ angular.module('ei.console')
                     }
 
                     // Verify nonce
-                    if (!validate('nonce', id_token.nonce, true)) {
+                    if (!validate('nonce', id_token.nonce)) {
                         Log.error('auth', 'Failed to match nonce secret with id_token nonce value.');
                         return false;
                     }
@@ -216,7 +210,7 @@ angular.module('ei.console')
                 if (state.get() === state.STATES.VERIFICATION) {
                     // TODO handle error responses here
                     // Validate state value against value stored in cookies
-                    if (params.state && validate('state', params.state, true)) {
+                    if (params.state && validate('state', params.state)) {
 
                         if (params.hasOwnProperty('id_token')) {
                             // Validate ID token
@@ -251,7 +245,7 @@ angular.module('ei.console')
 
                             // TODO keep secret only until expiration date
                             storage.access_token = params.access_token;
-                            $cookies.put('access_token', params.access_token);
+                            $cookies.put('access_token', params.access_token, {expires: moment().add(params.expires_in, 'seconds').toDate()});
 
                             state.set(state.STATES.VERIFIED);
 
@@ -259,7 +253,7 @@ angular.module('ei.console')
 
                         } else {
                             // TODO Invalid tokens configuration
-                            Log.error('auth', 'Invalid token configuration. Cannot authorize.')
+                            Log.error('auth', 'Invalid token configuration. Cannot authorize.');
                             return false;
                         }
                     } else {
