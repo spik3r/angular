@@ -271,74 +271,83 @@ angular.module('ei.console')
              *
              * @returns {*}
              */
-            var inProgress = false;
-
             function getUserInfo () {
+                var error,
+                    deferred = $q.defer();
+
                 function setAccessToken (type, token) {
                     $http.defaults.headers.common.Authorization = type + ' ' + token;
-                    // TODO Store access_token in cookies
-                    // TODO Only store cookie until it expires
                     Log.debug('auth', 'Access token has been set for userinfo request.');
                 }
 
-                var deferred = $q.defer();
+                switch (state.get()) {
+                    case state.STATES.SIGNED_IN: {
+                        deferred.resolve();
+                        break;
+                    }
 
-                Log.debug('auth', 'Retrieving user information from provider...');
+                    case state.STATES.VERIFIED: {
 
-                if (state.get() === state.STATES.VERIFIED && storage.access_token) {
-                    setAccessToken('Bearer', storage.access_token);
-                } else {
-                    Log.error('auth', 'Access token has not been found for userinfo call.');
-                    state.set(state.STATES.SIGNED_OUT);
-                    return false;
-                }
+                        if (storage.access_token) {
+                            // TODO Use provided type instead of hardcoded one
+                            setAccessToken('Bearer', storage.access_token);
+                        } else {
+                            error = 'Access token has not been found for userinfo call.';
+                            Log.error('auth', error);
+                            deferred.reject(error);
 
-                if (!inProgress) {
-                    inProgress = true;
-
-                    var request = $http({
-                        method: 'get',
-                        url: 'http://52.64.240.111:8080/userinfo'
-                    });
-
-                    request.then(
-                        function success (response) {
-                            var error;
-
-                            if (response.data) {
-                                if (response.data.sub && response.data.authorities) {
-                                    user.id = response.data.sub;
-                                    user.roles = response.data.authorities;
-
-                                    Log.debug('auth', 'Successfully retrieved user information from provider.');
-                                    state.set(state.STATES.SIGNED_IN);
-                                    inProgress = false;
-                                    deferred.resolve(user);
-                                } else {
-                                    error = 'Mismatched user info response format.';
-                                    Log.error('auth', error);
-                                    state.set(state.STATES.SIGNED_OUT);
-                                    inProgress = false;
-                                    deferred.reject(error);
-                                }
-                            } else {
-                                error = 'User info response does not contain data.';
-                                Log.error('auth', error);
-                                state.set(state.STATES.SIGNED_OUT);
-                                inProgress = false;
-                                deferred.reject(error);
-                            }
-                        },
-                        function error () {
-                            Log.error('auth', 'Failed to retrieve user data.');
                             state.set(state.STATES.SIGNED_OUT);
-                            inProgress = false;
-                            deferred.reject();
+                            break;
+                        }
+
+                        var request = $http({
+                            method: 'get',
+                            url: 'http://52.64.240.111:8080/userinfo'
                         });
 
-                } else {
-                    Log.error('auth', 'User info request is already in progress.');
-                    deferred.resolve({});
+                        Log.debug('auth', 'Retrieving user information from provider...');
+
+                        request.then(
+                            function success (response) {
+                                if (response.data) {
+                                    if (response.data.sub && response.data.authorities) {
+                                        user.id = response.data.sub;
+                                        user.roles = response.data.authorities;
+
+                                        Log.debug('auth', 'Successfully retrieved user information from provider.');
+
+                                        state.set(state.STATES.SIGNED_IN);
+                                        deferred.resolve(user);
+                                    } else {
+                                        error = 'Mismatched userinfo response format.';
+                                        state.set(state.STATES.SIGNED_OUT);
+                                        Log.error('auth', error);
+                                        deferred.reject(error);
+                                    }
+                                } else {
+                                    error = 'User info response does not contain data.';
+                                    state.set(state.STATES.SIGNED_OUT);
+                                    Log.error('auth', error);
+                                    deferred.reject(error);
+                                }
+                            },
+                            function failed () {
+                                error = 'Failed to retrieve userinfo data';
+                                state.set(state.STATES.SIGNED_OUT);
+                                Log.error('auth', error);
+                                deferred.reject(error);
+                            }
+                        );
+
+                        break;
+                    }
+
+                    case state.STATES.VERIFICATION:
+                    case state.STATES.SIGNED_OUT:
+                        error = 'Auth controller is in invalid state to make userinfo call';
+                        Log.error("login", error);
+                        deferred.reject(error);
+                        break;
                 }
 
                 return deferred.promise;
@@ -352,6 +361,8 @@ angular.module('ei.console')
                 $cookies.remove('access_token');
                 $cookies.remove('nonce');
                 $cookies.remove('state');
+
+                state.set(state.STATES.SIGNED_OUT);
             }
 
             // Return public api

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ei.console')
-    .directive('sidenav', function ($rootScope, $location, $timeout, $state, Log) {
+    .directive('sidenav', function ($rootScope, $location, $timeout, $state, Log, Auth) {
         return {
             restrict: 'EA',
             transclude: true,
@@ -11,6 +11,9 @@ angular.module('ei.console')
             templateUrl: 'directives/sidenav/sidenav.html',
             link: function (scope, element) {
                 scope.active = false;
+
+                scope.Auth = Auth;
+                scope.user = Auth.user;
 
                 // List of routes to display sidenav on
                 var allowed = [

@@ -12,22 +12,52 @@ angular.module('ei.console')
                         $location.url($location.url().replace("#","?"));
                     }]
                 },
-                controller: function ($state, $stateParams, Auth) {
-                    if (!Auth.authorize($stateParams)) {
-                        console.log("Unauthorized");
-                        $state.go('login');
-                    } else {
-                        console.log("Authorized");
+                controller: function ($state, $stateParams, Auth, Log) {
 
+                    function userinfo() {
                         Auth.getUserInfo().then(
                             function success(user) {
-                                console.log(user);
+                                Log.debug('login', "Successfully retrieved userinfo for user " + user.id);
+                                $state.go('dashboard');
                             },
                             function error(error) {
-                                console.log(error);
+                                Log.error("Failed to retrieve userinfo. Reason: " + error);
+                                $state.go('login');
                             }
                         );
                     }
+
+                    switch (Auth.state.get()) {
+                        case Auth.state.STATES.SIGNED_IN: {
+                            // This should never happen unless you redirect here
+                            $state.go('dashboard');
+                            break;
+                        }
+
+                        case Auth.state.STATES.VERIFIED: {
+                            userinfo();
+                            break;
+                        }
+
+                        case Auth.state.STATES.VERIFICATION: {
+                            if (Auth.authorize($stateParams)) {
+                                userinfo();
+                            } else {
+                                Log.error('login', "Failed to authorize with provided OpenID parameters.");
+                                $state.go('login');
+                            }
+
+                            break;
+                        }
+
+                        case Auth.state.STATES.SIGNED_OUT: {
+                            Log.error('login', "Auth service is in invalid state.");
+                            $state.go('login');
+                            break;
+                        }
+                    }
+
+
                 }
             });
     });

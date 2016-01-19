@@ -16,7 +16,8 @@ angular.module('ei.console')
             .state('logout', {
                 url: '/logout',
                 template: '<h3> Logging out </h3>',
-                controller: function ($state) {
+                controller: function ($state, Auth) {
+                    Auth.logout();
                     $state.go('login');
                 }
             });
