@@ -4,8 +4,7 @@ angular.module('ei.console', [
         'ui.router',
         'ngCookies',
         'ngResource',
-        'ngSanitize',
-        'oc.lazyLoad'
+        'ngSanitize'
     ])
     .config(function ($locationProvider, $urlRouterProvider) {
         // Set location provider to use html5Mode
