@@ -5,6 +5,9 @@ angular.module('ei.console')
       $stateProvider
           .state('content', {
               url: '/content',
-              templateUrl: '/views/content/content.html'
+              templateUrl: '/views/content/content.html',
+              resolve: {
+                  userinfo: "userinfo-required"
+              }
           });
   });

@@ -5,6 +5,9 @@ angular.module('ei.console')
       $stateProvider
           .state('billing', {
               url: '/billing',
-              templateUrl: '/views/billing/billing.html'
+              templateUrl: '/views/billing/billing.html',
+              resolve: {
+                  userinfo: "userinfo-required"
+              }
           });
   });

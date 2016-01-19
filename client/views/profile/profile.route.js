@@ -5,6 +5,9 @@ angular.module('ei.console')
       $stateProvider
           .state('profile', {
               url: '/profile',
-              templateUrl: '/views/profile/profile.html'
+              templateUrl: '/views/profile/profile.html',
+              resolve: {
+                  userinfo: "userinfo-required"
+              }
           });
   });

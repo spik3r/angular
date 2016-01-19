@@ -5,6 +5,9 @@ angular.module('ei.console')
       $stateProvider
           .state('playlists', {
               url: '/playlists',
-              templateUrl: '/views/playlists/playlists.html'
+              templateUrl: '/views/playlists/playlists.html',
+              resolve: {
+                  userinfo: "userinfo-required"
+              }
           });
   });

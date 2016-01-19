@@ -5,6 +5,9 @@ angular.module('ei.console')
       $stateProvider
           .state('export', {
               url: '/export',
-              templateUrl: '/views/export/export.html'
+              templateUrl: '/views/export/export.html',
+              resolve: {
+                  userinfo: "userinfo-required"
+              }
           });
   });
