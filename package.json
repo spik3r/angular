@@ -1,13 +1,13 @@
 {
   "name": "ei.console",
-  "description": "Guvera EI project front end application.",
-  "author": "Roman Yakobnyuk <roman.yakobnyuk@gmail.com>",
+  "description": "Angular JS Gym Application",
+  "author": "Kai",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/guvera/ei.console"
+    "url": "https://github.com/spik3r/angular"
   },
   "bugs": {
-    "url": "https://bitbucket.org/guvera/ei.console/issues"
+    "url": "https://github.com/spik3r/angular"
   },
   "version": "0.0.1",
   "license": "MIT",

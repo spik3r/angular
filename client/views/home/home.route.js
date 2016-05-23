@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ei.console')
+angular.module('gym.app')
     .config(function ($stateProvider) {
         $stateProvider
             .state('home', {

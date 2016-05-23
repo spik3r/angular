@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ei.console')
+angular.module('gym.app')
     .controller('workoutCtrl', function($scope) {
     $scope.count = 1; //set counter
     //$scope.workoutLog = [];
@@ -10,7 +10,7 @@ angular.module('ei.console')
     console.log($scope.workoutLog);
     //$scope.buttonDisabled = false;
     //$scope.workoutLog = [{exerciseText:'Example Exercise', repsText:'20 Reps', weightText:'12.5 KG', setCountText:'Sets: 2',done:false}];
-    
+
 
     $scope.workoutAdd = function() {
         $scope.workoutLog.push({exerciseText:$scope.exerciseInput, repsText:$scope.repsInput + " Reps", weightText:$scope.weightInput + " KG", count:$scope.count , done:false, buttonDisabled:false});
@@ -33,15 +33,15 @@ angular.module('ei.console')
         });
     };
 
-    $scope.clickAdd = function(item){  
-    console.log('here'); 
-    console.log(item);  
+    $scope.clickAdd = function(item){
+    console.log('here');
+    console.log(item);
       item.count = item.count + 1;
       $scope.toggleRemoveSetButton(item);
       console.log(localStorage.getItem('todos'));
     };
 
-    $scope.clickRemove = function(item){  
+    $scope.clickRemove = function(item){
     console.log('there');
       console.log(item);
       item.count = item.count - 1;
@@ -52,14 +52,14 @@ angular.module('ei.console')
       if(item.count < 1){
         item.buttonDisabled = true;
       }else{
-        item.buttonDisabled = false;  
+        item.buttonDisabled = false;
       }
     };
 
 
 
     $scope.checkCount = function() {
-        if (count > 1) { 
+        if (count > 1) {
       $scope.buttonEnabled = true;
     }
         else {
